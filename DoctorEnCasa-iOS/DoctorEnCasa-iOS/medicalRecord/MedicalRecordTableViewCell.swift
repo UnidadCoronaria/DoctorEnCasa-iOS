@@ -12,7 +12,9 @@ class MedicalRecordTableViewCell: UITableViewCell {
     
     //MARK: Properties
     @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var detail: UILabel!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var reasons: UILabel!
+    @IBOutlet weak var recommentations: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -12,16 +12,19 @@ class MedicalRecordDetailViewController: UIViewController {
 
     
     //MARK variables
+    let util = Util()
     @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var doctor: UILabel!
-    @IBOutlet weak var diagnostic: UILabel!
+    @IBOutlet weak var reasons: UILabel!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var recommendation: UILabel!
+    
     var detail:MedicalRecord!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        date.text = detail.date
-        doctor.text = detail.detail
-        diagnostic.text = detail.detail
+        date.text =  util?.convertDate(date: detail.videocall.date!)
+        name.text = String(describing: detail.firstName!)
+        recommendation.text = String(describing: detail.recommendation)
         // Do any additional setup after loading the view.
     }
 
