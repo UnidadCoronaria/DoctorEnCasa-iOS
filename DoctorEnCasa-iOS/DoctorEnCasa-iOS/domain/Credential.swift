@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class Credential {
+class Credential: Encodable {
     
     //MARK: Properties
     var username: String

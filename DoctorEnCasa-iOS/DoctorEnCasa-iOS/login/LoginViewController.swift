@@ -23,7 +23,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
     //MARK: Actions
     @IBAction func login(_ sender: UIButton) {
         self.submit.isEnabled = false;
-        self.performSegue(withIdentifier: "showHome", sender: nil)
+        perfomLogin()
     }
     
     //MARK: UITextFieldDelegate
@@ -40,7 +40,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
         super.viewDidLoad()
         username.delegate = self
         password.delegate = self
-        error.isHidden = true;
+        error.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //username.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        username.resignFirstResponder()
+        password.resignFirstResponder()
     }
     
     private func perfomLogin() {
@@ -49,9 +60,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
         request.httpMethod = Constants.HTTPMethods.post
         request.setValue(Constants.Parameters.jsonMimeType, forHTTPHeaderField: Constants.Parameters.contentType)
         request.setValue(Constants.Parameters.jsonMimeType, forHTTPHeaderField: Constants.Parameters.accept)
-        var data:Data = Data();
-        
-        request.httpBody = data;
+        let credential : Credential = Credential(username: username.text!, password: password.text!)!
+        let data : Data
+        do {
+            let jsonEncoder = JSONEncoder()
+            data = try jsonEncoder.encode(credential)
+            request.httpBody = data
+        } catch {
+            print("Error: cannot create JSON from credentials")
+            return
+        }
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             
@@ -71,8 +89,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 displayError("Your request returned a status code other than 2xx!")
-                self.error.isHidden = true;
-                self.submit.isEnabled = true;
+                DispatchQueue.main.async(execute: {
+                    self.error.isHidden = false
+                    self.submit.isEnabled = true
+                })
                 return
             }
             
@@ -86,14 +106,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
             let parsedResult: UserInfo!
             do {
                 parsedResult = try JSONDecoder().decode(UserInfo.self, from: data)
+                UserDefaults.standard.set(parsedResult.token, forKey: NavigationUtil.DATA.tokenKey)
             } catch {
                 displayError("Could not parse the data as JSON: '\(data)'")
                 return
             }
-            //SAVE DATA INTO SHARED PREFERENCES
             DispatchQueue.main.async(execute: {
-              
-               self.performSegue(withIdentifier: "showHome", sender: nil)
+                self.error.isHidden = true
+                self.submit.isEnabled = true
+                self.password.text = ""
+               
+                self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true, completion: nil)
+                
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.homeNavigation)
+                UIApplication.shared.keyWindow?.rootViewController = vc
+                
             })
             
             

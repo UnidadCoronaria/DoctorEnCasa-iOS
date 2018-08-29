@@ -15,6 +15,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let storyBoard : UIStoryboard
+        let vc : UINavigationController
+        //Get token
+        if let _ : String = UserDefaults.standard.value(forKey: NavigationUtil.DATA.tokenKey) as? String {
+            storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.homeNavigation) as! UINavigationController
+            
+        } else {
+            storyBoard = UIStoryboard(name: "Login", bundle: nil)
+            vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.loginNavigation) as! UINavigationController
+        }
+        self.window?.rootViewController = vc
         // Override point for customization after application launch.
         return true
     }
@@ -40,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
 
 }
 

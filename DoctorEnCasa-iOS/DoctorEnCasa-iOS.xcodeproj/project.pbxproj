@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E8CD7B32134DF8B00174696 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7B22134DF8B00174696 /* NavigationUtil.swift */; };
+		2E8CD7B5213632CC00174696 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E8CD7B4213632CC00174696 /* Login.storyboard */; };
 		FB173A1920CE1AF40048F642 /* Reason.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB173A1820CE1AF40048F642 /* Reason.swift */; };
 		FB173A1B20CE1BB50048F642 /* Videocall.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB173A1A20CE1BB50048F642 /* Videocall.swift */; };
 		FB1D661A2071DF8F00423942 /* MedicalRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D66192071DF8F00423942 /* MedicalRecord.swift */; };
@@ -19,7 +21,6 @@
 		FB4F072720CE21AB00A23FF9 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4F072620CE21AB00A23FF9 /* Doctor.swift */; };
 		FB4F072920D0A4D400A23FF9 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4F072820D0A4D400A23FF9 /* Util.swift */; };
 		FB4F5FF0207088D10011BBD4 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4F5FEF207088D10011BBD4 /* Credential.swift */; };
-		FB518CD0211BDEAC007772EE /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB518CCF211BDEAC007772EE /* SplashViewController.swift */; };
 		FBE3164420CC725D0041B57E /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE3164320CC725D0041B57E /* Constant.swift */; };
 		FBE71F9F21080E0A006D3540 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE71F9E21080E0A006D3540 /* UserInfo.swift */; };
 		FBF33087204A5E91009DABDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF33086204A5E91009DABDD /* AppDelegate.swift */; };
@@ -30,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E8CD7B22134DF8B00174696 /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
+		2E8CD7B4213632CC00174696 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		FB173A1820CE1AF40048F642 /* Reason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reason.swift; sourceTree = "<group>"; };
 		FB173A1A20CE1BB50048F642 /* Videocall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Videocall.swift; sourceTree = "<group>"; };
 		FB1D66192071DF8F00423942 /* MedicalRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecord.swift; sourceTree = "<group>"; };
@@ -42,7 +45,6 @@
 		FB4F072620CE21AB00A23FF9 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		FB4F072820D0A4D400A23FF9 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		FB4F5FEF207088D10011BBD4 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
-		FB518CCF211BDEAC007772EE /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		FBE3164320CC725D0041B57E /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		FBE71F9E21080E0A006D3540 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		FBF33083204A5E91009DABDD /* DoctorEnCasa-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DoctorEnCasa-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,7 +80,6 @@
 		FBCD572D2102BD39008BECC1 /* login */ = {
 			isa = PBXGroup;
 			children = (
-				FB518CCF211BDEAC007772EE /* SplashViewController.swift */,
 				FBF33088204A5E91009DABDD /* LoginViewController.swift */,
 			);
 			path = login;
@@ -104,6 +105,7 @@
 			children = (
 				FBE3164320CC725D0041B57E /* Constant.swift */,
 				FB4F072820D0A4D400A23FF9 /* Util.swift */,
+				2E8CD7B22134DF8B00174696 /* NavigationUtil.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -137,6 +139,7 @@
 				FBF3308F204A5E91009DABDD /* LaunchScreen.storyboard */,
 				FBF33092204A5E91009DABDD /* Info.plist */,
 				FB2C43BD207712E00016F78F /* ApiClient.swift */,
+				2E8CD7B4213632CC00174696 /* Login.storyboard */,
 			);
 			path = "DoctorEnCasa-iOS";
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E8CD7B5213632CC00174696 /* Login.storyboard in Resources */,
 				FBF33091204A5E91009DABDD /* LaunchScreen.storyboard in Resources */,
 				FBF3308E204A5E91009DABDD /* Assets.xcassets in Resources */,
 				FBF3308C204A5E91009DABDD /* Main.storyboard in Resources */,
@@ -216,7 +220,6 @@
 				FB1D661E2071E95900423942 /* MedicalRecordTableViewController.swift in Sources */,
 				FB173A1B20CE1BB50048F642 /* Videocall.swift in Sources */,
 				FBF33089204A5E91009DABDD /* LoginViewController.swift in Sources */,
-				FB518CD0211BDEAC007772EE /* SplashViewController.swift in Sources */,
 				FBE3164420CC725D0041B57E /* Constant.swift in Sources */,
 				FBE71F9F21080E0A006D3540 /* UserInfo.swift in Sources */,
 				FB4F5FF0207088D10011BBD4 /* Credential.swift in Sources */,
@@ -230,6 +233,7 @@
 				FBF33087204A5E91009DABDD /* AppDelegate.swift in Sources */,
 				FB173A1920CE1AF40048F642 /* Reason.swift in Sources */,
 				FB4F072320CE202900A23FF9 /* Affiliate.swift in Sources */,
+				2E8CD7B32134DF8B00174696 /* NavigationUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +373,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L5P4M56776;
 				INFOPLIST_FILE = "DoctorEnCasa-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ucmq.doctorencasa.DoctorEnCasa-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -384,6 +389,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L5P4M56776;
 				INFOPLIST_FILE = "DoctorEnCasa-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ucmq.doctorencasa.DoctorEnCasa-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";

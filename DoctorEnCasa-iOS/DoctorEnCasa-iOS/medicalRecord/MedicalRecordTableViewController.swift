@@ -8,23 +8,104 @@
 
 import UIKit
 
-class MedicalRecordTableViewController: UITableViewController {
+class MedicalRecordTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+   
     
     //MARK: Properties
     let pullToRefresh = UIRefreshControl()
     var medicalRecords = [MedicalRecord]()
     var selectedMedicalRecord:MedicalRecord!
     let util = Util()
+    let filterOption = ["Item 1", "Item 2", "Item 3"]
+    var token : String = ""
     
+    override func viewDidDisappear(_ animated: Bool) {
+        print("viewDidDisappear")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+         print("viewWillAppear")
+    }
+  
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Get token
+        if let token : String = UserDefaults.standard.value(forKey: NavigationUtil.DATA.tokenKey) as? String {
+           self.token = token
+        }
+        
         // add pull to refresh
         pullToRefresh.attributedTitle = NSAttributedString(string: "Recargar la lista de consultas médicas")
         pullToRefresh.addTarget(self, action: #selector(MedicalRecordTableViewController.reload), for: .valueChanged)
         tableView.addSubview(pullToRefresh)
         tableView.separatorColor = UIColor.black
+        
+        //create  navigation bar filter button
+        let filterButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: #selector(filter))
+        self.navigationItem.rightBarButtonItem = filterButton
+        
+        //create  navigation bar filter button
+        let logoutButton = UIBarButtonItem(title: "Salir", style: .plain, target: self, action: #selector(logout))
+        self.navigationItem.leftBarButtonItem = logoutButton
+        
         // Load the sample data.
         loadMedicalRecords()
+        print("CARGANDO MEDICAL RECORD VC ")
+    }
+    
+    @objc func logout(){
+        //Clear user's token
+        UserDefaults.standard.removeObject(forKey: NavigationUtil.DATA.tokenKey)
+    
+        //Dismiss this VC
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+        
+        //Navigate back to login
+        let storyBoard = UIStoryboard(name: "Login", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.loginNavigation)
+        UIApplication.shared.keyWindow?.rootViewController = vc
+        
+    }
+    
+    @objc func filter(){
+        let alert : UIAlertController = UIAlertController(title: "Buscar", message: "Afiliado", preferredStyle: .alert)
+        alert.isModalInPopover = true
+    
+        let pickerFrame = UIPickerView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width , height: 140)) // CGRectMake(left, top, width, height) - left and top are like margins
+        pickerFrame.tag = 555
+        //set the pickers datasource and delegate
+        pickerFrame.delegate = self
+        
+        
+
+        //Add the picker to the alert controller
+        alert.view.addSubview(pickerFrame)
+        
+        
+        let action1:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel)
+        { (_:UIAlertAction) in print("Aceptar")}
+        alert.addAction(action1)
+        self.present(alert, animated: true) {
+            print("Alert")
+        }
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return filterOption.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return filterOption[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print(filterOption[row])
     }
     
     @objc func reload() {
@@ -67,60 +148,10 @@ class MedicalRecordTableViewController: UITableViewController {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: .normal, title: "See Detail") { (action, indexPath) in
-            print("In action " + String(indexPath.row))
-            let myVC = self.storyboard?.instantiateViewController(withIdentifier: "medicalRecordDetail") as! MedicalRecordDetailViewController
-            myVC.detail = self.medicalRecords[indexPath.row];
-            self.navigationController?.pushViewController(myVC, animated: true)
-            self.tableView.setEditing(false, animated: true)
-        }
-        
-        return [deleteAction]
-    }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedMedicalRecord = self.medicalRecords[indexPath.row];
-        self.performSegue(withIdentifier: "showMedicalRecordDetail", sender: nil)
+        self.performSegue(withIdentifier: NavigationUtil.NAVIGATE.showMedicalRecordDetail, sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -136,7 +167,7 @@ class MedicalRecordTableViewController: UITableViewController {
         getRequest.httpMethod = Constants.HTTPMethods.get
         getRequest.setValue(Constants.Parameters.jsonMimeType, forHTTPHeaderField: Constants.Parameters.contentType)
         getRequest.setValue(Constants.Parameters.jsonMimeType, forHTTPHeaderField: Constants.Parameters.accept)
-        getRequest.setValue(Constants.API.mockToken, forHTTPHeaderField: Constants.Parameters.authorization)
+        getRequest.setValue(self.token, forHTTPHeaderField: Constants.Parameters.authorization)
         
         URLSession.shared.dataTask(with: getRequest, completionHandler: { (data, response, error) -> Void in
             
