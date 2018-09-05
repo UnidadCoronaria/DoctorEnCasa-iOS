@@ -1,43 +1,19 @@
 //
-//  LoginViewController.swift
+//  ForgotPasswordViewController.swift
 //  DoctorEnCasa-iOS
 //
-//  Created by Agustin on 3/3/18.
+//  Created by Agustin Bala on 29/08/2018.
 //  Copyright © 2018 Agustin. All rights reserved.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate  {
-    
-    //MARK: Properties
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var error: UILabel!
-    @IBOutlet weak var submit: UIButton!
-    @IBOutlet weak var forgot: UITextField!
-    @IBOutlet weak var createAccountText: UITextField!
-    var usernameValue: String?
-    var passwordValue: String?
-    
-    @IBAction func forgotPassword(_ sender: Any) {
-        self.performSegue(withIdentifier: NavigationUtil.NAVIGATE.showForgotPassword, sender: nil)
-    }
-    
-    @IBAction func createAccount(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
-        
-        let storyBoard = UIStoryboard(name: "CreateAccount", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.createAccountNavigation)
-        UIApplication.shared.keyWindow?.rootViewController = vc
-    }
-    
-    //MARK: Actions
-    @IBAction func login(_ sender: UIButton) {
-        self.submit.isEnabled = false;
-        perfomLogin()
+class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
+
+    @IBOutlet weak var emailText: UITextField!
+    @IBOutlet weak var errorText: UILabel!
+    @IBAction func sendMail(_ sender: Any) {
+        self.perfomSend()
     }
     
     //MARK: UITextFieldDelegate
@@ -47,40 +23,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
         return true
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-    }
+    func textFieldDidEndEditing(_ textField: UITextField) {}
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        username.delegate = self
-        password.delegate = self
-        error.isHidden = true
-    
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(forgotPassword(_:)))
-        forgot.addGestureRecognizer(gesture)
-        
-        let gestureAccount = UITapGestureRecognizer(target: self, action: #selector(createAccount(_:)))
-        createAccountText.addGestureRecognizer(gestureAccount)
+        emailText.delegate = self
+        errorText.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        username.becomeFirstResponder()
+        emailText.becomeFirstResponder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        username.resignFirstResponder()
-        password.resignFirstResponder()
+        emailText.resignFirstResponder()
     }
     
-    private func perfomLogin() {
-        let url:URL = URL(string: Constants.API.APIBaseURL + Constants.Endpoints.auth)!
+    private func perfomSend() {
+        let url:URL = URL(string: Constants.API.APIBaseURL + Constants.Endpoints.forgotPassword)!
         var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
-        request.httpMethod = Constants.HTTPMethods.post
+        request.httpMethod = Constants.HTTPMethods.put
         request.setValue(Constants.Parameters.jsonMimeType, forHTTPHeaderField: Constants.Parameters.contentType)
         request.setValue(Constants.Parameters.jsonMimeType, forHTTPHeaderField: Constants.Parameters.accept)
-        let credential : Credential = Credential(username: username.text!, password: password.text!)
+        let credential : Credential = Credential(email: emailText.text!)
         let data : Data
         do {
             let jsonEncoder = JSONEncoder()
@@ -110,8 +77,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 displayError("Your request returned a status code other than 2xx!")
                 DispatchQueue.main.async(execute: {
-                    self.error.isHidden = false
-                    self.submit.isEnabled = true
+                    self.errorText.isHidden = false
                 })
                 return
             }
@@ -132,22 +98,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
                 return
             }
             DispatchQueue.main.async(execute: {
-                self.error.isHidden = true
-                self.submit.isEnabled = true
-                self.password.text = ""
-               
-                self.navigationController?.popViewController(animated: true)
-                self.dismiss(animated: true, completion: nil)
+                self.errorText.isHidden = true
                 
-                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.homeNavigation)
-                UIApplication.shared.keyWindow?.rootViewController = vc
-                
+                let alert : UIAlertController = UIAlertController(title: "Exito", message: "Se ha enviado un mail con la nueva contraseña.", preferredStyle: .alert)
+                alert.isModalInPopover = true
+                let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in
+                      self.navigationController?.popViewController(animated: true)
+                      self.dismiss(animated: true, completion: nil)
+                }
+                alert.addAction(actionAcept)
+                self.present(alert, animated: true, completion: nil)
+     
             })
             
             
         }).resume()
     }
-
 }
+
 

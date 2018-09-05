@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		2E8CD7B32134DF8B00174696 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7B22134DF8B00174696 /* NavigationUtil.swift */; };
 		2E8CD7B5213632CC00174696 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E8CD7B4213632CC00174696 /* Login.storyboard */; };
+		2E8CD7B721377F6A00174696 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7B621377F6A00174696 /* ForgotPasswordViewController.swift */; };
+		2E8CD7B9213B8B0E00174696 /* CreateAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E8CD7B8213B8B0E00174696 /* CreateAccount.storyboard */; };
+		2E8CD7BC213B8EE500174696 /* ProviderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7BB213B8EE500174696 /* ProviderTableViewCell.swift */; };
+		2E8CD7BE213B91D100174696 /* SelectProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7BD213B91D100174696 /* SelectProviderViewController.swift */; };
+		2E8CD7C0213C8D0700174696 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7BF213C8D0700174696 /* CreateAccountViewController.swift */; };
 		FB173A1920CE1AF40048F642 /* Reason.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB173A1820CE1AF40048F642 /* Reason.swift */; };
 		FB173A1B20CE1BB50048F642 /* Videocall.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB173A1A20CE1BB50048F642 /* Videocall.swift */; };
 		FB1D661A2071DF8F00423942 /* MedicalRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D66192071DF8F00423942 /* MedicalRecord.swift */; };
 		FB1D661C2071E6F100423942 /* MedicalRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D661B2071E6F100423942 /* MedicalRecordTableViewCell.swift */; };
 		FB1D661E2071E95900423942 /* MedicalRecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D661D2071E95900423942 /* MedicalRecordTableViewController.swift */; };
 		FB1D66212072ACCF00423942 /* MedicalRecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D66202072ACCF00423942 /* MedicalRecordDetailViewController.swift */; };
-		FB2C43BE207712E00016F78F /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2C43BD207712E00016F78F /* ApiClient.swift */; };
 		FB4F072320CE202900A23FF9 /* Affiliate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4F072220CE202900A23FF9 /* Affiliate.swift */; };
 		FB4F072520CE213F00A23FF9 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4F072420CE213F00A23FF9 /* Provider.swift */; };
 		FB4F072720CE21AB00A23FF9 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4F072620CE21AB00A23FF9 /* Doctor.swift */; };
@@ -33,13 +37,17 @@
 /* Begin PBXFileReference section */
 		2E8CD7B22134DF8B00174696 /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
 		2E8CD7B4213632CC00174696 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		2E8CD7B621377F6A00174696 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		2E8CD7B8213B8B0E00174696 /* CreateAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateAccount.storyboard; sourceTree = "<group>"; };
+		2E8CD7BB213B8EE500174696 /* ProviderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderTableViewCell.swift; sourceTree = "<group>"; };
+		2E8CD7BD213B91D100174696 /* SelectProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProviderViewController.swift; sourceTree = "<group>"; };
+		2E8CD7BF213C8D0700174696 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		FB173A1820CE1AF40048F642 /* Reason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reason.swift; sourceTree = "<group>"; };
 		FB173A1A20CE1BB50048F642 /* Videocall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Videocall.swift; sourceTree = "<group>"; };
 		FB1D66192071DF8F00423942 /* MedicalRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecord.swift; sourceTree = "<group>"; };
 		FB1D661B2071E6F100423942 /* MedicalRecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecordTableViewCell.swift; sourceTree = "<group>"; };
 		FB1D661D2071E95900423942 /* MedicalRecordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecordTableViewController.swift; sourceTree = "<group>"; };
 		FB1D66202072ACCF00423942 /* MedicalRecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecordDetailViewController.swift; sourceTree = "<group>"; };
-		FB2C43BD207712E00016F78F /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		FB4F072220CE202900A23FF9 /* Affiliate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Affiliate.swift; sourceTree = "<group>"; };
 		FB4F072420CE213F00A23FF9 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		FB4F072620CE21AB00A23FF9 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
@@ -67,6 +75,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E8CD7BA213B8EB400174696 /* createAccount */ = {
+			isa = PBXGroup;
+			children = (
+				2E8CD7BB213B8EE500174696 /* ProviderTableViewCell.swift */,
+				2E8CD7BD213B91D100174696 /* SelectProviderViewController.swift */,
+				2E8CD7BF213C8D0700174696 /* CreateAccountViewController.swift */,
+			);
+			path = createAccount;
+			sourceTree = "<group>";
+		};
 		FB1D661F2071E98400423942 /* medicalRecord */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				FBF33088204A5E91009DABDD /* LoginViewController.swift */,
+				2E8CD7B621377F6A00174696 /* ForgotPasswordViewController.swift */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -129,6 +148,7 @@
 		FBF33085204A5E91009DABDD /* DoctorEnCasa-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				2E8CD7BA213B8EB400174696 /* createAccount */,
 				FBCD572D2102BD39008BECC1 /* login */,
 				FBE3164220CC72430041B57E /* util */,
 				FBE3164120CC72030041B57E /* domain */,
@@ -138,8 +158,8 @@
 				FBF3308D204A5E91009DABDD /* Assets.xcassets */,
 				FBF3308F204A5E91009DABDD /* LaunchScreen.storyboard */,
 				FBF33092204A5E91009DABDD /* Info.plist */,
-				FB2C43BD207712E00016F78F /* ApiClient.swift */,
 				2E8CD7B4213632CC00174696 /* Login.storyboard */,
+				2E8CD7B8213B8B0E00174696 /* CreateAccount.storyboard */,
 			);
 			path = "DoctorEnCasa-iOS";
 			sourceTree = "<group>";
@@ -171,7 +191,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Agustin;
 				TargetAttributes = {
 					FBF33082204A5E91009DABDD = {
@@ -205,6 +225,7 @@
 			files = (
 				2E8CD7B5213632CC00174696 /* Login.storyboard in Resources */,
 				FBF33091204A5E91009DABDD /* LaunchScreen.storyboard in Resources */,
+				2E8CD7B9213B8B0E00174696 /* CreateAccount.storyboard in Resources */,
 				FBF3308E204A5E91009DABDD /* Assets.xcassets in Resources */,
 				FBF3308C204A5E91009DABDD /* Main.storyboard in Resources */,
 			);
@@ -217,13 +238,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E8CD7C0213C8D0700174696 /* CreateAccountViewController.swift in Sources */,
 				FB1D661E2071E95900423942 /* MedicalRecordTableViewController.swift in Sources */,
 				FB173A1B20CE1BB50048F642 /* Videocall.swift in Sources */,
 				FBF33089204A5E91009DABDD /* LoginViewController.swift in Sources */,
+				2E8CD7BE213B91D100174696 /* SelectProviderViewController.swift in Sources */,
 				FBE3164420CC725D0041B57E /* Constant.swift in Sources */,
 				FBE71F9F21080E0A006D3540 /* UserInfo.swift in Sources */,
 				FB4F5FF0207088D10011BBD4 /* Credential.swift in Sources */,
-				FB2C43BE207712E00016F78F /* ApiClient.swift in Sources */,
 				FB4F072720CE21AB00A23FF9 /* Doctor.swift in Sources */,
 				FB4F072920D0A4D400A23FF9 /* Util.swift in Sources */,
 				FB1D66212072ACCF00423942 /* MedicalRecordDetailViewController.swift in Sources */,
@@ -231,6 +253,8 @@
 				FB1D661C2071E6F100423942 /* MedicalRecordTableViewCell.swift in Sources */,
 				FB4F072520CE213F00A23FF9 /* Provider.swift in Sources */,
 				FBF33087204A5E91009DABDD /* AppDelegate.swift in Sources */,
+				2E8CD7BC213B8EE500174696 /* ProviderTableViewCell.swift in Sources */,
+				2E8CD7B721377F6A00174696 /* ForgotPasswordViewController.swift in Sources */,
 				FB173A1920CE1AF40048F642 /* Reason.swift in Sources */,
 				FB4F072320CE202900A23FF9 /* Affiliate.swift in Sources */,
 				2E8CD7B32134DF8B00174696 /* NavigationUtil.swift in Sources */,
@@ -273,6 +297,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -280,6 +305,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -330,6 +356,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -337,6 +364,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

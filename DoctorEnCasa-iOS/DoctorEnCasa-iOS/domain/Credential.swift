@@ -10,19 +10,37 @@ import Foundation
 class Credential: Encodable {
     
     //MARK: Properties
-    var username: String
-    var password: String
+    var username: String?
+    var password: String?
+    var email: String?
+    var groupNumber: Int?
+    var providerId: Int?
+    
     
     //MARK: Initialization
-    init?(username: String, password: String) {
-        // Initialization should fail if there is no name or if the rating is negative.
-        if username.isEmpty {
-            return nil
-        }
+    init(){
+        
+    }
+    
+    convenience init(username: String, password: String) {
+        self.init()
         // Initialize stored properties.
         self.username = username
         self.password = password
         
+    }
+    
+    convenience init(username: String, password: String, email: String, groupNumber: Int, providerId: Int) {
+        self.init(username: username, password: password)
+        // Initialize stored properties.
+        self.email = email
+        self.groupNumber = groupNumber
+        self.providerId = providerId
+    }
+    
+    convenience init(email: String){
+        self.init()
+        self.email = email
     }
     
 }

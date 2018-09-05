@@ -14,7 +14,6 @@
         <!--Doctor en Casa-->
         <scene sceneID="xqN-54-ATg">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gmu-Ay-yH4" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="login" id="0Tb-cr-eT8" customClass="LoginViewController" customModule="DoctorEnCasa_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IyE-ob-9mv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -84,14 +83,20 @@
                                     <constraint firstItem="Ece-3g-WcY" firstAttribute="leading" secondItem="FEi-XD-sGh" secondAttribute="leading" constant="42" id="yA0-yR-imc"/>
                                 </constraints>
                             </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="¿Olvidaste tu contraseña?" placeholder="¿Olvidaste tu contraseña?" textAlignment="center" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="7A1-3I-Hl8">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="¿Olvidaste tu contraseña?" placeholder="¿Olvidaste tu contraseña?" textAlignment="center" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="7A1-3I-Hl8">
                                 <rect key="frame" x="60" y="480" width="254" height="37"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" allowsDirectInteraction="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="yPM-gi-Zhc"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="forgotPassword:" destination="0Tb-cr-eT8" eventType="touchUpInside" id="Xg3-cH-5HH"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3q6-Hf-qAw">
                                 <rect key="frame" x="131" y="430" width="113" height="40"/>
@@ -107,7 +112,7 @@
                                     <action selector="login:" destination="0Tb-cr-eT8" eventType="touchUpInside" id="KhI-51-t5a"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="¿Todavia no tenes cuenta? Registrate aqui" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Asi-DF-n1H">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="¿Todavia no tenes cuenta? Registrate aqui" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Asi-DF-n1H">
                                 <rect key="frame" x="49" y="627" width="276" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="9Kv-1c-czP"/>
@@ -115,6 +120,9 @@
                                 <color key="textColor" red="1" green="0.37656829939999997" blue="0.31827012869999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="createAccount:" destination="0Tb-cr-eT8" eventType="touchUpInside" id="96v-hk-dkd"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -139,16 +147,78 @@
                     </view>
                     <navigationItem key="navigationItem" title="Doctor en Casa" id="CjN-Fu-Odl"/>
                     <connections>
+                        <outlet property="createAccountText" destination="Asi-DF-n1H" id="dDh-kY-9wS"/>
                         <outlet property="error" destination="Ece-3g-WcY" id="u8x-nt-jwT"/>
-                        <outlet property="forgot" destination="7A1-3I-Hl8" id="UrQ-nw-RV0"/>
+                        <outlet property="forgot" destination="7A1-3I-Hl8" id="Zdd-LL-Rl3"/>
                         <outlet property="image" destination="zd1-C8-7fS" id="AZs-Qz-Tgr"/>
                         <outlet property="password" destination="WMv-1X-MVS" id="j2s-Ul-h0D"/>
                         <outlet property="submit" destination="3q6-Hf-qAw" id="JZb-Aa-fvE"/>
                         <outlet property="username" destination="d3O-Qo-Qci" id="Mdx-rO-g1x"/>
+                        <segue destination="awl-ed-JdX" kind="show" identifier="showForgotPassword" id="XXh-cL-Zjs"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gmu-Ay-yH4" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1456.8" y="124.58770614692655"/>
+        </scene>
+        <!--Forgot Password View Controller-->
+        <scene sceneID="d8i-LU-cwW">
+            <objects>
+                <viewController id="awl-ed-JdX" customClass="ForgotPasswordViewController" customModule="DoctorEnCasa_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Sy-nP-UkT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recuperar contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiL-Sb-LeP">
+                                <rect key="frame" x="16" y="97" width="246" height="31.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mDx-PT-xtv">
+                                <rect key="frame" x="16" y="160" width="322" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ckR-xg-kgp">
+                                <rect key="frame" x="148" y="231" width="79" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                <state key="normal" title="Enviar"/>
+                                <connections>
+                                    <action selector="sendMail:" destination="awl-ed-JdX" eventType="touchUpInside" id="X92-72-vyu"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="El email ingresado es incorrecto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UsW-cw-1p5">
+                                <rect key="frame" x="16" y="198" width="206" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.28539819606077954" blue="0.13361175172243533" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UsW-cw-1p5" firstAttribute="leading" secondItem="Yy8-rf-8OI" secondAttribute="leading" constant="16" id="JU5-Mc-JwO"/>
+                            <constraint firstItem="kiL-Sb-LeP" firstAttribute="leading" secondItem="Yy8-rf-8OI" secondAttribute="leading" constant="16" id="OZW-My-Hen"/>
+                            <constraint firstItem="kiL-Sb-LeP" firstAttribute="top" secondItem="Yy8-rf-8OI" secondAttribute="top" constant="33" id="Pob-tt-0E5"/>
+                            <constraint firstItem="ckR-xg-kgp" firstAttribute="top" secondItem="mDx-PT-xtv" secondAttribute="bottom" constant="41" id="U5L-lb-Nv8"/>
+                            <constraint firstItem="UsW-cw-1p5" firstAttribute="top" secondItem="mDx-PT-xtv" secondAttribute="bottom" constant="8" id="eWB-YN-8UX"/>
+                            <constraint firstItem="ckR-xg-kgp" firstAttribute="centerX" secondItem="Yy8-rf-8OI" secondAttribute="centerX" id="u49-fy-c3C"/>
+                            <constraint firstItem="Yy8-rf-8OI" firstAttribute="trailing" secondItem="mDx-PT-xtv" secondAttribute="trailing" constant="37" id="wG5-7Q-v8M"/>
+                            <constraint firstItem="mDx-PT-xtv" firstAttribute="leading" secondItem="Yy8-rf-8OI" secondAttribute="leading" constant="16" id="wnw-bk-ulO"/>
+                            <constraint firstItem="mDx-PT-xtv" firstAttribute="top" secondItem="kiL-Sb-LeP" secondAttribute="bottom" constant="31.5" id="xz6-0R-OGe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Yy8-rf-8OI"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailText" destination="mDx-PT-xtv" id="Ubr-MO-jTN"/>
+                        <outlet property="errorText" destination="UsW-cw-1p5" id="CeK-th-EUD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gYe-md-OFB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2445.5999999999999" y="128.18590704647679"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rNg-SW-VhV">

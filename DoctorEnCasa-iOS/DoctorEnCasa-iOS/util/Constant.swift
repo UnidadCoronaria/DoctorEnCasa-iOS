@@ -19,7 +19,10 @@ struct Constants {
     // MARK: Endpoints
     struct Endpoints {
         static let getMedicalRecord = "user/medicalrecord"
+        static let forgotPassword = "user/password/reset"
         static let auth = "auth"
+        static let provider = "provider"
+        static let user = "user"
     }
     
     // MARK: Parameters

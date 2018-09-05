@@ -19,14 +19,6 @@ class MedicalRecordTableViewController: UITableViewController, UIPickerViewDeleg
     let filterOption = ["Item 1", "Item 2", "Item 3"]
     var token : String = ""
     
-    override func viewDidDisappear(_ animated: Bool) {
-        print("viewDidDisappear")
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-         print("viewWillAppear")
-    }
-  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,7 +43,6 @@ class MedicalRecordTableViewController: UITableViewController, UIPickerViewDeleg
         
         // Load the sample data.
         loadMedicalRecords()
-        print("CARGANDO MEDICAL RECORD VC ")
     }
     
     @objc func logout(){
@@ -84,12 +75,9 @@ class MedicalRecordTableViewController: UITableViewController, UIPickerViewDeleg
         alert.view.addSubview(pickerFrame)
         
         
-        let action1:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel)
-        { (_:UIAlertAction) in print("Aceptar")}
+        let action1:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in print("Aceptar")}
         alert.addAction(action1)
-        self.present(alert, animated: true) {
-            print("Alert")
-        }
+        self.present(alert, animated: true, completion: nil) 
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

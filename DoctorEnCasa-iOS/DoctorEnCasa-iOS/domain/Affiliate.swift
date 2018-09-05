@@ -11,24 +11,26 @@ import Foundation
 class Affiliate: Codable {
     
     //MARK: Properties
-    var id: Int
-    var username: String
+    var id: Int?
+    var username: String?
+    var firstName: String
+    var lastName: String
     var email: String
-    var enabled:Bool
-    var passwordExpired:Bool
-    var tokenGcm:String?
-    var provider: Provider
+    var enabled:Bool?
+    var passwordExpired:Bool?
+    var provider: Provider?
     
     //MARK: Initialization
-    init?(id: Int, username:String, email: String, enabled:Bool, passwordExpired:Bool,
-          tokenGcm:String, provider: Provider) {
+    init?(id: Int, username:String, firstName: String, lastName: String, email: String, enabled:Bool, passwordExpired:Bool,
+           provider: Provider) {
         // Initialize stored properties.
         self.id = id
         self.username = username
+        self.firstName = firstName
+        self.lastName = lastName
         self.email = email
         self.enabled = enabled
         self.passwordExpired = passwordExpired
-        self.tokenGcm = tokenGcm
         self.provider = provider
     }
     
