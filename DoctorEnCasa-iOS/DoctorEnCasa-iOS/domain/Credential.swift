@@ -12,6 +12,7 @@ class Credential: Encodable {
     //MARK: Properties
     var username: String?
     var password: String?
+    var newPassword: String?
     var email: String?
     var groupNumber: Int?
     var providerId: Int?
@@ -27,6 +28,14 @@ class Credential: Encodable {
         // Initialize stored properties.
         self.username = username
         self.password = password
+        
+    }
+    
+    convenience init(password: String, newPassword: String) {
+        self.init()
+        // Initialize stored properties.
+        self.password = password
+        self.newPassword = newPassword
         
     }
     

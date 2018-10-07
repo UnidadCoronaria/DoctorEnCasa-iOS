@@ -17,15 +17,20 @@ class MedicalRecordDetailViewController: UIViewController {
     @IBOutlet weak var reasons: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var recommendation: UILabel!
+    @IBOutlet weak var anamnesis: UILabel!
+    @IBOutlet weak var doctor: UILabel!
+    
     
     var detail:MedicalRecord!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         date.text =  util?.convertDate(date: detail.videocall.date!)
-        name.text = String(describing: detail.firstName!)
+        name.text = "Última consulta de \(detail.firstName!) \(detail.lastName!)"
         recommendation.text = String(describing: detail.recommendation)
-        // Do any additional setup after loading the view.
+        reasons.text = util?.parseReason(reasons: detail.reasons!)
+        doctor.text = "\(String(describing: detail.videocall.doctor?.firstName!)) \(String(describing: detail.videocall.doctor?.lastName!))"
+        anamnesis.text = detail.anamnesis
     }
 
     override func didReceiveMemoryWarning() {

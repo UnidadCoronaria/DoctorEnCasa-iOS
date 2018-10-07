@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E3C0530214E077A00C7A225 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C052F214E077A00C7A225 /* SettingsViewController.swift */; };
+		2E3C05322156FFC100C7A225 /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C05312156FFC100C7A225 /* TermsAndConditionsViewController.swift */; };
+		2E3C0534215884C900C7A225 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C0533215884C900C7A225 /* ChangePasswordViewController.swift */; };
+		2E3C05372159D2C100C7A225 /* VideocallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C05362159D2C100C7A225 /* VideocallViewController.swift */; };
+		2E3C05392159D6A600C7A225 /* AffiliateCallHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C05382159D6A600C7A225 /* AffiliateCallHistory.swift */; };
+		2E3C053B2159D97200C7A225 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C053A2159D97200C7A225 /* Queue.swift */; };
 		2E8CD7B32134DF8B00174696 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7B22134DF8B00174696 /* NavigationUtil.swift */; };
 		2E8CD7B5213632CC00174696 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E8CD7B4213632CC00174696 /* Login.storyboard */; };
 		2E8CD7B721377F6A00174696 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7B621377F6A00174696 /* ForgotPasswordViewController.swift */; };
@@ -14,6 +20,7 @@
 		2E8CD7BC213B8EE500174696 /* ProviderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7BB213B8EE500174696 /* ProviderTableViewCell.swift */; };
 		2E8CD7BE213B91D100174696 /* SelectProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7BD213B91D100174696 /* SelectProviderViewController.swift */; };
 		2E8CD7C0213C8D0700174696 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7BF213C8D0700174696 /* CreateAccountViewController.swift */; };
+		2E8CD7C3214B4C4000174696 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7C2214B4C4000174696 /* NewsViewController.swift */; };
 		FB173A1920CE1AF40048F642 /* Reason.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB173A1820CE1AF40048F642 /* Reason.swift */; };
 		FB173A1B20CE1BB50048F642 /* Videocall.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB173A1A20CE1BB50048F642 /* Videocall.swift */; };
 		FB1D661A2071DF8F00423942 /* MedicalRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D66192071DF8F00423942 /* MedicalRecord.swift */; };
@@ -35,6 +42,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E3C052F214E077A00C7A225 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2E3C05312156FFC100C7A225 /* TermsAndConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsViewController.swift; sourceTree = "<group>"; };
+		2E3C0533215884C900C7A225 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		2E3C05362159D2C100C7A225 /* VideocallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideocallViewController.swift; sourceTree = "<group>"; };
+		2E3C05382159D6A600C7A225 /* AffiliateCallHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffiliateCallHistory.swift; sourceTree = "<group>"; };
+		2E3C053A2159D97200C7A225 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		2E8CD7B22134DF8B00174696 /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
 		2E8CD7B4213632CC00174696 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		2E8CD7B621377F6A00174696 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +55,7 @@
 		2E8CD7BB213B8EE500174696 /* ProviderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderTableViewCell.swift; sourceTree = "<group>"; };
 		2E8CD7BD213B91D100174696 /* SelectProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProviderViewController.swift; sourceTree = "<group>"; };
 		2E8CD7BF213C8D0700174696 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		2E8CD7C2214B4C4000174696 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		FB173A1820CE1AF40048F642 /* Reason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reason.swift; sourceTree = "<group>"; };
 		FB173A1A20CE1BB50048F642 /* Videocall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Videocall.swift; sourceTree = "<group>"; };
 		FB1D66192071DF8F00423942 /* MedicalRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecord.swift; sourceTree = "<group>"; };
@@ -75,6 +89,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E3C052E214E076000C7A225 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				2E3C052F214E077A00C7A225 /* SettingsViewController.swift */,
+				2E3C05312156FFC100C7A225 /* TermsAndConditionsViewController.swift */,
+				2E3C0533215884C900C7A225 /* ChangePasswordViewController.swift */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
+		2E3C05352159D2B000C7A225 /* videocall */ = {
+			isa = PBXGroup;
+			children = (
+				2E3C05362159D2C100C7A225 /* VideocallViewController.swift */,
+			);
+			path = videocall;
+			sourceTree = "<group>";
+		};
 		2E8CD7BA213B8EB400174696 /* createAccount */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +115,14 @@
 				2E8CD7BF213C8D0700174696 /* CreateAccountViewController.swift */,
 			);
 			path = createAccount;
+			sourceTree = "<group>";
+		};
+		2E8CD7C1214B4BEF00174696 /* news */ = {
+			isa = PBXGroup;
+			children = (
+				2E8CD7C2214B4C4000174696 /* NewsViewController.swift */,
+			);
+			path = news;
 			sourceTree = "<group>";
 		};
 		FB1D661F2071E98400423942 /* medicalRecord */ = {
@@ -115,6 +155,8 @@
 				FB4F072420CE213F00A23FF9 /* Provider.swift */,
 				FB4F072620CE21AB00A23FF9 /* Doctor.swift */,
 				FBE71F9E21080E0A006D3540 /* UserInfo.swift */,
+				2E3C05382159D6A600C7A225 /* AffiliateCallHistory.swift */,
+				2E3C053A2159D97200C7A225 /* Queue.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -148,6 +190,9 @@
 		FBF33085204A5E91009DABDD /* DoctorEnCasa-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				2E3C05352159D2B000C7A225 /* videocall */,
+				2E3C052E214E076000C7A225 /* settings */,
+				2E8CD7C1214B4BEF00174696 /* news */,
 				2E8CD7BA213B8EB400174696 /* createAccount */,
 				FBCD572D2102BD39008BECC1 /* login */,
 				FBE3164220CC72430041B57E /* util */,
@@ -238,24 +283,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E3C05392159D6A600C7A225 /* AffiliateCallHistory.swift in Sources */,
 				2E8CD7C0213C8D0700174696 /* CreateAccountViewController.swift in Sources */,
 				FB1D661E2071E95900423942 /* MedicalRecordTableViewController.swift in Sources */,
 				FB173A1B20CE1BB50048F642 /* Videocall.swift in Sources */,
+				2E3C05372159D2C100C7A225 /* VideocallViewController.swift in Sources */,
+				2E3C05322156FFC100C7A225 /* TermsAndConditionsViewController.swift in Sources */,
 				FBF33089204A5E91009DABDD /* LoginViewController.swift in Sources */,
 				2E8CD7BE213B91D100174696 /* SelectProviderViewController.swift in Sources */,
 				FBE3164420CC725D0041B57E /* Constant.swift in Sources */,
 				FBE71F9F21080E0A006D3540 /* UserInfo.swift in Sources */,
 				FB4F5FF0207088D10011BBD4 /* Credential.swift in Sources */,
+				2E3C0534215884C900C7A225 /* ChangePasswordViewController.swift in Sources */,
 				FB4F072720CE21AB00A23FF9 /* Doctor.swift in Sources */,
 				FB4F072920D0A4D400A23FF9 /* Util.swift in Sources */,
 				FB1D66212072ACCF00423942 /* MedicalRecordDetailViewController.swift in Sources */,
 				FB1D661A2071DF8F00423942 /* MedicalRecord.swift in Sources */,
+				2E3C053B2159D97200C7A225 /* Queue.swift in Sources */,
 				FB1D661C2071E6F100423942 /* MedicalRecordTableViewCell.swift in Sources */,
+				2E3C0530214E077A00C7A225 /* SettingsViewController.swift in Sources */,
 				FB4F072520CE213F00A23FF9 /* Provider.swift in Sources */,
 				FBF33087204A5E91009DABDD /* AppDelegate.swift in Sources */,
 				2E8CD7BC213B8EE500174696 /* ProviderTableViewCell.swift in Sources */,
 				2E8CD7B721377F6A00174696 /* ForgotPasswordViewController.swift in Sources */,
 				FB173A1920CE1AF40048F642 /* Reason.swift in Sources */,
+				2E8CD7C3214B4C4000174696 /* NewsViewController.swift in Sources */,
 				FB4F072320CE202900A23FF9 /* Affiliate.swift in Sources */,
 				2E8CD7B32134DF8B00174696 /* NavigationUtil.swift in Sources */,
 			);

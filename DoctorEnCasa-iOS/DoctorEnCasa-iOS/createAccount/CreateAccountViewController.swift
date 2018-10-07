@@ -20,6 +20,7 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
     @IBOutlet weak var repeatPasswordError: UILabel!
     @IBOutlet weak var mailError: UILabel!
     @IBOutlet weak var passwordError: UILabel!
+    @IBOutlet weak var termsAndConditions: UISwitch!
     
     var provider:Provider!
     var affiliateList:[Affiliate] = Array()
@@ -41,8 +42,12 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
     @IBAction func onAffiliateNumberChange(_ sender: Any) {
         if let affiliateNumber = affiliateNumberText.text {
             if(!affiliateNumber.isEmpty && affiliateNumber.count > 3){
-                if self.affiliateList.count > 0 && affiliateNumber == (affiliateNumber + " - " + " " + affiliateList[0].firstName + " " + affiliateList[0].lastName){
-                    return
+                if self.affiliateList.count > 0 {
+                    let fullName = affiliateList[0].firstName! + " " + affiliateList[0].lastName!
+                    let tempValue = "\(affiliateNumber) - \(fullName)"
+                    if affiliateNumber == tempValue {
+                        return
+                    }
                 }
                getAffiliate();
             } else {
@@ -55,6 +60,11 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
         self.mailError.isHidden = true
         self.repeatPasswordError.isHidden = true
         self.passwordError.isHidden = true
+        
+        if !termsAndConditions.isOn {
+            showMissingTermsAndConditions()
+            return
+        }
         
         if mailText.text == nil || !isValidMail(email: mailText.text!) {
             self.mailError.isHidden = false
@@ -80,7 +90,15 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
     }
     
     func showMissmatchPasswords(){
-        let alert : UIAlertController = UIAlertController(title: "Error", message: "Las contraseñas no coinciden", preferredStyle: .alert)
+        let alert : UIAlertController = UIAlertController(title: "Error", message: "Las contraseñas no coinciden.", preferredStyle: .alert)
+        alert.isModalInPopover = true
+        let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in }
+        alert.addAction(actionAcept)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showMissingTermsAndConditions(){
+        let alert : UIAlertController = UIAlertController(title: "Error", message: "Tenés que aceptar los términos y condiciones.", preferredStyle: .alert)
         alert.isModalInPopover = true
         let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in }
         alert.addAction(actionAcept)
@@ -161,7 +179,9 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
     func afterGetAffiliates(){
         if self.affiliateList.count > 0{
             let affiliate = self.affiliateList[0]
-            self.affiliateNumberText.text = String(self.affiliateNumberText.text!.split(separator: " ")[0]) + " - " + " " + affiliate.firstName + " " + affiliate.lastName
+            let fullName = "\(String(describing: affiliate.firstName!)) \(String(describing: affiliate.lastName!))"
+            let affiliateNumberTemp = String(self.affiliateNumberText.text!.split(separator: " ")[0])
+            self.affiliateNumberText.text = "\(affiliateNumberTemp) - \(fullName)"
             self.finalizeButton.isEnabled = true
         } else {
             self.affiliateNumberText.text = String(self.affiliateNumberText.text!.split(separator: " ")[0])
@@ -229,7 +249,7 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
                 self.dismiss(animated: true, completion: nil)
                 
                 let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.homeNavigation)
+                let vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.main)
                 UIApplication.shared.keyWindow?.rootViewController = vc
             })
             

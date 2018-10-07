@@ -13,7 +13,7 @@ class Util {
     let formatter = DateFormatter()
     
     init?(){
-        formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+        formatter.dateFormat = "dd-MM-yyyy"
         formatter.locale = NSLocale(localeIdentifier: "en_US") as Locale!
     }
     

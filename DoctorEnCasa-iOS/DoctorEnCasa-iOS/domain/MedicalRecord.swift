@@ -15,11 +15,12 @@ class MedicalRecord: Codable {
     var affiliateGamId: String
     var lastName: String?
     var firstName: String?
+    var anamnesis: String?
     var videocall: Videocall
     var reasons: [Reason]?
     
     //MARK: Initialization
-    init?(id: Int, recommendation:String, affiliateGamId: String, lastName: String, firstName: String, reasons: [Reason], videocall: Videocall) {
+    init?(id: Int, recommendation:String, affiliateGamId: String, lastName: String, firstName: String, reasons: [Reason], videocall: Videocall, anamnesis: String) {
         // Initialize stored properties.
         self.id = id
         self.affiliateGamId = affiliateGamId
@@ -28,6 +29,7 @@ class MedicalRecord: Codable {
         self.firstName = firstName
         self.reasons = reasons
         self.videocall = videocall
+        self.anamnesis = anamnesis
     }
     
 }

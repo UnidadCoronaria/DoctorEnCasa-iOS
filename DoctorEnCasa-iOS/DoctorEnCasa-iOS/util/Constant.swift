@@ -23,6 +23,11 @@ struct Constants {
         static let auth = "auth"
         static let provider = "provider"
         static let user = "user"
+        static let changePassword = "user/password"
+        static let userHistory = "user/history"
+        static let queueStatus = "queue/status"
+        static let videocall = "videocall"
+
     }
     
     // MARK: Parameters

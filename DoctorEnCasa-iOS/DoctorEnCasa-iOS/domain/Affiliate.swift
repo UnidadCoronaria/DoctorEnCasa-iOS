@@ -13,9 +13,9 @@ class Affiliate: Codable {
     //MARK: Properties
     var id: Int?
     var username: String?
-    var firstName: String
-    var lastName: String
-    var email: String
+    var firstName: String?
+    var lastName: String?
+    var email: String?
     var enabled:Bool?
     var passwordExpired:Bool?
     var provider: Provider?

@@ -23,6 +23,7 @@ struct NavigationUtil {
         static let showForgotPassword = "showForgotPassword"
         static let createAccountNavigation = "createAccountNavigation"
         static let showCreateAccountForm = "showCreateAccountForm"
+        static let main = "main"
     }
     
 }

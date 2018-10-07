@@ -18,8 +18,8 @@ class Doctor: Codable {
     var lastPasswordResetDate:Int
     var passwordExpired:Bool
     var tokenGcm:String?
-    var firstName: String
-    var lastName:String
+    var firstName: String?
+    var lastName:String?
     var age:Int
     var sex: String
     var nationalEnrollment:String

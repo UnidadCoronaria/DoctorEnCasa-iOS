@@ -14,7 +14,6 @@ class MedicalRecordTableViewCell: UITableViewCell {
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var reasons: UILabel!
-    @IBOutlet weak var recommentations: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

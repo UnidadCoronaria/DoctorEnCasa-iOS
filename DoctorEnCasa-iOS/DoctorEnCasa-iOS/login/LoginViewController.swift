@@ -140,7 +140,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
                 self.dismiss(animated: true, completion: nil)
                 
                 let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.homeNavigation)
+                let vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.main)
                 UIApplication.shared.keyWindow?.rootViewController = vc
                 
             })

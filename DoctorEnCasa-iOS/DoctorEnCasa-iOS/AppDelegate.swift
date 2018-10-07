@@ -16,17 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let storyBoard : UIStoryboard
-        let vc : UINavigationController
         //Get token
         if let _ : String = UserDefaults.standard.value(forKey: NavigationUtil.DATA.tokenKey) as? String {
             storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.homeNavigation) as! UINavigationController
+            let vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.main) as! UITabBarController
+             self.window?.rootViewController = vc
             
         } else {
             storyBoard = UIStoryboard(name: "Login", bundle: nil)
-            vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.loginNavigation) as! UINavigationController
+            let vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.loginNavigation) as! UINavigationController
+             self.window?.rootViewController = vc
         }
-        self.window?.rootViewController = vc
+       
         // Override point for customization after application launch.
         return true
     }

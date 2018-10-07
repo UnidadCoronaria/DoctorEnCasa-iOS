@@ -18,8 +18,8 @@ class Videocall: Codable {
     var comment:String?
     var status:String?
     var note:String?
-    var affiliate:Affiliate
-    var doctor: Doctor
+    var affiliate:Affiliate?
+    var doctor: Doctor?
     
     //MARK: Initialization
     init?(id: Int, date: Int, startDate:Int, endDate:Int, score:Int, comment:String, status:String, note:String, affiliate:Affiliate, doctor: Doctor) {

@@ -17,10 +17,24 @@ class SelectProviderViewController: UITableViewController {
        
         tableView.separatorColor = UIColor.gray
         tableView.isHidden = true
+
+        //create  navigation bar filter button
+        let backButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(doBack))
+        self.navigationItem.leftBarButtonItem = backButton
         // Load the sample data.
         loadProviders()
     }
     
+    @objc func doBack(){
+        //Dismiss this VC
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+        
+        //Navigate back to login
+        let storyBoard = UIStoryboard(name: "Login", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.loginNavigation)
+        UIApplication.shared.keyWindow?.rootViewController = vc
+    }
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -40,7 +54,7 @@ class SelectProviderViewController: UITableViewController {
         // Fetches the appropriate meal for the data source layout.
         let provider = providers[indexPath.row]
         cell.nameText.text =  provider.name
-        cell.descriptionText.text = "Quilmes, Ezpeleta"
+        cell.descriptionText.text = provider.zones
         return cell
     }
     

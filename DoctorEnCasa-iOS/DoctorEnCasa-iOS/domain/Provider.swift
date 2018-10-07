@@ -13,13 +13,15 @@ class Provider: Codable {
     var id: Int
     var name: String
     var url: String
+    var zones: String
     
     //MARK: Initialization
-    init?(id: Int, name:String, url: String) {
+    init?(id: Int, name:String, url: String, zones: String) {
         // Initialize stored properties.
         self.id = id
         self.name = name
         self.url = url
+        self.zones = zones
     }
     
 }

@@ -37,28 +37,10 @@ class MedicalRecordTableViewController: UITableViewController, UIPickerViewDeleg
         let filterButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: #selector(filter))
         self.navigationItem.rightBarButtonItem = filterButton
         
-        //create  navigation bar filter button
-        let logoutButton = UIBarButtonItem(title: "Salir", style: .plain, target: self, action: #selector(logout))
-        self.navigationItem.leftBarButtonItem = logoutButton
-        
         // Load the sample data.
         loadMedicalRecords()
     }
     
-    @objc func logout(){
-        //Clear user's token
-        UserDefaults.standard.removeObject(forKey: NavigationUtil.DATA.tokenKey)
-    
-        //Dismiss this VC
-        self.navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
-        
-        //Navigate back to login
-        let storyBoard = UIStoryboard(name: "Login", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.loginNavigation)
-        UIApplication.shared.keyWindow?.rootViewController = vc
-        
-    }
     
     @objc func filter(){
         let alert : UIAlertController = UIAlertController(title: "Buscar", message: "Afiliado", preferredStyle: .alert)
@@ -126,7 +108,6 @@ class MedicalRecordTableViewController: UITableViewController, UIPickerViewDeleg
         cell.date.text = util?.convertDate(date: medicalRecord.videocall.date!)
         cell.name.text =  String(describing:medicalRecord.firstName!+" "+medicalRecord.lastName!)
         cell.reasons.text =  util?.parseReason(reasons: medicalRecord.reasons!)
-        cell.recommentations.text =  String(medicalRecord.recommendation)
         return cell
     }
     
