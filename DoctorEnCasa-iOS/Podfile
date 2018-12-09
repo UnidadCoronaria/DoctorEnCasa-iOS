@@ -1,0 +1,6 @@
+target 'DoctorEnCasa-iOS' do
+    pod 'TwilioVideo', '~> 2.5'
+    pod 'Firebase/Core'
+    pod 'Firebase/Messaging'
+    pod 'Cosmos', '~> 17.0'
+end

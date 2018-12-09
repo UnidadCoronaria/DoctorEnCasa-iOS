@@ -19,10 +19,11 @@ class Affiliate: Codable {
     var enabled:Bool?
     var passwordExpired:Bool?
     var provider: Provider?
+    var affiliateGamId: String?
     
     //MARK: Initialization
     init?(id: Int, username:String, firstName: String, lastName: String, email: String, enabled:Bool, passwordExpired:Bool,
-           provider: Provider) {
+          provider: Provider, affiliateGamId : String) {
         // Initialize stored properties.
         self.id = id
         self.username = username
@@ -32,6 +33,7 @@ class Affiliate: Codable {
         self.enabled = enabled
         self.passwordExpired = passwordExpired
         self.provider = provider
+        self.affiliateGamId = affiliateGamId
     }
     
 }

@@ -12,8 +12,17 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
 
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var errorText: UILabel!
+    var loadingView : UIView?
+
     @IBAction func sendMail(_ sender: Any) {
-        self.perfomSend()
+        if !(self.emailText.text?.isEmpty)! && Util.isValidMail(email: emailText.text!)  {
+            self.errorText.isHidden = true
+            self.loadingView = UIViewController.displaySpinner(onView: self.view)
+            self.perfomSend()
+        } else{
+            self.errorText.isHidden = false
+        }
+        
     }
     
     //MARK: UITextFieldDelegate
@@ -24,6 +33,11 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {}
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +69,7 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
             request.httpBody = data
         } catch {
             print("Error: cannot create JSON from credentials")
+            UIViewController.removeSpinner(spinner: self.loadingView!)
             return
         }
         
@@ -64,18 +79,19 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
             func displayError(_ error: String) {
                 print(error)
                 print("URL at time of error: \(url)")
-                // remove loading
             }
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
                 displayError("There was an error with your request: \(error!)")
+                UIViewController.removeSpinner(spinner: self.loadingView!)
                 return
             }
             
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 displayError("Your request returned a status code other than 2xx!")
+                UIViewController.removeSpinner(spinner: self.loadingView!)
                 DispatchQueue.main.async(execute: {
                     self.errorText.isHidden = false
                 })
@@ -85,6 +101,7 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
             /* GUARD: Was there any data returned? */
             guard let data = data else {
                 displayError("No data was returned by the request!")
+                UIViewController.removeSpinner(spinner: self.loadingView!)
                 return
             }
             
@@ -95,10 +112,12 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
                 UserDefaults.standard.set(parsedResult.token, forKey: NavigationUtil.DATA.tokenKey)
             } catch {
                 displayError("Could not parse the data as JSON: '\(data)'")
+                UIViewController.removeSpinner(spinner: self.loadingView!)
                 return
             }
             DispatchQueue.main.async(execute: {
                 self.errorText.isHidden = true
+                UIViewController.removeSpinner(spinner: self.loadingView!)
                 
                 let alert : UIAlertController = UIAlertController(title: "Exito", message: "Se ha enviado un mail con la nueva contraseña.", preferredStyle: .alert)
                 alert.isModalInPopover = true

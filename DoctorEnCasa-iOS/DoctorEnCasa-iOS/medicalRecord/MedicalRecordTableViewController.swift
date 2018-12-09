@@ -8,19 +8,33 @@
 
 import UIKit
 
-class MedicalRecordTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class MedicalRecordTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
    
+    @IBOutlet weak var errorView: UIView!
     
     //MARK: Properties
     let pullToRefresh = UIRefreshControl()
     var medicalRecords = [MedicalRecord]()
+    var filteredMedicalRecords = [MedicalRecord]()
+    var firstMedicalRecord : MedicalRecord!
     var selectedMedicalRecord:MedicalRecord!
     let util = Util()
-    let filterOption = ["Item 1", "Item 2", "Item 3"]
+    var filterOptions = [AffiliateFilter]()
+    var selectedFilter : AffiliateFilter?
     var token : String = ""
+    var loadingView : UIView?
+    
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var lastVideocallOf: UILabel!
+    @IBOutlet weak var reasons: UILabel!
+    @IBOutlet weak var doctor: UILabel!
+    @IBOutlet weak var viewTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.errorView.isHidden = true
+        self.viewTable.isHidden = true
+        self.loadingView = UIViewController.displaySpinner(onView: self.view)
         
         //Get token
         if let token : String = UserDefaults.standard.value(forKey: NavigationUtil.DATA.tokenKey) as? String {
@@ -29,9 +43,9 @@ class MedicalRecordTableViewController: UITableViewController, UIPickerViewDeleg
         
         // add pull to refresh
         pullToRefresh.attributedTitle = NSAttributedString(string: "Recargar la lista de consultas médicas")
-        pullToRefresh.addTarget(self, action: #selector(MedicalRecordTableViewController.reload), for: .valueChanged)
-        tableView.addSubview(pullToRefresh)
-        tableView.separatorColor = UIColor.black
+        pullToRefresh.addTarget(self, action: #selector(self.reload), for: .valueChanged)
+        viewTable.addSubview(pullToRefresh)
+        viewTable.separatorColor = UIColor.black
         
         //create  navigation bar filter button
         let filterButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: #selector(filter))
@@ -41,25 +55,76 @@ class MedicalRecordTableViewController: UITableViewController, UIPickerViewDeleg
         loadMedicalRecords()
     }
     
+    func setFirstItemValues(){
+        if firstMedicalRecord != nil {
+            self.date.text = util?.convertDate(date: self.firstMedicalRecord.videocall.date)
+            self.lastVideocallOf.text = "Última consulta de " + (firstMedicalRecord.firstName)! + " " + (firstMedicalRecord.lastName)!
+            self.reasons.text =  util?.parseReason(reasons: self.firstMedicalRecord.reasons!)
+            self.doctor.text =  (firstMedicalRecord.videocall.doctor?.firstName)! + " " + (firstMedicalRecord.videocall.doctor?.lastName)!
+         reasons.sizeToFit()
+        }
+    }
+    
     
     @objc func filter(){
-        let alert : UIAlertController = UIAlertController(title: "Buscar", message: "Afiliado", preferredStyle: .alert)
-        alert.isModalInPopover = true
-    
-        let pickerFrame = UIPickerView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width , height: 140)) // CGRectMake(left, top, width, height) - left and top are like margins
-        pickerFrame.tag = 555
-        //set the pickers datasource and delegate
-        pickerFrame.delegate = self
+        if self.medicalRecords.count > 0 {
+            let alert : UIAlertController = UIAlertController(title: "Filtrar", message: "Seleccioná el afiliado", preferredStyle: .alert)
+            alert.isModalInPopover = true
         
-        
+            let vc = UIViewController()
+            vc.preferredContentSize = CGSize(width: 250, height: 200)
+            let pickerFrame = UIPickerView(frame: CGRect(x: 0, y: 0, width: 250 , height: 200)) // CGRectMake(left, top, width, height) - left and top are like margins
+            pickerFrame.tag = 555
+            //set the pickers datasource and delegate
+            pickerFrame.delegate = self
+            pickerFrame.dataSource = self
+            vc.view.addSubview(pickerFrame)
 
-        //Add the picker to the alert controller
-        alert.view.addSubview(pickerFrame)
+            //Add the picker to the alert controller
+            alert.setValue(vc, forKey: "contentViewController")
+            
+            let action1:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in
+                self.doFilter()
+                alert.dismiss(animated: true, completion: {})
+            }
+            alert.addAction(action1)
+            let action2:UIAlertAction = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in
+               alert.dismiss(animated: true, completion: {})
+            }
+            alert.addAction(action2)
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let alert : UIAlertController = UIAlertController(title: "", message: "No hay historias clínicas anteriores", preferredStyle: .alert)
+            alert.isModalInPopover = true
+            let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in
+                 alert.dismiss(animated: true, completion: {});
+            }
+            alert.addAction(actionAcept)
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    private func doFilter(){
+        if let filter = selectedFilter {
+             self.filteredMedicalRecords.removeAll()
+            for medicalRecord in self.medicalRecords {
+                if medicalRecord.affiliateGamId == filter.affiliateGamId {
+                    self.filteredMedicalRecords.append(medicalRecord)
+                }
+            }
+        }
+        self.viewTable.reloadData()
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let pickerLabel = UILabel()
+
+        let titleData =  String("\(String(describing: filterOptions[row].firstName)) \(String(describing: filterOptions[row].lastName))")
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedStringKey.font:UIFont(name: "Georgia", size: 20.0)!,NSAttributedStringKey.foregroundColor:UIColor.black])
+        pickerLabel.attributedText = myTitle
+        pickerLabel.textAlignment = .center
         
-        
-        let action1:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in print("Aceptar")}
-        alert.addAction(action1)
-        self.present(alert, animated: true, completion: nil) 
+        return pickerLabel
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -67,19 +132,19 @@ class MedicalRecordTableViewController: UITableViewController, UIPickerViewDeleg
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return filterOption.count
+        return filterOptions.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return filterOption[row]
+        return String("\(String(describing: filterOptions[row].firstName)) \(String(describing: filterOptions[row].lastName))")
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(filterOption[row])
+        self.selectedFilter = filterOptions[row]
     }
     
     @objc func reload() {
-        self.tableView.reloadData()
+        viewTable.reloadData()
         pullToRefresh.endRefreshing()
     }
     
@@ -89,22 +154,22 @@ class MedicalRecordTableViewController: UITableViewController, UIPickerViewDeleg
     }
     
     // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return medicalRecords.count
+        return filteredMedicalRecords.count
     }
     
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MedicalRecordTableViewCell", for: indexPath)  as? MedicalRecordTableViewCell else {
             fatalError("The dequeued cell is not an instance of MedicalRecordTableViewCell.")
         }
         // Fetches the appropriate meal for the data source layout.
-        let medicalRecord = medicalRecords[indexPath.row]
+        let medicalRecord = filteredMedicalRecords[indexPath.row]
         cell.date.text = util?.convertDate(date: medicalRecord.videocall.date!)
         cell.name.text =  String(describing:medicalRecord.firstName!+" "+medicalRecord.lastName!)
         cell.reasons.text =  util?.parseReason(reasons: medicalRecord.reasons!)
@@ -113,13 +178,13 @@ class MedicalRecordTableViewController: UITableViewController, UIPickerViewDeleg
     
     
     // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedMedicalRecord = self.medicalRecords[indexPath.row];
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedMedicalRecord = self.filteredMedicalRecords[indexPath.row];
         self.performSegue(withIdentifier: NavigationUtil.NAVIGATE.showMedicalRecordDetail, sender: nil)
     }
     
@@ -144,24 +209,26 @@ class MedicalRecordTableViewController: UITableViewController, UIPickerViewDeleg
             func displayError(_ error: String) {
                 print(error)
                 print("URL at time of error: \(url)")
-                // remove loading
             }
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
                 displayError("There was an error with your request: \(error!)")
+                UIViewController.removeSpinner(spinner: self.loadingView!)
                 return
             }
             
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 displayError("Your request returned a status code other than 2xx!")
+                UIViewController.removeSpinner(spinner: self.loadingView!)
                 return
             }
             
             /* GUARD: Was there any data returned? */
             guard let data = data else {
                 displayError("No data was returned by the request!")
+                UIViewController.removeSpinner(spinner: self.loadingView!)
                 return
             }
             
@@ -171,12 +238,39 @@ class MedicalRecordTableViewController: UITableViewController, UIPickerViewDeleg
                 parsedResult = try JSONDecoder().decode([MedicalRecord].self, from: data)
             } catch {
                 displayError("Could not parse the data as JSON: '\(data)'")
+                UIViewController.removeSpinner(spinner: self.loadingView!)
                 return
             }
             
             DispatchQueue.main.async(execute: {
-                self.medicalRecords += parsedResult
-                self.tableView.reloadData()
+                self.selectedFilter = nil
+                self.medicalRecords = parsedResult
+                self.filteredMedicalRecords = parsedResult
+                if self.medicalRecords.count > 0 {
+                    self.firstMedicalRecord = self.medicalRecords[0]
+                    self.setFirstItemValues()
+                    self.filterOptions.removeAll()
+                    for medicalRecord in self.medicalRecords {
+                        if self.filterOptions.count == 0 {
+                            self.filterOptions.append(AffiliateFilter(firstName: medicalRecord.firstName!, lastName: medicalRecord.lastName!, affiliateGamId: medicalRecord.affiliateGamId)!)
+                        } else {
+                            if !self.filterOptions.contains(where: { (affiliate) -> Bool in
+                                affiliate.affiliateGamId == medicalRecord.affiliateGamId
+                            }){
+                                self.filterOptions.append(AffiliateFilter(firstName: medicalRecord.firstName!, lastName: medicalRecord.lastName!, affiliateGamId: medicalRecord.affiliateGamId)!)
+                            }
+                        }
+                    }
+                    
+                    self.viewTable.reloadData()
+                    self.errorView.isHidden = true
+                    self.viewTable.isHidden = false
+                } else {
+                    self.errorView.isHidden = false
+                    self.viewTable.isHidden = true
+                }
+                UIViewController.removeSpinner(spinner: self.loadingView!)
+              
             })
             
            

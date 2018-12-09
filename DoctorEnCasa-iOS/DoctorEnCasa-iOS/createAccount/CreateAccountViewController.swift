@@ -22,39 +22,46 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
     @IBOutlet weak var passwordError: UILabel!
     @IBOutlet weak var termsAndConditions: UISwitch!
     
+    var loadingView : UIView?
+    
     var provider:Provider!
-    var affiliateList:[Affiliate] = Array()
+    var affiliate:Affiliate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.passwordText.delegate = self
+        self.mailText.delegate = self
+        self.affiliateNumberText.delegate = self
+        self.repeatePasswordText.delegate = self
         self.finalizeButton.isEnabled = false
         self.repeatPasswordError.isHidden = true
         self.mailError.isHidden = true
         self.passwordError.isHidden = true
     }
    
-    @IBAction func clear(_ sender: Any) {
-        self.affiliateNumberText.text = ""
-        self.affiliateList = Array()
-        self.finalizeButton.isEnabled = false
-    }
-
-    @IBAction func onAffiliateNumberChange(_ sender: Any) {
+    @IBAction func endEditingAffiliateNumber(_ sender: Any) {
         if let affiliateNumber = affiliateNumberText.text {
-            if(!affiliateNumber.isEmpty && affiliateNumber.count > 3){
-                if self.affiliateList.count > 0 {
-                    let fullName = affiliateList[0].firstName! + " " + affiliateList[0].lastName!
+            if(affiliateNumber.count > 1){
+                if let affiliate = self.affiliate {
+                    let fullName = affiliate.firstName! + " " + affiliate.lastName!
                     let tempValue = "\(affiliateNumber) - \(fullName)"
                     if affiliateNumber == tempValue {
                         return
                     }
                 }
-               getAffiliate();
+                getAffiliate();
             } else {
                 self.finalizeButton.isEnabled = false
             }
         }
     }
+    
+    @IBAction func clear(_ sender: Any) {
+        self.affiliateNumberText.text = ""
+        self.affiliate = nil
+        self.finalizeButton.isEnabled = false
+    }
+
     
     @IBAction func finalize(_ sender: Any) {
         self.mailError.isHidden = true
@@ -66,7 +73,7 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
             return
         }
         
-        if mailText.text == nil || !isValidMail(email: mailText.text!) {
+        if mailText.text == nil || !Util.isValidMail(email: mailText.text!) {
             self.mailError.isHidden = false
             return
         }
@@ -85,7 +92,7 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
             showMissmatchPasswords()
             return
         }
-        
+        self.loadingView = UIViewController.displaySpinner(onView: self.view)
         createUser()
     }
     
@@ -104,12 +111,6 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
         alert.addAction(actionAcept)
         self.present(alert, animated: true, completion: nil)
     }
-    
-    func isValidMail(email : String) -> Bool{
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluate(with: email)
-    }
 
     //MARK: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -121,10 +122,15 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+    }
+    
     func getAffiliate(){
         let affiliateNumber = affiliateNumberText.text!
         let providerId = String(provider.id)
-        let urlString = String((Constants.API.APIBaseURL + "provider/" + providerId + "/group/" + affiliateNumber).split(separator: " ")[0])
+        let urlString = String((Constants.API.APIBaseURL + "provider/" + providerId + "/group/" + affiliateNumber).split(separator: " ")[0] + "/owner")
         let url:URL = URL(string: urlString)!
         var getRequest = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 30.0)
         getRequest.httpMethod = Constants.HTTPMethods.get
@@ -137,7 +143,9 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
             func displayError(_ error: String) {
                 print(error)
                 print("URL at time of error: \(url)")
-                // remove loading
+                DispatchQueue.main.async(execute: {
+                    self.finalizeButton.isEnabled = false
+                })
             }
             
             /* GUARD: Was there an error? */
@@ -159,16 +167,16 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
             }
             
             // parse the data
-            let parsedResult: [Affiliate]!
+            let parsedResult: Affiliate!
             do {
-                parsedResult = try JSONDecoder().decode([Affiliate].self, from: data)
+                parsedResult = try JSONDecoder().decode(Affiliate.self, from: data)
             } catch {
                 displayError("Could not parse the data as JSON: '\(data)'")
                 return
             }
             
             DispatchQueue.main.async(execute: {
-                self.affiliateList = parsedResult
+                self.affiliate = parsedResult
                 self.afterGetAffiliates()
             })
             
@@ -177,8 +185,7 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
     }
     
     func afterGetAffiliates(){
-        if self.affiliateList.count > 0{
-            let affiliate = self.affiliateList[0]
+        if let affiliate = self.affiliate{
             let fullName = "\(String(describing: affiliate.firstName!)) \(String(describing: affiliate.lastName!))"
             let affiliateNumberTemp = String(self.affiliateNumberText.text!.split(separator: " ")[0])
             self.affiliateNumberText.text = "\(affiliateNumberTemp) - \(fullName)"
@@ -204,6 +211,7 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
             request.httpBody = data
         } catch {
             print("Error: cannot create JSON from credentials")
+            UIViewController.removeSpinner(spinner: self.loadingView!)
             return
         }
         
@@ -213,24 +221,29 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
             func displayError(_ error: String) {
                 print(error)
                 print("URL at time of error: \(url)")
-                // remove loading
+                 DispatchQueue.main.async(execute: {
+                    self.showErrorDialog()
+                 })
             }
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
                 displayError("There was an error with your request: \(error!)")
+                UIViewController.removeSpinner(spinner: self.loadingView!)
                 return
             }
             
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 displayError("Your request returned a status code other than 2xx!")
+                UIViewController.removeSpinner(spinner: self.loadingView!)
                 return
             }
             
             /* GUARD: Was there any data returned? */
             guard let data = data else {
                 displayError("No data was returned by the request!")
+                UIViewController.removeSpinner(spinner: self.loadingView!)
                 return
             }
             
@@ -240,10 +253,13 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
                 parsedResult = try JSONDecoder().decode(UserInfo.self, from: data)
             } catch {
                 displayError("Could not parse the data as JSON: '\(data)'")
+                UIViewController.removeSpinner(spinner: self.loadingView!)
                 return
             }
             
             DispatchQueue.main.async(execute: {
+                UIViewController.removeSpinner(spinner: self.loadingView!)
+                
                 UserDefaults.standard.set(parsedResult.token, forKey: NavigationUtil.DATA.tokenKey)
                 self.navigationController?.popViewController(animated: true)
                 self.dismiss(animated: true, completion: nil)
@@ -255,6 +271,16 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
             
             
         }).resume() 
+    }
+    
+    func showErrorDialog(){
+        let alert : UIAlertController = UIAlertController(title: "Error", message: "Hubo un error creando tu usuario. Por favor, intentalo en un momento.", preferredStyle: .alert)
+        alert.isModalInPopover = true
+        let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in
+             alert.dismiss(animated: true, completion: {});
+        }
+        alert.addAction(actionAcept)
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

@@ -13,6 +13,7 @@ struct NavigationUtil {
     // MARK: App Data
     struct DATA {
         static let tokenKey = "token"
+        static let provider = "provider"
     }
     
     // MARK: NAVIGATE
@@ -23,6 +24,8 @@ struct NavigationUtil {
         static let showForgotPassword = "showForgotPassword"
         static let createAccountNavigation = "createAccountNavigation"
         static let showCreateAccountForm = "showCreateAccountForm"
+        static let showNewCall = "showNewCall"
+        static let showRank = "showRank"
         static let main = "main"
     }
     

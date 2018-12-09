@@ -64,6 +64,7 @@ class SettingsViewController : UIViewController {
     func doLogout(){
         //Clear user's token
         UserDefaults.standard.removeObject(forKey: NavigationUtil.DATA.tokenKey)
+        UserDefaults.standard.removeObject(forKey: NavigationUtil.DATA.provider)
         
         //Dismiss this VC
         self.navigationController?.popViewController(animated: true)

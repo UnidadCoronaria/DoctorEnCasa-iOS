@@ -12,12 +12,14 @@ class SelectProviderViewController: UITableViewController {
     
     var providers = [Provider]()
     var selectedProvider:Provider!
+    var loadingView : UIView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        self.loadingView = UIViewController.displaySpinner(onView: self.view)
+        
         tableView.separatorColor = UIColor.gray
         tableView.isHidden = true
-
         //create  navigation bar filter button
         let backButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(doBack))
         self.navigationItem.leftBarButtonItem = backButton
@@ -89,24 +91,29 @@ class SelectProviderViewController: UITableViewController {
             func displayError(_ error: String) {
                 print(error)
                 print("URL at time of error: \(url)")
-                // remove loading
             }
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
                 displayError("There was an error with your request: \(error!)")
+                UIViewController.removeSpinner(spinner: self.loadingView!)
+                self.showError()
                 return
             }
             
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 displayError("Your request returned a status code other than 2xx!")
+                UIViewController.removeSpinner(spinner: self.loadingView!)
+                self.showError()
                 return
             }
             
             /* GUARD: Was there any data returned? */
             guard let data = data else {
                 displayError("No data was returned by the request!")
+                UIViewController.removeSpinner(spinner: self.loadingView!)
+                self.showError()
                 return
             }
             
@@ -116,16 +123,33 @@ class SelectProviderViewController: UITableViewController {
                 parsedResult = try JSONDecoder().decode([Provider].self, from: data)
             } catch {
                 displayError("Could not parse the data as JSON: '\(data)'")
+                UIViewController.removeSpinner(spinner: self.loadingView!)
+                self.showError()
                 return
             }
             
             DispatchQueue.main.async(execute: {
                 self.providers += parsedResult
                 self.tableView.reloadData()
+                UIViewController.removeSpinner(spinner: self.loadingView!)
                 self.tableView.isHidden = false
             })
             
             
         }).resume()
+    }
+
+    private func showError(){
+        DispatchQueue.main.async(execute: {
+            self.tableView.isHidden = true
+            let alert : UIAlertController = UIAlertController(title: "Error", message: "Hubo un error obteniendo la lista de empresas, por favor intentá más tarde", preferredStyle: .alert)
+            alert.isModalInPopover = true
+            let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in
+                self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true, completion: nil)
+            }
+            alert.addAction(actionAcept)
+            self.present(alert, animated: true, completion: nil)
+        })
     }
 }

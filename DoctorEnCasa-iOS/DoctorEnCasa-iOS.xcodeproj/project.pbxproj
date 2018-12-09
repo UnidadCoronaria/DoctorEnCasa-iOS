@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C634441394AFDF55FA0DDE5 /* libPods-DoctorEnCasa-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A89E854085CCCA6278CF6F /* libPods-DoctorEnCasa-iOS.a */; };
 		2E3C0530214E077A00C7A225 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C052F214E077A00C7A225 /* SettingsViewController.swift */; };
 		2E3C05322156FFC100C7A225 /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C05312156FFC100C7A225 /* TermsAndConditionsViewController.swift */; };
 		2E3C0534215884C900C7A225 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C0533215884C900C7A225 /* ChangePasswordViewController.swift */; };
 		2E3C05372159D2C100C7A225 /* VideocallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C05362159D2C100C7A225 /* VideocallViewController.swift */; };
 		2E3C05392159D6A600C7A225 /* AffiliateCallHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C05382159D6A600C7A225 /* AffiliateCallHistory.swift */; };
 		2E3C053B2159D97200C7A225 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C053A2159D97200C7A225 /* Queue.swift */; };
+		2E5F0AF8218FB37F00296FF1 /* RankCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F0AF7218FB37F00296FF1 /* RankCallViewController.swift */; };
+		2E5F0AFA218FE56C00296FF1 /* VideocallRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F0AF9218FE56C00296FF1 /* VideocallRank.swift */; };
+		2E81800B219B910500258E1A /* AffiliateFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE1FD1E2197D6B7008D2E84 /* AffiliateFilter.swift */; };
+		2E81800C219B910D00258E1A /* UIViewController+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE1FD202198B218008D2E84 /* UIViewController+Loading.swift */; };
 		2E8CD7B32134DF8B00174696 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7B22134DF8B00174696 /* NavigationUtil.swift */; };
 		2E8CD7B5213632CC00174696 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E8CD7B4213632CC00174696 /* Login.storyboard */; };
 		2E8CD7B721377F6A00174696 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7B621377F6A00174696 /* ForgotPasswordViewController.swift */; };
@@ -21,6 +26,49 @@
 		2E8CD7BE213B91D100174696 /* SelectProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7BD213B91D100174696 /* SelectProviderViewController.swift */; };
 		2E8CD7C0213C8D0700174696 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7BF213C8D0700174696 /* CreateAccountViewController.swift */; };
 		2E8CD7C3214B4C4000174696 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7C2214B4C4000174696 /* NewsViewController.swift */; };
+		2EB18C53218A5DED0029DB0A /* NewCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB18C52218A5DED0029DB0A /* NewCallViewController.swift */; };
+		2ED5D5D021894BB300CB0C9B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2ED5D5CF21894BB300CB0C9B /* Podfile */; };
+		2EE1FCE921970194008D2E84 /* AffiliateCallHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C05382159D6A600C7A225 /* AffiliateCallHistory.swift */; };
+		2EE1FCEA21970194008D2E84 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7BF213C8D0700174696 /* CreateAccountViewController.swift */; };
+		2EE1FCEB21970194008D2E84 /* MedicalRecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D661D2071E95900423942 /* MedicalRecordTableViewController.swift */; };
+		2EE1FCEC21970194008D2E84 /* VideocallRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F0AF9218FE56C00296FF1 /* VideocallRank.swift */; };
+		2EE1FCED21970194008D2E84 /* Videocall.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB173A1A20CE1BB50048F642 /* Videocall.swift */; };
+		2EE1FCEE21970194008D2E84 /* RankCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F0AF7218FB37F00296FF1 /* RankCallViewController.swift */; };
+		2EE1FCEF21970194008D2E84 /* VideocallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C05362159D2C100C7A225 /* VideocallViewController.swift */; };
+		2EE1FCF021970194008D2E84 /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C05312156FFC100C7A225 /* TermsAndConditionsViewController.swift */; };
+		2EE1FCF121970194008D2E84 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF33088204A5E91009DABDD /* LoginViewController.swift */; };
+		2EE1FCF221970194008D2E84 /* SelectProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7BD213B91D100174696 /* SelectProviderViewController.swift */; };
+		2EE1FCF321970194008D2E84 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE3164320CC725D0041B57E /* Constant.swift */; };
+		2EE1FCF421970194008D2E84 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE71F9E21080E0A006D3540 /* UserInfo.swift */; };
+		2EE1FCF521970194008D2E84 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4F5FEF207088D10011BBD4 /* Credential.swift */; };
+		2EE1FCF621970194008D2E84 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C0533215884C900C7A225 /* ChangePasswordViewController.swift */; };
+		2EE1FCF721970194008D2E84 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4F072620CE21AB00A23FF9 /* Doctor.swift */; };
+		2EE1FCF821970194008D2E84 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4F072820D0A4D400A23FF9 /* Util.swift */; };
+		2EE1FCF921970194008D2E84 /* MedicalRecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D66202072ACCF00423942 /* MedicalRecordDetailViewController.swift */; };
+		2EE1FCFA21970194008D2E84 /* MedicalRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D66192071DF8F00423942 /* MedicalRecord.swift */; };
+		2EE1FCFB21970194008D2E84 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C053A2159D97200C7A225 /* Queue.swift */; };
+		2EE1FCFC21970194008D2E84 /* MedicalRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D661B2071E6F100423942 /* MedicalRecordTableViewCell.swift */; };
+		2EE1FCFD21970194008D2E84 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C052F214E077A00C7A225 /* SettingsViewController.swift */; };
+		2EE1FCFE21970194008D2E84 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4F072420CE213F00A23FF9 /* Provider.swift */; };
+		2EE1FCFF21970194008D2E84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF33086204A5E91009DABDD /* AppDelegate.swift */; };
+		2EE1FD0021970194008D2E84 /* ProviderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7BB213B8EE500174696 /* ProviderTableViewCell.swift */; };
+		2EE1FD0121970194008D2E84 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7B621377F6A00174696 /* ForgotPasswordViewController.swift */; };
+		2EE1FD0221970194008D2E84 /* NewCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB18C52218A5DED0029DB0A /* NewCallViewController.swift */; };
+		2EE1FD0321970194008D2E84 /* Reason.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB173A1820CE1AF40048F642 /* Reason.swift */; };
+		2EE1FD0421970194008D2E84 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7C2214B4C4000174696 /* NewsViewController.swift */; };
+		2EE1FD0521970194008D2E84 /* Affiliate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4F072220CE202900A23FF9 /* Affiliate.swift */; };
+		2EE1FD0621970194008D2E84 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7B22134DF8B00174696 /* NavigationUtil.swift */; };
+		2EE1FD0821970194008D2E84 /* libPods-DoctorEnCasa-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A89E854085CCCA6278CF6F /* libPods-DoctorEnCasa-iOS.a */; };
+		2EE1FD0A21970194008D2E84 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2ED5D5CF21894BB300CB0C9B /* Podfile */; };
+		2EE1FD0B21970194008D2E84 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E8CD7B4213632CC00174696 /* Login.storyboard */; };
+		2EE1FD0C21970194008D2E84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBF3308F204A5E91009DABDD /* LaunchScreen.storyboard */; };
+		2EE1FD0E21970194008D2E84 /* CreateAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E8CD7B8213B8B0E00174696 /* CreateAccount.storyboard */; };
+		2EE1FD0F21970194008D2E84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBF3308D204A5E91009DABDD /* Assets.xcassets */; };
+		2EE1FD1021970194008D2E84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBF3308A204A5E91009DABDD /* Main.storyboard */; };
+		2EE1FD1C2197022E008D2E84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E5F0AF3218D115900296FF1 /* GoogleService-Info.plist */; };
+		2EE1FD1D21970239008D2E84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EE1FD1B219701F8008D2E84 /* GoogleService-Info.plist */; };
+		2EE1FD1F2197D6B7008D2E84 /* AffiliateFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE1FD1E2197D6B7008D2E84 /* AffiliateFilter.swift */; };
+		2EE1FD212198B218008D2E84 /* UIViewController+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE1FD202198B218008D2E84 /* UIViewController+Loading.swift */; };
 		FB173A1920CE1AF40048F642 /* Reason.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB173A1820CE1AF40048F642 /* Reason.swift */; };
 		FB173A1B20CE1BB50048F642 /* Videocall.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB173A1A20CE1BB50048F642 /* Videocall.swift */; };
 		FB1D661A2071DF8F00423942 /* MedicalRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D66192071DF8F00423942 /* MedicalRecord.swift */; };
@@ -48,6 +96,9 @@
 		2E3C05362159D2C100C7A225 /* VideocallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideocallViewController.swift; sourceTree = "<group>"; };
 		2E3C05382159D6A600C7A225 /* AffiliateCallHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffiliateCallHistory.swift; sourceTree = "<group>"; };
 		2E3C053A2159D97200C7A225 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		2E5F0AF3218D115900296FF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "DoctorEnCasa-iOS/Firebase/prod/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		2E5F0AF7218FB37F00296FF1 /* RankCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankCallViewController.swift; sourceTree = "<group>"; };
+		2E5F0AF9218FE56C00296FF1 /* VideocallRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideocallRank.swift; sourceTree = "<group>"; };
 		2E8CD7B22134DF8B00174696 /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
 		2E8CD7B4213632CC00174696 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		2E8CD7B621377F6A00174696 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +107,17 @@
 		2E8CD7BD213B91D100174696 /* SelectProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProviderViewController.swift; sourceTree = "<group>"; };
 		2E8CD7BF213C8D0700174696 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		2E8CD7C2214B4C4000174696 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		2EB18C52218A5DED0029DB0A /* NewCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCallViewController.swift; sourceTree = "<group>"; };
+		2ED5D5CF21894BB300CB0C9B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		2EE1FCE32193ECE6008D2E84 /* DoctorEnCasa-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "DoctorEnCasa-iOS.entitlements"; sourceTree = "<group>"; };
+		2EE1FD1621970194008D2E84 /* DoctorEnCasa-iOS-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DoctorEnCasa-iOS-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EE1FD1721970194008D2E84 /* DoctorEnCasa-iOS-Test.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DoctorEnCasa-iOS-Test.plist"; path = "/Users/agustin.bala/Desktop/Personal/UCMQ/Doctor en Casa/DoctorEnCasa-iOS/DoctorEnCasa-iOS/DoctorEnCasa-iOS-Test.plist"; sourceTree = "<absolute>"; };
+		2EE1FD1B219701F8008D2E84 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2EE1FD1E2197D6B7008D2E84 /* AffiliateFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffiliateFilter.swift; sourceTree = "<group>"; };
+		2EE1FD202198B218008D2E84 /* UIViewController+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Loading.swift"; sourceTree = "<group>"; };
+		6C2801E2137B8B9572653478 /* Pods-DoctorEnCasa-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorEnCasa-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorEnCasa-iOS/Pods-DoctorEnCasa-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		C65414D7B3B570933350DC2A /* Pods-DoctorEnCasa-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorEnCasa-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorEnCasa-iOS/Pods-DoctorEnCasa-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D6A89E854085CCCA6278CF6F /* libPods-DoctorEnCasa-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DoctorEnCasa-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB173A1820CE1AF40048F642 /* Reason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reason.swift; sourceTree = "<group>"; };
 		FB173A1A20CE1BB50048F642 /* Videocall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Videocall.swift; sourceTree = "<group>"; };
 		FB1D66192071DF8F00423942 /* MedicalRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecord.swift; sourceTree = "<group>"; };
@@ -79,10 +141,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2EE1FD0721970194008D2E84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EE1FD0821970194008D2E84 /* libPods-DoctorEnCasa-iOS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FBF33080204A5E91009DABDD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C634441394AFDF55FA0DDE5 /* libPods-DoctorEnCasa-iOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				2E3C05362159D2C100C7A225 /* VideocallViewController.swift */,
+				2EB18C52218A5DED0029DB0A /* NewCallViewController.swift */,
+				2E5F0AF7218FB37F00296FF1 /* RankCallViewController.swift */,
 			);
 			path = videocall;
 			sourceTree = "<group>";
@@ -123,6 +196,48 @@
 				2E8CD7C2214B4C4000174696 /* NewsViewController.swift */,
 			);
 			path = news;
+			sourceTree = "<group>";
+		};
+		2EE1FD18219701E0008D2E84 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				2EE1FD1A219701EE008D2E84 /* prod */,
+				2EE1FD19219701E6008D2E84 /* test */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		2EE1FD19219701E6008D2E84 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				2EE1FD1B219701F8008D2E84 /* GoogleService-Info.plist */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+		2EE1FD1A219701EE008D2E84 /* prod */ = {
+			isa = PBXGroup;
+			children = (
+				2E5F0AF3218D115900296FF1 /* GoogleService-Info.plist */,
+			);
+			path = prod;
+			sourceTree = "<group>";
+		};
+		5802BFAEA07C4D0201798915 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C65414D7B3B570933350DC2A /* Pods-DoctorEnCasa-iOS.debug.xcconfig */,
+				6C2801E2137B8B9572653478 /* Pods-DoctorEnCasa-iOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F6D3BAC933EE69C30F4A83EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D6A89E854085CCCA6278CF6F /* libPods-DoctorEnCasa-iOS.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		FB1D661F2071E98400423942 /* medicalRecord */ = {
@@ -157,6 +272,8 @@
 				FBE71F9E21080E0A006D3540 /* UserInfo.swift */,
 				2E3C05382159D6A600C7A225 /* AffiliateCallHistory.swift */,
 				2E3C053A2159D97200C7A225 /* Queue.swift */,
+				2E5F0AF9218FE56C00296FF1 /* VideocallRank.swift */,
+				2EE1FD1E2197D6B7008D2E84 /* AffiliateFilter.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -167,6 +284,7 @@
 				FBE3164320CC725D0041B57E /* Constant.swift */,
 				FB4F072820D0A4D400A23FF9 /* Util.swift */,
 				2E8CD7B22134DF8B00174696 /* NavigationUtil.swift */,
+				2EE1FD202198B218008D2E84 /* UIViewController+Loading.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -174,8 +292,12 @@
 		FBF3307A204A5E91009DABDD = {
 			isa = PBXGroup;
 			children = (
+				2ED5D5CF21894BB300CB0C9B /* Podfile */,
 				FBF33085204A5E91009DABDD /* DoctorEnCasa-iOS */,
 				FBF33084204A5E91009DABDD /* Products */,
+				5802BFAEA07C4D0201798915 /* Pods */,
+				F6D3BAC933EE69C30F4A83EF /* Frameworks */,
+				2EE1FD1721970194008D2E84 /* DoctorEnCasa-iOS-Test.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				FBF33083204A5E91009DABDD /* DoctorEnCasa-iOS.app */,
+				2EE1FD1621970194008D2E84 /* DoctorEnCasa-iOS-Test.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -190,6 +313,8 @@
 		FBF33085204A5E91009DABDD /* DoctorEnCasa-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				2EE1FD18219701E0008D2E84 /* Firebase */,
+				2EE1FCE32193ECE6008D2E84 /* DoctorEnCasa-iOS.entitlements */,
 				2E3C05352159D2B000C7A225 /* videocall */,
 				2E3C052E214E076000C7A225 /* settings */,
 				2E8CD7C1214B4BEF00174696 /* news */,
@@ -212,13 +337,34 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2EE1FCE621970194008D2E84 /* DoctorEnCasa-iOS-Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EE1FD1321970194008D2E84 /* Build configuration list for PBXNativeTarget "DoctorEnCasa-iOS-Test" */;
+			buildPhases = (
+				2EE1FCE721970194008D2E84 /* [CP] Check Pods Manifest.lock */,
+				2EE1FCE821970194008D2E84 /* Sources */,
+				2EE1FD0721970194008D2E84 /* Frameworks */,
+				2EE1FD0921970194008D2E84 /* Resources */,
+				2EE1FD1221970194008D2E84 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DoctorEnCasa-iOS-Test";
+			productName = "DoctorEnCasa-iOS";
+			productReference = 2EE1FD1621970194008D2E84 /* DoctorEnCasa-iOS-Test.app */;
+			productType = "com.apple.product-type.application";
+		};
 		FBF33082204A5E91009DABDD /* DoctorEnCasa-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FBF33095204A5E91009DABDD /* Build configuration list for PBXNativeTarget "DoctorEnCasa-iOS" */;
 			buildPhases = (
+				64D60DBF03509190A75268E7 /* [CP] Check Pods Manifest.lock */,
 				FBF3307F204A5E91009DABDD /* Sources */,
 				FBF33080204A5E91009DABDD /* Frameworks */,
 				FBF33081204A5E91009DABDD /* Resources */,
+				DD6B67CC627440C268FD7226 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -239,9 +385,20 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Agustin;
 				TargetAttributes = {
+					2EE1FCE621970194008D2E84 = {
+						ProvisioningStyle = Automatic;
+					};
 					FBF33082204A5E91009DABDD = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -259,15 +416,32 @@
 			projectRoot = "";
 			targets = (
 				FBF33082204A5E91009DABDD /* DoctorEnCasa-iOS */,
+				2EE1FCE621970194008D2E84 /* DoctorEnCasa-iOS-Test */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2EE1FD0921970194008D2E84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EE1FD1D21970239008D2E84 /* GoogleService-Info.plist in Resources */,
+				2EE1FD0A21970194008D2E84 /* Podfile in Resources */,
+				2EE1FD0B21970194008D2E84 /* Login.storyboard in Resources */,
+				2EE1FD0C21970194008D2E84 /* LaunchScreen.storyboard in Resources */,
+				2EE1FD0E21970194008D2E84 /* CreateAccount.storyboard in Resources */,
+				2EE1FD0F21970194008D2E84 /* Assets.xcassets in Resources */,
+				2EE1FD1021970194008D2E84 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FBF33081204A5E91009DABDD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EE1FD1C2197022E008D2E84 /* GoogleService-Info.plist in Resources */,
+				2ED5D5D021894BB300CB0C9B /* Podfile in Resources */,
 				2E8CD7B5213632CC00174696 /* Login.storyboard in Resources */,
 				FBF33091204A5E91009DABDD /* LaunchScreen.storyboard in Resources */,
 				2E8CD7B9213B8B0E00174696 /* CreateAccount.storyboard in Resources */,
@@ -278,7 +452,137 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2EE1FCE721970194008D2E84 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DoctorEnCasa-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2EE1FD1221970194008D2E84 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DoctorEnCasa-iOS/Pods-DoctorEnCasa-iOS-frameworks.sh",
+				"${PODS_ROOT}/TwilioVideo/Build/iOS/TwilioVideo.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwilioVideo.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoctorEnCasa-iOS/Pods-DoctorEnCasa-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64D60DBF03509190A75268E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DoctorEnCasa-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD6B67CC627440C268FD7226 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DoctorEnCasa-iOS/Pods-DoctorEnCasa-iOS-frameworks.sh",
+				"${PODS_ROOT}/TwilioVideo/Build/iOS/TwilioVideo.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwilioVideo.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoctorEnCasa-iOS/Pods-DoctorEnCasa-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		2EE1FCE821970194008D2E84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EE1FCE921970194008D2E84 /* AffiliateCallHistory.swift in Sources */,
+				2EE1FCEA21970194008D2E84 /* CreateAccountViewController.swift in Sources */,
+				2EE1FCEB21970194008D2E84 /* MedicalRecordTableViewController.swift in Sources */,
+				2EE1FCEC21970194008D2E84 /* VideocallRank.swift in Sources */,
+				2EE1FCED21970194008D2E84 /* Videocall.swift in Sources */,
+				2EE1FCEE21970194008D2E84 /* RankCallViewController.swift in Sources */,
+				2EE1FCEF21970194008D2E84 /* VideocallViewController.swift in Sources */,
+				2EE1FCF021970194008D2E84 /* TermsAndConditionsViewController.swift in Sources */,
+				2EE1FCF121970194008D2E84 /* LoginViewController.swift in Sources */,
+				2EE1FCF221970194008D2E84 /* SelectProviderViewController.swift in Sources */,
+				2EE1FCF321970194008D2E84 /* Constant.swift in Sources */,
+				2EE1FCF421970194008D2E84 /* UserInfo.swift in Sources */,
+				2EE1FCF521970194008D2E84 /* Credential.swift in Sources */,
+				2EE1FCF621970194008D2E84 /* ChangePasswordViewController.swift in Sources */,
+				2EE1FCF721970194008D2E84 /* Doctor.swift in Sources */,
+				2EE1FCF821970194008D2E84 /* Util.swift in Sources */,
+				2E81800B219B910500258E1A /* AffiliateFilter.swift in Sources */,
+				2EE1FCF921970194008D2E84 /* MedicalRecordDetailViewController.swift in Sources */,
+				2EE1FCFA21970194008D2E84 /* MedicalRecord.swift in Sources */,
+				2EE1FCFB21970194008D2E84 /* Queue.swift in Sources */,
+				2EE1FCFC21970194008D2E84 /* MedicalRecordTableViewCell.swift in Sources */,
+				2EE1FCFD21970194008D2E84 /* SettingsViewController.swift in Sources */,
+				2EE1FCFE21970194008D2E84 /* Provider.swift in Sources */,
+				2EE1FCFF21970194008D2E84 /* AppDelegate.swift in Sources */,
+				2EE1FD0021970194008D2E84 /* ProviderTableViewCell.swift in Sources */,
+				2EE1FD0121970194008D2E84 /* ForgotPasswordViewController.swift in Sources */,
+				2EE1FD0221970194008D2E84 /* NewCallViewController.swift in Sources */,
+				2EE1FD0321970194008D2E84 /* Reason.swift in Sources */,
+				2EE1FD0421970194008D2E84 /* NewsViewController.swift in Sources */,
+				2EE1FD0521970194008D2E84 /* Affiliate.swift in Sources */,
+				2EE1FD0621970194008D2E84 /* NavigationUtil.swift in Sources */,
+				2E81800C219B910D00258E1A /* UIViewController+Loading.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FBF3307F204A5E91009DABDD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -286,7 +590,9 @@
 				2E3C05392159D6A600C7A225 /* AffiliateCallHistory.swift in Sources */,
 				2E8CD7C0213C8D0700174696 /* CreateAccountViewController.swift in Sources */,
 				FB1D661E2071E95900423942 /* MedicalRecordTableViewController.swift in Sources */,
+				2E5F0AFA218FE56C00296FF1 /* VideocallRank.swift in Sources */,
 				FB173A1B20CE1BB50048F642 /* Videocall.swift in Sources */,
+				2E5F0AF8218FB37F00296FF1 /* RankCallViewController.swift in Sources */,
 				2E3C05372159D2C100C7A225 /* VideocallViewController.swift in Sources */,
 				2E3C05322156FFC100C7A225 /* TermsAndConditionsViewController.swift in Sources */,
 				FBF33089204A5E91009DABDD /* LoginViewController.swift in Sources */,
@@ -297,6 +603,7 @@
 				2E3C0534215884C900C7A225 /* ChangePasswordViewController.swift in Sources */,
 				FB4F072720CE21AB00A23FF9 /* Doctor.swift in Sources */,
 				FB4F072920D0A4D400A23FF9 /* Util.swift in Sources */,
+				2EE1FD1F2197D6B7008D2E84 /* AffiliateFilter.swift in Sources */,
 				FB1D66212072ACCF00423942 /* MedicalRecordDetailViewController.swift in Sources */,
 				FB1D661A2071DF8F00423942 /* MedicalRecord.swift in Sources */,
 				2E3C053B2159D97200C7A225 /* Queue.swift in Sources */,
@@ -306,10 +613,12 @@
 				FBF33087204A5E91009DABDD /* AppDelegate.swift in Sources */,
 				2E8CD7BC213B8EE500174696 /* ProviderTableViewCell.swift in Sources */,
 				2E8CD7B721377F6A00174696 /* ForgotPasswordViewController.swift in Sources */,
+				2EB18C53218A5DED0029DB0A /* NewCallViewController.swift in Sources */,
 				FB173A1920CE1AF40048F642 /* Reason.swift in Sources */,
 				2E8CD7C3214B4C4000174696 /* NewsViewController.swift in Sources */,
 				FB4F072320CE202900A23FF9 /* Affiliate.swift in Sources */,
 				2E8CD7B32134DF8B00174696 /* NavigationUtil.swift in Sources */,
+				2EE1FD212198B218008D2E84 /* UIViewController+Loading.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +644,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2EE1FD1421970194008D2E84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C65414D7B3B570933350DC2A /* Pods-DoctorEnCasa-iOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "DoctorEnCasa-iOS/DoctorEnCasa-iOS.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L5P4M56776;
+				INFOPLIST_FILE = "DoctorEnCasa-iOS-Test.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ucmq.doctorencasa;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2EE1FD1521970194008D2E84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C2801E2137B8B9572653478 /* Pods-DoctorEnCasa-iOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "DoctorEnCasa-iOS/DoctorEnCasa-iOS.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L5P4M56776;
+				INFOPLIST_FILE = "DoctorEnCasa-iOS-Test.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ucmq.doctorencasa;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		FBF33093204A5E91009DABDD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -448,15 +797,19 @@
 		};
 		FBF33096204A5E91009DABDD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C65414D7B3B570933350DC2A /* Pods-DoctorEnCasa-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "DoctorEnCasa-iOS/DoctorEnCasa-iOS.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L5P4M56776;
 				INFOPLIST_FILE = "DoctorEnCasa-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ucmq.doctorencasa.DoctorEnCasa-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ucmq.doctorencasa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -464,15 +817,19 @@
 		};
 		FBF33097204A5E91009DABDD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C2801E2137B8B9572653478 /* Pods-DoctorEnCasa-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "DoctorEnCasa-iOS/DoctorEnCasa-iOS.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L5P4M56776;
 				INFOPLIST_FILE = "DoctorEnCasa-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ucmq.doctorencasa.DoctorEnCasa-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ucmq.doctorencasa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -481,6 +838,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2EE1FD1321970194008D2E84 /* Build configuration list for PBXNativeTarget "DoctorEnCasa-iOS-Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EE1FD1421970194008D2E84 /* Debug */,
+				2EE1FD1521970194008D2E84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FBF3307E204A5E91009DABDD /* Build configuration list for PBXProject "DoctorEnCasa-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

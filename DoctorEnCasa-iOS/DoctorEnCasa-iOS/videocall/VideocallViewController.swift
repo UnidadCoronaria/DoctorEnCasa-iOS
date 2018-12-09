@@ -43,6 +43,13 @@ class VideocallViewController : UIViewController {
             self.token = token
         }
 
+        if UserDefaults.standard.value(forKey: "passwordExpired") != nil {
+            if (UserDefaults.standard.value(forKey: "passwordExpired") as? Bool)! {
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyBoard.instantiateViewController(withIdentifier: "changePasswordVC")
+                UIApplication.shared.keyWindow?.rootViewController = vc
+            }
+        }
         
         //SEND TOKEN POR LAS DUDAS
         
@@ -54,6 +61,7 @@ class VideocallViewController : UIViewController {
     
     @IBAction func beNext(_ sender: Any) {
         self.createCall()
+        //self.performSegue(withIdentifier: NavigationUtil.NAVIGATE.showNewCall, sender: nil)
     }
     
     @objc func reload() {
@@ -272,17 +280,8 @@ class VideocallViewController : UIViewController {
             }
             
             /* GUARD: Was there any data returned? */
-            guard let data = data else {
+            guard data != nil else {
                 displayError("No data was returned by the request!")
-                return
-            }
-            
-            // parse the data
-            let parsedResult: Videocall!
-            do {
-                parsedResult = try JSONDecoder().decode(Videocall.self, from: data)
-            } catch {
-                displayError("Could not parse the data as JSON: '\(data)'")
                 return
             }
             

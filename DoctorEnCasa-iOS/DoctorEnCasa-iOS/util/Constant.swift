@@ -12,8 +12,7 @@ struct Constants {
     
     // MARK: API
     struct API {
-        static let APIBaseURL = "https://dec.ucmq.com:60630/doctorencasaapi/"
-        static let mockToken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZ3VzdGluYmFsYUBnbWFpbC5jb20iLCJhdWQiOiJ3ZWIiLCJleHAiOjE1MzI3MzkzNzYsImlhdCI6MTUzMjEzNDU3Nn0.mcXzIjo2E3ZUujL0g8VROn1odvaAaPuXn39Yh12Ld7Xh5f9e3WCRewsMowVppQQqg1KiC5Yu2P-XZ-i0--KIAA"
+        static let APIBaseURL : String = Bundle.main.object(forInfoDictionaryKey: "BaseURLKey") as! String
     }
     
     // MARK: Endpoints
@@ -27,15 +26,18 @@ struct Constants {
         static let userHistory = "user/history"
         static let queueStatus = "queue/status"
         static let videocall = "videocall"
+        static let updateTokenGCM = "user/updateTokenGCM"
+        static let rank = "videocall/ranking"
 
     }
     
     // MARK: Parameters
-    struct Parameters {
+    struct Parameters { 
         static let authorization = "Authorization"
         static let accept = "Accept"
         static let contentType = "Content-Type"
         static let jsonMimeType = "application/json"
+        static let tokenGCM = "TokenGCM"
         
     }
     

@@ -16,6 +16,7 @@ class ChangePasswordViewController : UIViewController, UITextFieldDelegate {
     @IBOutlet weak var newPasswordRepeatText: UITextField!
     @IBOutlet weak var changePasswordButton: UIButton!
     
+    var loadingView : UIView?
     
     @IBAction func changePassword(_ sender: Any) {
         
@@ -33,7 +34,7 @@ class ChangePasswordViewController : UIViewController, UITextFieldDelegate {
             showNotMatchingPasswords()
             return
         }
-        
+        self.loadingView = UIViewController.displaySpinner(onView: self.view)
         doChangePassword()
     }
 
@@ -45,6 +46,11 @@ class ChangePasswordViewController : UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
     }
     
     func doChangePassword(){
@@ -66,6 +72,7 @@ class ChangePasswordViewController : UIViewController, UITextFieldDelegate {
             request.httpBody = data
         } catch {
             print("Error: cannot create JSON from credentials")
+            UIViewController.removeSpinner(spinner: self.loadingView!)
             return
         }
         
@@ -75,40 +82,33 @@ class ChangePasswordViewController : UIViewController, UITextFieldDelegate {
             func displayError(_ error: String) {
                 print(error)
                 print("URL at time of error: \(url)")
-                // remove loading
             }
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
                 displayError("There was an error with your request: \(error!)")
+                UIViewController.removeSpinner(spinner: self.loadingView!)
                 return
             }
             
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 displayError("Your request returned a status code other than 2xx!")
-                DispatchQueue.main.async(execute: {
-                  
-                })
+                UIViewController.removeSpinner(spinner: self.loadingView!)
                 return
             }
             
             /* GUARD: Was there any data returned? */
-            guard let data = data else {
+            guard data != nil else {
                 displayError("No data was returned by the request!")
+                UIViewController.removeSpinner(spinner: self.loadingView!)
                 return
             }
             
-            // parse the data
-            let parsedResult: UserInfo!
-            do {
-                parsedResult = try JSONDecoder().decode(UserInfo.self, from: data)
-            } catch {
-                displayError("Could not parse the data as JSON: '\(data)'")
-                return
-            }
             DispatchQueue.main.async(execute: {
-                
+                UIViewController.removeSpinner(spinner: self.loadingView!)
+                UserDefaults.standard.set(false, forKey: "passwordExpired")
+
                 let alert : UIAlertController = UIAlertController(title: "Exito", message: "Se ha cambiado la contraeña correctamente.", preferredStyle: .alert)
                 alert.isModalInPopover = true
                 let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in

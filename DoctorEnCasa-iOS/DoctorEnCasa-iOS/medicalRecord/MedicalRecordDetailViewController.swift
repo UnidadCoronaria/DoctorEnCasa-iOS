@@ -29,7 +29,7 @@ class MedicalRecordDetailViewController: UIViewController {
         name.text = "Última consulta de \(detail.firstName!) \(detail.lastName!)"
         recommendation.text = String(describing: detail.recommendation)
         reasons.text = util?.parseReason(reasons: detail.reasons!)
-        doctor.text = "\(String(describing: detail.videocall.doctor?.firstName!)) \(String(describing: detail.videocall.doctor?.lastName!))"
+        doctor.text = (detail.videocall.doctor?.firstName)! + " " + (detail.videocall.doctor?.lastName)!
         anamnesis.text = detail.anamnesis
     }
 
