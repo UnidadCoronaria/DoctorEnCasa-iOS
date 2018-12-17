@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let storyBoard : UIStoryboard
         
+
         //Get token
         if let _ : String = UserDefaults.standard.value(forKey: NavigationUtil.DATA.tokenKey) as? String {
             storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -42,7 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func configureNotifications(_ application: UIApplication){
         FirebaseApp.configure()
        
-        
         Messaging.messaging().delegate = self
         
         if #available(iOS 10.0, *) {
@@ -62,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         
         // TODO CHEQUEAR SI LO NECESITO
-        //Messaging.messaging().shouldEstablishDirectChannel =  true
+        Messaging.messaging().shouldEstablishDirectChannel =  true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -175,7 +175,12 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
-        
+        // Print full message.
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = sb.instantiateViewController(withIdentifier: "newCall") as! NewCallViewController
+        viewController.accessToken = (userInfo["token"] as? String)!
+        viewController.roomName = userInfo["roomName"] as? String
+        window?.rootViewController = viewController;
         // Print full message.
         print(userInfo)
         
@@ -199,6 +204,19 @@ extension AppDelegate : MessagingDelegate {
     // To enable direct data messages, you can set Messaging.messaging().shouldEstablishDirectChannel to true.
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         print("Received data message: \(remoteMessage.appData)")
+        // Print full message.
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = sb.instantiateViewController(withIdentifier: "newCall") as! NewCallViewController
+        if let token = remoteMessage.appData["token"] as? String{
+             viewController.accessToken = token
+        } else {
+            return
+        }
+        
+        if let roomName = remoteMessage.appData["roomName"] as? String {
+            viewController.roomName = roomName
+        }
+        window?.rootViewController = viewController;
     }
     // [END ios_10_data_message]
 }

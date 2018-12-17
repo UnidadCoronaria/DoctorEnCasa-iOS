@@ -57,7 +57,25 @@ class SelectProviderViewController: UITableViewController {
         let provider = providers[indexPath.row]
         cell.nameText.text =  provider.name
         cell.descriptionText.text = provider.zones
+        cell.icon.image = UIImage(named: getIcon(providerId: provider.id))
         return cell
+    }
+    
+    private func getIcon (providerId : Int) -> String {
+        switch providerId {
+        case 1:
+            return "logo_unidad_coronaria"
+        case 2:
+            return "logo_emeca_salud"
+        case 3:
+            return "logo_ayuda_medica"
+        case 4:
+            return "logo_sume_salud"
+        case 5:
+            return "logo_ayuda_medica"
+        default:
+            return "logo_ayuda_medica"
+        }
     }
     
     

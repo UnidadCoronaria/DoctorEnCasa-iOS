@@ -81,8 +81,11 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3q6-Hf-qAw">
-                                                <rect key="frame" x="99" y="30" width="113" height="38.5"/>
+                                                <rect key="frame" x="99" y="30" width="113" height="40"/>
                                                 <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="1AO-oH-tRU"/>
+                                                </constraints>
                                                 <inset key="contentEdgeInsets" minX="20" minY="5" maxX="20" maxY="5"/>
                                                 <state key="normal" title="INGRESAR">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -92,7 +95,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Olvidaste tu contraseña?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nax-c9-e5G">
-                                                <rect key="frame" x="77" y="78.5" width="157" height="29.5"/>
+                                                <rect key="frame" x="77" y="80" width="157" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -120,7 +123,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SH0-Bc-t23"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Doctor en Casa" id="CjN-Fu-Odl"/>
+                    <navigationItem key="navigationItem" title="Doctor en Casa" id="CjN-Fu-Odl">
+                        <barButtonItem key="backBarButtonItem" title="Volver" id="0y5-px-qlk"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="createAccountText" destination="s3d-38-KPE" id="PwN-ZJ-Zr6"/>
                         <outlet property="error" destination="Ece-3g-WcY" id="u8x-nt-jwT"/>
@@ -147,7 +152,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recuperar contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiL-Sb-LeP">
                                 <rect key="frame" x="16" y="97" width="246" height="31.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mDx-PT-xtv">
@@ -156,30 +161,35 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ckR-xg-kgp">
-                                <rect key="frame" x="148" y="231" width="79" height="37"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
-                                <state key="normal" title="Enviar"/>
-                                <connections>
-                                    <action selector="sendMail:" destination="awl-ed-JdX" eventType="touchUpInside" id="X92-72-vyu"/>
-                                </connections>
-                            </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="El email ingresado es incorrecto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UsW-cw-1p5">
                                 <rect key="frame" x="16" y="198" width="206" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="1" green="0.28539819606077954" blue="0.13361175172243533" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paG-vM-eKE">
+                                <rect key="frame" x="131" y="239" width="113" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="T9I-1D-iPY"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="20" minY="5" maxX="20" maxY="5"/>
+                                <state key="normal" title="INGRESAR">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendMail:" destination="awl-ed-JdX" eventType="touchUpInside" id="Nao-KR-C3M"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="paG-vM-eKE" firstAttribute="centerX" secondItem="4Sy-nP-UkT" secondAttribute="centerX" id="2rZ-fh-EwH"/>
+                            <constraint firstItem="paG-vM-eKE" firstAttribute="top" secondItem="mDx-PT-xtv" secondAttribute="bottom" constant="49" id="6Dh-9o-RiD"/>
                             <constraint firstItem="UsW-cw-1p5" firstAttribute="leading" secondItem="Yy8-rf-8OI" secondAttribute="leading" constant="16" id="JU5-Mc-JwO"/>
                             <constraint firstItem="kiL-Sb-LeP" firstAttribute="leading" secondItem="Yy8-rf-8OI" secondAttribute="leading" constant="16" id="OZW-My-Hen"/>
                             <constraint firstItem="kiL-Sb-LeP" firstAttribute="top" secondItem="Yy8-rf-8OI" secondAttribute="top" constant="33" id="Pob-tt-0E5"/>
-                            <constraint firstItem="ckR-xg-kgp" firstAttribute="top" secondItem="mDx-PT-xtv" secondAttribute="bottom" constant="41" id="U5L-lb-Nv8"/>
                             <constraint firstItem="UsW-cw-1p5" firstAttribute="top" secondItem="mDx-PT-xtv" secondAttribute="bottom" constant="8" id="eWB-YN-8UX"/>
-                            <constraint firstItem="ckR-xg-kgp" firstAttribute="centerX" secondItem="Yy8-rf-8OI" secondAttribute="centerX" id="u49-fy-c3C"/>
                             <constraint firstItem="Yy8-rf-8OI" firstAttribute="trailing" secondItem="mDx-PT-xtv" secondAttribute="trailing" constant="37" id="wG5-7Q-v8M"/>
                             <constraint firstItem="mDx-PT-xtv" firstAttribute="leading" secondItem="Yy8-rf-8OI" secondAttribute="leading" constant="16" id="wnw-bk-ulO"/>
                             <constraint firstItem="mDx-PT-xtv" firstAttribute="top" secondItem="kiL-Sb-LeP" secondAttribute="bottom" constant="31.5" id="xz6-0R-OGe"/>

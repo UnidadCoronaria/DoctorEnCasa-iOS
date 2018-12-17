@@ -1,4 +1,15 @@
+platform :ios, "9.0"
+
+use_frameworks!
+
 target 'DoctorEnCasa-iOS' do
+    pod 'TwilioVideo', '~> 2.5'
+    pod 'Firebase/Core'
+    pod 'Firebase/Messaging'
+    pod 'Cosmos', '~> 17.0'
+end
+
+target 'DoctorEnCasa-iOS-Test' do
     pod 'TwilioVideo', '~> 2.5'
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'

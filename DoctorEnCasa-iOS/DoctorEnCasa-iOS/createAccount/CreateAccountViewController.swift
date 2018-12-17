@@ -68,23 +68,34 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
         self.repeatPasswordError.isHidden = true
         self.passwordError.isHidden = true
         
-        if !termsAndConditions.isOn {
-            showMissingTermsAndConditions()
-            return
-        }
         
         if mailText.text == nil || !Util.isValidMail(email: mailText.text!) {
             self.mailError.isHidden = false
+            if mailText.text == nil {
+                self.mailError.text = "Este campo es requerido"
+            } else {
+                self.mailError.text = "Introducí un mail válido"
+            }
             return
         }
         
         if passwordText.text == nil || (passwordText.text?.count)! < 6 {
             self.passwordError.isHidden = false
+            if passwordText.text == nil  || (passwordText.text?.isEmpty)! {
+                self.passwordError.text = "Este campo es requerido"
+            } else {
+                self.passwordError.text = "La contraseña debe tener al menos 6 caracteres"
+            }
             return
         }
         
         if repeatePasswordText.text == nil || (repeatePasswordText.text?.count)! < 6 {
             self.repeatPasswordError.isHidden = false
+            if repeatePasswordText.text == nil || (repeatePasswordText.text?.isEmpty)! {
+                self.repeatPasswordError.text = "Este campo es requerido"
+            } else {
+                self.repeatPasswordError.text = "La contraseña debe tener al menos 6 caracteres"
+            }
             return
         }
         
@@ -92,6 +103,12 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
             showMissmatchPasswords()
             return
         }
+        
+        if !termsAndConditions.isOn {
+            showMissingTermsAndConditions()
+            return
+        }
+        
         self.loadingView = UIViewController.displaySpinner(onView: self.view)
         createUser()
     }

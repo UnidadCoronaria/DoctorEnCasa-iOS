@@ -54,7 +54,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProviderTableViewCell" rowHeight="100" id="1bf-Gk-R97" customClass="ProviderTableViewCell" customModule="DoctorEnCasa_iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="81" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1bf-Gk-R97" id="UBy-Gm-zuc">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1bf-Gk-R97" id="UBy-Gm-zuc">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -73,7 +73,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GBA SUR - Berazsategeggui y Florencia" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aM-wR-I6o">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GBA SUR - Berazsategeggui y Florencia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aM-wR-I6o">
                                             <rect key="frame" x="99" y="53" width="260" height="36"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="260" id="WGt-YI-3Xs"/>
@@ -99,6 +99,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="descriptionText" destination="8aM-wR-I6o" id="lFX-pO-veo"/>
+                                    <outlet property="icon" destination="gfa-Ds-4AC" id="zgg-Eb-0Vw"/>
                                     <outlet property="nameText" destination="W0A-pH-Jpw" id="8YI-mC-aV1"/>
                                 </connections>
                             </tableViewCell>
@@ -127,10 +128,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2- Creá tu cuenta." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNm-Xy-jbq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2- Creá tu cuenta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNm-Xy-jbq">
                                 <rect key="frame" x="16" y="94" width="343" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Número de socio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bX2-Qd-nGb">
@@ -166,21 +167,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkx-vQ-OEr">
-                                <rect key="frame" x="139" y="472.5" width="97" height="38"/>
-                                <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
-                                <state key="normal" title="Finalizar"/>
-                                <connections>
-                                    <action selector="finalize:" destination="dLo-CA-Qd4" eventType="touchUpInside" id="cEt-Yb-5S9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4D-FS-y6K">
-                                <rect key="frame" x="316" y="148" width="43" height="30"/>
-                                <state key="normal" title="Borrar"/>
-                                <connections>
-                                    <action selector="clear:" destination="dLo-CA-Qd4" eventType="touchUpInside" id="6OB-ei-B8w"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Este campo es requerido" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qU7-yl-a3g">
                                 <rect key="frame" x="16" y="243" width="343" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -201,15 +187,28 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8V1-aK-bJU">
                                 <rect key="frame" x="16" y="388" width="51" height="31"/>
+                                <color key="onTintColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </switch>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="had-ZM-ZRV">
+                                <rect key="frame" x="131" y="472" width="113" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bxB-pd-veL"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="20" minY="5" maxX="20" maxY="5"/>
+                                <state key="normal" title="INGRESAR">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="finalize:" destination="dLo-CA-Qd4" eventType="touchUpInside" id="T6W-Ki-Krb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="njy-IA-dqk" firstAttribute="top" secondItem="Z4N-OC-hHh" secondAttribute="bottom" constant="5" id="0Qb-e5-VLr"/>
                             <constraint firstItem="EWu-xB-dPE" firstAttribute="leading" secondItem="2aw-YL-GFJ" secondAttribute="leading" constant="16" id="2um-Pf-suq"/>
-                            <constraint firstItem="B4D-FS-y6K" firstAttribute="top" secondItem="qNm-Xy-jbq" secondAttribute="bottom" constant="30" id="4xr-fp-nGY"/>
                             <constraint firstItem="bX2-Qd-nGb" firstAttribute="top" secondItem="qNm-Xy-jbq" secondAttribute="bottom" constant="30" id="5Ze-cR-kIt"/>
-                            <constraint firstItem="qU7-yl-a3g" firstAttribute="top" secondItem="QG9-eA-D0t" secondAttribute="bottom" constant="2" id="6Vf-wx-M5K"/>
                             <constraint firstItem="2aw-YL-GFJ" firstAttribute="trailing" secondItem="8V1-aK-bJU" secondAttribute="trailing" constant="310" id="714-JL-qo7"/>
                             <constraint firstItem="2aw-YL-GFJ" firstAttribute="trailing" secondItem="QG9-eA-D0t" secondAttribute="trailing" constant="16" id="CFl-6T-bgM"/>
                             <constraint firstItem="bX2-Qd-nGb" firstAttribute="leading" secondItem="2aw-YL-GFJ" secondAttribute="leading" constant="16" id="Czf-QM-VWa"/>
@@ -223,14 +222,14 @@
                             <constraint firstItem="8V1-aK-bJU" firstAttribute="top" secondItem="EWu-xB-dPE" secondAttribute="bottom" constant="9" id="O1Y-En-ACd"/>
                             <constraint firstItem="QG9-eA-D0t" firstAttribute="leading" secondItem="2aw-YL-GFJ" secondAttribute="leading" constant="16" id="QBn-uz-CdC"/>
                             <constraint firstItem="EWu-xB-dPE" firstAttribute="top" secondItem="oKQ-rY-erQ" secondAttribute="bottom" constant="5" id="Rqm-pU-jva"/>
-                            <constraint firstItem="fkx-vQ-OEr" firstAttribute="centerX" secondItem="2aw-YL-GFJ" secondAttribute="centerX" id="aK5-pL-iiM"/>
                             <constraint firstItem="oKQ-rY-erQ" firstAttribute="leading" secondItem="2aw-YL-GFJ" secondAttribute="leading" constant="16" id="cOK-5J-0fm"/>
                             <constraint firstItem="Z4N-OC-hHh" firstAttribute="top" secondItem="QG9-eA-D0t" secondAttribute="bottom" constant="30" id="dog-0I-oqq"/>
                             <constraint firstItem="qNm-Xy-jbq" firstAttribute="top" secondItem="2aw-YL-GFJ" secondAttribute="top" constant="30" id="fcO-Av-Y6n"/>
                             <constraint firstItem="QG9-eA-D0t" firstAttribute="top" secondItem="bX2-Qd-nGb" secondAttribute="bottom" constant="30" id="gLY-Ui-C7a"/>
+                            <constraint firstItem="had-ZM-ZRV" firstAttribute="top" secondItem="7EB-rS-5vL" secondAttribute="bottom" constant="59.5" id="gLZ-Ee-MZt"/>
                             <constraint firstItem="2aw-YL-GFJ" firstAttribute="trailing" secondItem="EWu-xB-dPE" secondAttribute="trailing" constant="16" id="gX6-A4-aw3"/>
+                            <constraint firstItem="had-ZM-ZRV" firstAttribute="centerX" secondItem="eCg-en-uuD" secondAttribute="centerX" id="k47-S1-J8V"/>
                             <constraint firstItem="2aw-YL-GFJ" firstAttribute="trailing" secondItem="7EB-rS-5vL" secondAttribute="trailing" constant="16" id="kYp-NX-gHC"/>
-                            <constraint firstItem="fkx-vQ-OEr" firstAttribute="top" secondItem="7EB-rS-5vL" secondAttribute="bottom" constant="60" id="klb-so-De7"/>
                             <constraint firstItem="2aw-YL-GFJ" firstAttribute="trailing" secondItem="bX2-Qd-nGb" secondAttribute="trailing" constant="109" id="m8A-Zr-dJd"/>
                             <constraint firstItem="2aw-YL-GFJ" firstAttribute="trailing" secondItem="qU7-yl-a3g" secondAttribute="trailing" constant="16" id="mRm-LQ-gkB"/>
                             <constraint firstItem="2aw-YL-GFJ" firstAttribute="trailing" secondItem="Z4N-OC-hHh" secondAttribute="trailing" constant="16" id="qEy-8Q-uC9"/>
@@ -238,14 +237,13 @@
                             <constraint firstItem="2aw-YL-GFJ" firstAttribute="trailing" secondItem="oKQ-rY-erQ" secondAttribute="trailing" constant="16" id="qN9-dy-LVt"/>
                             <constraint firstItem="njy-IA-dqk" firstAttribute="leading" secondItem="2aw-YL-GFJ" secondAttribute="leading" constant="16" id="rQs-tq-ZOD"/>
                             <constraint firstItem="2aw-YL-GFJ" firstAttribute="trailing" secondItem="njy-IA-dqk" secondAttribute="trailing" constant="16" id="u3p-ED-ZpW"/>
-                            <constraint firstItem="2aw-YL-GFJ" firstAttribute="trailing" secondItem="B4D-FS-y6K" secondAttribute="trailing" constant="16" id="wX6-xu-WJn"/>
                             <constraint firstItem="7EB-rS-5vL" firstAttribute="top" secondItem="oKQ-rY-erQ" secondAttribute="bottom" constant="35" id="x24-Ai-whH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2aw-YL-GFJ"/>
                     </view>
                     <connections>
                         <outlet property="affiliateNumberText" destination="bX2-Qd-nGb" id="EPT-n8-96b"/>
-                        <outlet property="finalizeButton" destination="fkx-vQ-OEr" id="Dd5-Lx-Yn0"/>
+                        <outlet property="finalizeButton" destination="had-ZM-ZRV" id="Rmz-Gw-1P2"/>
                         <outlet property="mailError" destination="qU7-yl-a3g" id="Lqn-6u-mPZ"/>
                         <outlet property="mailText" destination="QG9-eA-D0t" id="pRb-Xs-qmX"/>
                         <outlet property="passwordError" destination="njy-IA-dqk" id="xYI-b9-g8d"/>

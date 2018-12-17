@@ -1,4 +1,4 @@
-module Pods_DoctorEnCasa_iOS {
+framework module Pods_DoctorEnCasa_iOS {
   umbrella header "Pods-DoctorEnCasa-iOS-umbrella.h"
 
   export *

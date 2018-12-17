@@ -1,1 +1,0 @@
-../../../../TwilioVideo/Build/iOS/TwilioVideo.framework/Headers/TVIDataTrackPublication.h

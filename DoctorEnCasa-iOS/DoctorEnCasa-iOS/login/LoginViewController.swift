@@ -144,7 +144,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
                 parsedResult = try JSONDecoder().decode(UserInfo.self, from: data)
                 UserDefaults.standard.set(parsedResult.token, forKey: NavigationUtil.DATA.tokenKey)
                 UserDefaults.standard.set(parsedResult.user.provider?.id, forKey: NavigationUtil.DATA.provider)
-                 UserDefaults.standard.set(parsedResult.user.passwordExpired, forKey: "passwordExpired")
+                UserDefaults.standard.set(parsedResult.user.passwordExpired, forKey: "passwordExpired")
             } catch {
                 displayError("Could not parse the data as JSON: '\(data)'")
                 UIViewController.removeSpinner(spinner: self.loadingView!)
@@ -178,6 +178,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
         request.setValue(Constants.Parameters.jsonMimeType, forHTTPHeaderField: Constants.Parameters.contentType)
         request.setValue(Constants.Parameters.jsonMimeType, forHTTPHeaderField: Constants.Parameters.accept)
         request.setValue(Messaging.messaging().fcmToken, forHTTPHeaderField: Constants.Parameters.tokenGCM)
+        request.setValue("true", forHTTPHeaderField: "IOS")
         request.setValue( UserDefaults.standard.value(forKey: NavigationUtil.DATA.tokenKey) as? String, forHTTPHeaderField: Constants.Parameters.authorization)
        
         //print(Messaging.messaging().fcmToken!)

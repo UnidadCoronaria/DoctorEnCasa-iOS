@@ -12,6 +12,7 @@ class ProviderTableViewCell: UITableViewCell {
     
     //MARK: Properties
 
+    @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var nameText: UILabel!
     @IBOutlet weak var descriptionText: UILabel!
     

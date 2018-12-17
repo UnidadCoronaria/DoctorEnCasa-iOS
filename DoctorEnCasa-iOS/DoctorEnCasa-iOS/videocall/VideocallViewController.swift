@@ -56,7 +56,7 @@ class VideocallViewController : UIViewController {
         // add pull to refresh
         pullToRefresh.attributedTitle = NSAttributedString(string: "Recargar el estado de tus videollamads")
         pullToRefresh.addTarget(self, action: #selector(self.reload), for: .valueChanged)
-        scrollView.addSubview(pullToRefresh)
+        //scrollView.addSubview(pullToRefresh)
     }
     
     @IBAction func beNext(_ sender: Any) {
@@ -71,7 +71,7 @@ class VideocallViewController : UIViewController {
     
     private func reloadScreenInfo(){
         separator.isHidden = false
-        image.image = UIImage(named: "ic_doctor_main")
+        image.image = UIImage(named: "icono_home")
         if (affiliateCallHistory != nil && affiliateCallHistory?.lastVideocall != nil) {
             if("FINALIZADA" == affiliateCallHistory?.lastVideocall?.status
                 || "EXPIRADA" == affiliateCallHistory?.lastVideocall?.status
