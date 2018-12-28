@@ -9,30 +9,16 @@
 import UIKit
 
 
-class SettingsViewController : UIViewController {
+class SettingsViewController : UITableViewController {
     
-    @IBOutlet weak var changePasswordText: UILabel!
-    @IBOutlet weak var rateAppText: UILabel!
-    @IBOutlet weak var showTermsText: UILabel!
-    @IBOutlet weak var logoutText: UILabel!
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-     
-        let gestureLogout = UITapGestureRecognizer(target: self, action: #selector(logout(_:)))
-        logoutText.addGestureRecognizer(gestureLogout)
-        
-        let gestureRateApp = UITapGestureRecognizer(target: self, action: #selector(rateApp(_:)))
-        rateAppText.addGestureRecognizer(gestureRateApp)
-        
-        let gestureTerms = UITapGestureRecognizer(target: self, action: #selector(showTerms(_:)))
-        showTermsText.addGestureRecognizer(gestureTerms)
-        
-        let gestureChangePassword = UITapGestureRecognizer(target: self, action: #selector(changePassword(_:)))
-        changePasswordText.addGestureRecognizer(gestureChangePassword)
+        self.tableView.tableFooterView = UIView()
     }
     
-    @objc func rateApp(_ sender: Any){
+    
+    @IBAction func rateApp(_ sender: Any){
         if let url = URL(string: "itms-apps://itunes.apple.com/app/id..."),
             UIApplication.shared.canOpenURL(url){
             UIApplication.shared.open(url, options: [:]) { (opened) in
@@ -46,11 +32,11 @@ class SettingsViewController : UIViewController {
     }
         
     
-    @objc func logout(_ sender: Any){
+    @IBAction func logout(_ sender: Any){
         let alert : UIAlertController = UIAlertController(title: "", message: "¿Estás seguro de que querés cerrar tu sesión?", preferredStyle: .alert)
         alert.isModalInPopover = true
         let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in
-            self.doLogout()
+            SessionUtil.logout(vc: self)
         }
         alert.addAction(actionAcept)
         let actionCancel:UIAlertAction = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default) { (_:UIAlertAction) in
@@ -60,28 +46,6 @@ class SettingsViewController : UIViewController {
         self.present(alert, animated: true, completion: nil)
        
     }
-    
-    func doLogout(){
-        //Clear user's token
-        UserDefaults.standard.removeObject(forKey: NavigationUtil.DATA.tokenKey)
-        UserDefaults.standard.removeObject(forKey: NavigationUtil.DATA.provider)
-        
-        //Dismiss this VC
-        self.navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
-        
-        //Navigate back to login
-        let storyBoard = UIStoryboard(name: "Login", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.loginNavigation)
-        UIApplication.shared.keyWindow?.rootViewController = vc
-    }
-    
-     @objc func showTerms(_ sender: Any){
-         self.performSegue(withIdentifier: "showTerms", sender: nil)
-    }
-    
-    @objc func changePassword(_ sender: Any){
-        self.performSegue(withIdentifier: "showChangePassword", sender: nil)
-    }
+  
     
 }

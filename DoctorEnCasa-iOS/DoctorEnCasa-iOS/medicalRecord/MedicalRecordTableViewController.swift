@@ -32,6 +32,7 @@ class MedicalRecordTableViewController: UIViewController, UITableViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewTable.tableFooterView = UIView()
         self.errorView.isHidden = true
         self.viewTable.isHidden = true
         self.loadingView = UIViewController.displaySpinner(onView: self.view)
@@ -83,7 +84,7 @@ class MedicalRecordTableViewController: UIViewController, UITableViewDataSource,
             //Add the picker to the alert controller
             alert.setValue(vc, forKey: "contentViewController")
             
-            let action1:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in
+            let action1:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default) { (_:UIAlertAction) in
                 self.doFilter()
                 alert.dismiss(animated: true, completion: {})
             }
@@ -168,6 +169,7 @@ class MedicalRecordTableViewController: UIViewController, UITableViewDataSource,
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MedicalRecordTableViewCell", for: indexPath)  as? MedicalRecordTableViewCell else {
             fatalError("The dequeued cell is not an instance of MedicalRecordTableViewCell.")
         }
+        
         // Fetches the appropriate meal for the data source layout.
         let medicalRecord = filteredMedicalRecords[indexPath.row]
         cell.date.text = util?.convertDate(date: medicalRecord.videocall.date!)
@@ -218,6 +220,10 @@ class MedicalRecordTableViewController: UIViewController, UITableViewDataSource,
                 return
             }
             
+            if (response as? HTTPURLResponse)?.statusCode == 408 {
+                SessionUtil.logout(vc: self)
+            }
+            
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 displayError("Your request returned a status code other than 2xx!")
@@ -245,8 +251,8 @@ class MedicalRecordTableViewController: UIViewController, UITableViewDataSource,
             DispatchQueue.main.async(execute: {
                 self.selectedFilter = nil
                 self.medicalRecords = parsedResult
-                self.filteredMedicalRecords = parsedResult
                 if self.medicalRecords.count > 0 {
+                    self.filteredMedicalRecords = Array(parsedResult.dropFirst())
                     self.firstMedicalRecord = self.medicalRecords[0]
                     self.setFirstItemValues()
                     self.filterOptions.removeAll()

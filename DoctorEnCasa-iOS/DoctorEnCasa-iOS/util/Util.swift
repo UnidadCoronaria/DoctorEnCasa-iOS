@@ -18,7 +18,7 @@ class Util {
     }
     
     func convertDate(date: Int!) -> String {
-        let date = NSDate(timeIntervalSince1970: TimeInterval(date))
+        let date = NSDate(timeIntervalSince1970: TimeInterval(date/1000))
         return formatter.string(from: date as Date)
     }
     

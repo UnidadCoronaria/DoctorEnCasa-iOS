@@ -134,6 +134,10 @@ class RankCallViewController : UIViewController {
                 return
             }
             
+            if (response as? HTTPURLResponse)?.statusCode == 408 {
+                SessionUtil.logout(vc: self)
+            }
+            
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 displayError("Your request returned a status code other than 2xx!")
@@ -146,14 +150,6 @@ class RankCallViewController : UIViewController {
                 return
             }
             
-            // parse the data
-            let parsedResult: Videocall!
-            do {
-                parsedResult = try JSONDecoder().decode(Videocall.self, from: data)
-            } catch {
-                displayError("Could not parse the data as JSON: '\(data)'")
-                return
-            }
             DispatchQueue.main.async(execute: {
                 if self.score > 3 {
                     self.backToMain()
@@ -188,7 +184,7 @@ class RankCallViewController : UIViewController {
     
     func showCallOffices(){
         DispatchQueue.main.async(execute: {
-            let alert : UIAlertController = UIAlertController(title: "Comentarios enviados", message: "Hubo un error enviando tus comentarios. Por favor, intentalo nuevamente.", preferredStyle: .alert)
+            let alert : UIAlertController = UIAlertController(title: "Comentarios enviados", message: "Calificaste la consulta negativamente, te gustaría comunicarte con una operadora para solicitar una visita domiciliaria?", preferredStyle: .alert)
             alert.isModalInPopover = true
             let actionAcept:UIAlertAction = UIAlertAction(title: "Si", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in
                 guard let number = URL(string: "tel://" + self.getTelephone()) else { return }

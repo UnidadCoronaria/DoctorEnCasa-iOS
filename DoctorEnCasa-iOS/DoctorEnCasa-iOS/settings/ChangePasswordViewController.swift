@@ -91,6 +91,10 @@ class ChangePasswordViewController : UIViewController, UITextFieldDelegate {
                 return
             }
             
+            if (response as? HTTPURLResponse)?.statusCode == 408 {
+                SessionUtil.logout(vc: self)
+            }
+            
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 displayError("Your request returned a status code other than 2xx!")

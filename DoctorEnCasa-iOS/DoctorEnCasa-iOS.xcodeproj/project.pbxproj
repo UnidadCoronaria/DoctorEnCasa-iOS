@@ -13,6 +13,8 @@
 		2E3C05372159D2C100C7A225 /* VideocallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C05362159D2C100C7A225 /* VideocallViewController.swift */; };
 		2E3C05392159D6A600C7A225 /* AffiliateCallHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C05382159D6A600C7A225 /* AffiliateCallHistory.swift */; };
 		2E3C053B2159D97200C7A225 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C053A2159D97200C7A225 /* Queue.swift */; };
+		2E4BE5D721D469FD00507D93 /* SessionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4BE5D621D469FD00507D93 /* SessionUtil.swift */; };
+		2E4BE5D821D469FD00507D93 /* SessionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4BE5D621D469FD00507D93 /* SessionUtil.swift */; };
 		2E5F0AF8218FB37F00296FF1 /* RankCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F0AF7218FB37F00296FF1 /* RankCallViewController.swift */; };
 		2E5F0AFA218FE56C00296FF1 /* VideocallRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F0AF9218FE56C00296FF1 /* VideocallRank.swift */; };
 		2E69120A21C056C800244BF2 /* AffiliateCallHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C05382159D6A600C7A225 /* AffiliateCallHistory.swift */; };
@@ -100,6 +102,7 @@
 		2E3C05362159D2C100C7A225 /* VideocallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideocallViewController.swift; sourceTree = "<group>"; };
 		2E3C05382159D6A600C7A225 /* AffiliateCallHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffiliateCallHistory.swift; sourceTree = "<group>"; };
 		2E3C053A2159D97200C7A225 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		2E4BE5D621D469FD00507D93 /* SessionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionUtil.swift; sourceTree = "<group>"; };
 		2E5F0AF3218D115900296FF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "DoctorEnCasa-iOS/Firebase/prod/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2E5F0AF7218FB37F00296FF1 /* RankCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankCallViewController.swift; sourceTree = "<group>"; };
 		2E5F0AF9218FE56C00296FF1 /* VideocallRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideocallRank.swift; sourceTree = "<group>"; };
@@ -295,6 +298,7 @@
 				FB4F072820D0A4D400A23FF9 /* Util.swift */,
 				2E8CD7B22134DF8B00174696 /* NavigationUtil.swift */,
 				2EE1FD202198B218008D2E84 /* UIViewController+Loading.swift */,
+				2E4BE5D621D469FD00507D93 /* SessionUtil.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -590,6 +594,7 @@
 				2E69121621C056C800244BF2 /* Credential.swift in Sources */,
 				2E69121721C056C800244BF2 /* ChangePasswordViewController.swift in Sources */,
 				2E69121821C056C800244BF2 /* Doctor.swift in Sources */,
+				2E4BE5D821D469FD00507D93 /* SessionUtil.swift in Sources */,
 				2E69121921C056C800244BF2 /* Util.swift in Sources */,
 				2E69121A21C056C800244BF2 /* AffiliateFilter.swift in Sources */,
 				2E69121B21C056C800244BF2 /* MedicalRecordDetailViewController.swift in Sources */,
@@ -629,6 +634,7 @@
 				FB4F5FF0207088D10011BBD4 /* Credential.swift in Sources */,
 				2E3C0534215884C900C7A225 /* ChangePasswordViewController.swift in Sources */,
 				FB4F072720CE21AB00A23FF9 /* Doctor.swift in Sources */,
+				2E4BE5D721D469FD00507D93 /* SessionUtil.swift in Sources */,
 				FB4F072920D0A4D400A23FF9 /* Util.swift in Sources */,
 				2EE1FD1F2197D6B7008D2E84 /* AffiliateFilter.swift in Sources */,
 				FB1D66212072ACCF00423942 /* MedicalRecordDetailViewController.swift in Sources */,
