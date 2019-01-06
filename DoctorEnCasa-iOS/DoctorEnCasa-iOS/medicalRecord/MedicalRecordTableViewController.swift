@@ -10,6 +10,7 @@ import UIKit
 
 class MedicalRecordTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
    
+    @IBOutlet weak var firstItemContainer: UIStackView!
     @IBOutlet weak var errorView: UIView!
     
     //MARK: Properties
@@ -21,6 +22,7 @@ class MedicalRecordTableViewController: UIViewController, UITableViewDataSource,
     let util = Util()
     var filterOptions = [AffiliateFilter]()
     var selectedFilter : AffiliateFilter?
+    var selectedFilterRow : Int?
     var token : String = ""
     var loadingView : UIView?
     
@@ -42,6 +44,9 @@ class MedicalRecordTableViewController: UIViewController, UITableViewDataSource,
            self.token = token
         }
         
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(showFirstItemDetail(_:)))
+        firstItemContainer.addGestureRecognizer(gesture)
+        
         // add pull to refresh
         pullToRefresh.attributedTitle = NSAttributedString(string: "Recargar la lista de consultas médicas")
         pullToRefresh.addTarget(self, action: #selector(self.reload), for: .valueChanged)
@@ -54,6 +59,11 @@ class MedicalRecordTableViewController: UIViewController, UITableViewDataSource,
         
         // Load the sample data.
         loadMedicalRecords()
+    }
+    
+    @objc func showFirstItemDetail(_ sender: Any) {
+        self.selectedMedicalRecord = self.firstMedicalRecord
+        self.performSegue(withIdentifier: NavigationUtil.NAVIGATE.showMedicalRecordDetail, sender: nil)
     }
     
     func setFirstItemValues(){
@@ -71,7 +81,7 @@ class MedicalRecordTableViewController: UIViewController, UITableViewDataSource,
         if self.medicalRecords.count > 0 {
             let alert : UIAlertController = UIAlertController(title: "Filtrar", message: "Seleccioná el afiliado", preferredStyle: .alert)
             alert.isModalInPopover = true
-        
+            var previousFilter = self.selectedFilterRow
             let vc = UIViewController()
             vc.preferredContentSize = CGSize(width: 250, height: 200)
             let pickerFrame = UIPickerView(frame: CGRect(x: 0, y: 0, width: 250 , height: 200)) // CGRectMake(left, top, width, height) - left and top are like margins
@@ -79,13 +89,20 @@ class MedicalRecordTableViewController: UIViewController, UITableViewDataSource,
             //set the pickers datasource and delegate
             pickerFrame.delegate = self
             pickerFrame.dataSource = self
+            if selectedFilter == nil {
+                pickerFrame.selectRow(0, inComponent: 0, animated: false)
+            } else {
+                pickerFrame.selectRow(self.selectedFilterRow!, inComponent: 0, animated: false)
+            }
             vc.view.addSubview(pickerFrame)
 
             //Add the picker to the alert controller
             alert.setValue(vc, forKey: "contentViewController")
             
             let action1:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default) { (_:UIAlertAction) in
-                self.doFilter()
+                if previousFilter != self.selectedFilterRow {
+                    self.doFilter()
+                }
                 alert.dismiss(animated: true, completion: {})
             }
             alert.addAction(action1)
@@ -114,13 +131,19 @@ class MedicalRecordTableViewController: UIViewController, UITableViewDataSource,
                 }
             }
         }
+        if self.filteredMedicalRecords.count > 0 {
+            self.firstMedicalRecord = self.filteredMedicalRecords[0]
+            self.filteredMedicalRecords = Array(filteredMedicalRecords.dropFirst())
+            self.setFirstItemValues()
+        }
+        
         self.viewTable.reloadData()
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let pickerLabel = UILabel()
 
-        let titleData =  String("\(String(describing: filterOptions[row].firstName)) \(String(describing: filterOptions[row].lastName))")
+        let titleData =  String("\(String(describing: filterOptions[row].firstName!)) \(String(describing: filterOptions[row].lastName!))")
         let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedStringKey.font:UIFont(name: "Georgia", size: 20.0)!,NSAttributedStringKey.foregroundColor:UIColor.black])
         pickerLabel.attributedText = myTitle
         pickerLabel.textAlignment = .center
@@ -137,11 +160,12 @@ class MedicalRecordTableViewController: UIViewController, UITableViewDataSource,
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String("\(String(describing: filterOptions[row].firstName)) \(String(describing: filterOptions[row].lastName))")
+        return String("\(String(describing: filterOptions[row].firstName!)) \(String(describing: filterOptions[row].lastName!))")
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.selectedFilter = filterOptions[row]
+        self.selectedFilterRow = row
     }
     
     @objc func reload() {
@@ -250,6 +274,7 @@ class MedicalRecordTableViewController: UIViewController, UITableViewDataSource,
             
             DispatchQueue.main.async(execute: {
                 self.selectedFilter = nil
+                self.selectedFilterRow = nil
                 self.medicalRecords = parsedResult
                 if self.medicalRecords.count > 0 {
                     self.filteredMedicalRecords = Array(parsedResult.dropFirst())

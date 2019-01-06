@@ -21,15 +21,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         self.configureNotifications(application)
         
-        let storyBoard : UIStoryboard
+        var storyBoard : UIStoryboard
         
 
         //Get token
         if let _ : String = UserDefaults.standard.value(forKey: NavigationUtil.DATA.tokenKey) as? String {
             storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            
+            if UserDefaults.standard.value(forKey: "passwordExpired") != nil {
+                if (UserDefaults.standard.value(forKey: "passwordExpired") as? Bool)! {
+                    storyBoard = UIStoryboard(name: "Login", bundle: nil)
+                    let vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.loginNavigation) as! UINavigationController
+                    self.window?.rootViewController = vc
+                    return true
+                }
+            }
             let vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.main) as! UITabBarController
              self.window?.rootViewController = vc
-            
         } else {
             storyBoard = UIStoryboard(name: "Login", bundle: nil)
             let vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.loginNavigation) as! UINavigationController
@@ -103,6 +111,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let viewController = sb.instantiateViewController(withIdentifier: "newCall") as! NewCallViewController
         viewController.accessToken = userInfo["token"] as! String
         viewController.roomName = userInfo["roomName"] as? String
+        viewController.videocallId = userInfo["videocallId"] as? Int
         window?.rootViewController = viewController;
     }
     
@@ -156,13 +165,14 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
             print("Message ID: \(messageID)")
         }
         
-        // Print full message.
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = sb.instantiateViewController(withIdentifier: "newCall") as! NewCallViewController
-        viewController.accessToken = (userInfo["token"] as? String)!
-        viewController.roomName = userInfo["roomName"] as? String
-        window?.rootViewController = viewController;
-        
+        if userInfo["token"] != nil {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = sb.instantiateViewController(withIdentifier: "newCall") as! NewCallViewController
+            viewController.accessToken = (userInfo["token"] as? String)!
+            viewController.roomName = userInfo["roomName"] as? String
+            viewController.videocallId = Int(userInfo["videocallId"] as! String)
+            window?.rootViewController = viewController;
+        }
         // Change this to your preferred presentation option
         completionHandler([])
     }
@@ -175,13 +185,15 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
-        // Print full message.
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = sb.instantiateViewController(withIdentifier: "newCall") as! NewCallViewController
-        viewController.accessToken = (userInfo["token"] as? String)!
-        viewController.roomName = userInfo["roomName"] as? String
-        window?.rootViewController = viewController;
-        // Print full message.
+        if userInfo["token"] != nil {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = sb.instantiateViewController(withIdentifier: "newCall") as! NewCallViewController
+            viewController.accessToken = (userInfo["token"] as? String)!
+            viewController.roomName = userInfo["roomName"] as? String
+            viewController.videocallId = Int(userInfo["videocallId"] as! String)
+            window?.rootViewController = viewController;
+        }
+            // Print full message.
         print(userInfo)
         
         completionHandler()
@@ -215,6 +227,9 @@ extension AppDelegate : MessagingDelegate {
         
         if let roomName = remoteMessage.appData["roomName"] as? String {
             viewController.roomName = roomName
+        }
+        if let videocallId = remoteMessage.appData["videocallId"] as? String {
+            viewController.videocallId = Int(videocallId)
         }
         window?.rootViewController = viewController;
     }

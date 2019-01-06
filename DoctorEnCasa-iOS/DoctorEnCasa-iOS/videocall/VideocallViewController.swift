@@ -14,6 +14,7 @@ class VideocallViewController : UIViewController {
     var timer = Timer()
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var descriptionText: UILabel!
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var queueText: UILabel!
     @IBOutlet weak var separator: UIView!
@@ -43,25 +44,28 @@ class VideocallViewController : UIViewController {
             self.token = token
         }
 
-        if UserDefaults.standard.value(forKey: "passwordExpired") != nil {
-            if (UserDefaults.standard.value(forKey: "passwordExpired") as? Bool)! {
-                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyBoard.instantiateViewController(withIdentifier: "changePasswordVC")
-                UIApplication.shared.keyWindow?.rootViewController = vc
-            }
-        }
         
         //SEND TOKEN POR LAS DUDAS
         
         // add pull to refresh
-        pullToRefresh.attributedTitle = NSAttributedString(string: "Recargar el estado de tus videollamads")
+        pullToRefresh.attributedTitle = NSAttributedString(string: "Recargar el estado de tus videollamadas")
         pullToRefresh.addTarget(self, action: #selector(self.reload), for: .valueChanged)
         //scrollView.addSubview(pullToRefresh)
     }
     
     @IBAction func beNext(_ sender: Any) {
         self.createCall()
-        //self.performSegue(withIdentifier: NavigationUtil.NAVIGATE.showNewCall, sender: nil)
+    }
+    
+    @IBAction func cancel(_ sender: Any) {
+        let alert : UIAlertController = UIAlertController(title: "Cancelar turno", message: "¿Estás seguro que querés cancelar tu turno?", preferredStyle: .alert)
+        alert.isModalInPopover = true
+        let actionAcept:UIAlertAction = UIAlertAction(title: "Si", style: UIAlertActionStyle.destructive) { (_:UIAlertAction) in self.cancelCall() }
+        alert.addAction(actionAcept)
+        let actionNo:UIAlertAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in  }
+        alert.addAction(actionNo)
+        self.present(alert, animated: true, completion: nil)
+        
     }
     
     @objc func reload() {
@@ -79,12 +83,15 @@ class VideocallViewController : UIViewController {
                 || "CANCELADA" == affiliateCallHistory?.lastVideocall?.status) {
                 descriptionText.text = "Sacá un turno para ser atendido por uno de nuestros doctores"
                 button.isHidden = false
+                cancelButton.isHidden = true
             } else {
                 button.isHidden = true
                 if("EN_COLA" == affiliateCallHistory?.lastVideocall?.status){
                     //Si hay call activa y esta en cola
                     descriptionText.text = "¡Ya te encuentras en lista de espera!\nTe llamaremos cuando haya un doctor disponible"
+                    cancelButton.isHidden = false
                 } else {
+                    cancelButton.isHidden = true
                     if("LISTA_ATENCION" == affiliateCallHistory?.lastVideocall?.status){
                         // Si hay call activa y esta lista para atenderse
                         descriptionText.text = "¡Ya hay un médico disponible para vos!\n¡Te va a estar llamando en cualquier momento!"
@@ -101,7 +108,9 @@ class VideocallViewController : UIViewController {
             if(affiliateCallHistory != nil){
                 descriptionText.text = "Sacá un turno para ser atendido por uno de nuestros doctores"
                 button.isHidden = false
+                cancelButton.isHidden = true
             } else {
+                cancelButton.isHidden = true
                 descriptionText.text = "No se pudo cargar la información.\nPor favor, intentá nuevamente."
             }
         }
@@ -127,6 +136,7 @@ class VideocallViewController : UIViewController {
         descriptionText.text = "No se pudo cargar la información.\nPor favor, intentá nuevamente."
         queueText.isHidden = true
         button.isHidden = true
+        cancelButton.isHidden = true
         separator.isHidden = true
     }
     
@@ -299,6 +309,65 @@ class VideocallViewController : UIViewController {
             
             DispatchQueue.main.async(execute: {
                 self.reload()
+            })
+            
+            
+        }).resume()
+    }
+    
+    private func cancelCall(){
+        let url:URL = URL(string: Constants.API.APIBaseURL+Constants.Endpoints.cancel)!
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 30.0)
+        request.httpMethod = Constants.HTTPMethods.post
+        request.setValue(Constants.Parameters.jsonMimeType, forHTTPHeaderField: Constants.Parameters.contentType)
+        request.setValue(Constants.Parameters.jsonMimeType, forHTTPHeaderField: Constants.Parameters.accept)
+        request.setValue(self.token, forHTTPHeaderField: Constants.Parameters.authorization)
+        
+        URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
+            
+            // if an error occurs, print it and re-enable the UI
+            func displayError(_ error: String) {
+                print(error)
+                print("URL at time of error: \(url)")
+                DispatchQueue.main.async(execute: {
+                    let alert : UIAlertController = UIAlertController(title: "Error", message: "Hubo un error cancelando el turno. Por favor, intentalo nuevamente.", preferredStyle: .alert)
+                    alert.isModalInPopover = true
+                    let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in }
+                    alert.addAction(actionAcept)
+                    self.present(alert, animated: true, completion: nil)
+                })
+            }
+            
+            /* GUARD: Was there an error? */
+            guard (error == nil) else {
+                displayError("There was an error with your request: \(error!)")
+                return
+            }
+            
+            if (response as? HTTPURLResponse)?.statusCode == 408 {
+                SessionUtil.logout(vc: self)
+            }
+            
+            /* GUARD: Did we get a successful 2XX response? */
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                displayError("Your request returned a status code other than 2xx!")
+                return
+            }
+            
+            /* GUARD: Was there any data returned? */
+            guard data != nil else {
+                displayError("No data was returned by the request!")
+                return
+            }
+            
+            DispatchQueue.main.async(execute: {
+                DispatchQueue.main.async(execute: {
+                    let alert : UIAlertController = UIAlertController(title: "Turno cancelado", message: "Tu turno fue cancelado satisfactoriamente.", preferredStyle: .alert)
+                    alert.isModalInPopover = true
+                    let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in self.reload() }
+                    alert.addAction(actionAcept)
+                    self.present(alert, animated: true, completion: nil)
+                })
             })
             
             

@@ -18,15 +18,36 @@ class ChangePasswordViewController : UIViewController, UITextFieldDelegate {
     
     var loadingView : UIView?
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
+        if UserDefaults.standard.value(forKey: "passwordExpired") != nil {
+            if (UserDefaults.standard.value(forKey: "passwordExpired") as? Bool)! {
+                let alert : UIAlertController = UIAlertController(title: "Actualizar contraseña", message: "Actualizá tu contraseña antes de continuar.", preferredStyle: .alert)
+                alert.isModalInPopover = true
+                let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in
+                    alert.dismiss(animated: false, completion: {
+                        
+                    })
+                }
+                alert.addAction(actionAcept)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+
+    
     @IBAction func changePassword(_ sender: Any) {
         
         if (currentPasswordText.text?.isEmpty)! {
+            showNotMissingField()
             return
         }
         if (newPasswordText.text?.isEmpty)! {
+            showNotMissingField()
             return
         }
         if (newPasswordRepeatText.text?.isEmpty)! {
+            showNotMissingField()
             return
         }
         
@@ -113,11 +134,10 @@ class ChangePasswordViewController : UIViewController, UITextFieldDelegate {
                 UIViewController.removeSpinner(spinner: self.loadingView!)
                 UserDefaults.standard.set(false, forKey: "passwordExpired")
 
-                let alert : UIAlertController = UIAlertController(title: "Exito", message: "Se ha cambiado la contraeña correctamente.", preferredStyle: .alert)
+                let alert : UIAlertController = UIAlertController(title: "Exito", message: "Se ha cambiado la contraeña correctamente. Por favor, ingresá nuevamente.", preferredStyle: .alert)
                 alert.isModalInPopover = true
                 let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in
-                    self.navigationController?.popViewController(animated: true)
-                    self.dismiss(animated: true, completion: nil)
+                    SessionUtil.logout(vc: self)
                 }
                 alert.addAction(actionAcept)
                 self.present(alert, animated: true, completion: nil)
@@ -127,20 +147,19 @@ class ChangePasswordViewController : UIViewController, UITextFieldDelegate {
             
         }).resume()
     }
+
     
-    private func showSuccess(){
-        let alert : UIAlertController = UIAlertController(title: "Exito", message: "Se ha cambiado la contraeña correctamente.", preferredStyle: .alert)
+    private func showNotMatchingPasswords(){
+        let alert : UIAlertController = UIAlertController(title: "Error", message: "Las contraseñas no coinciden.", preferredStyle: .alert)
         alert.isModalInPopover = true
         let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in
-            self.navigationController?.popViewController(animated: true)
-            self.dismiss(animated: true, completion: nil)
         }
         alert.addAction(actionAcept)
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func showNotMatchingPasswords(){
-        let alert : UIAlertController = UIAlertController(title: "Error", message: "Las contraseñas no coinciden.", preferredStyle: .alert)
+    private func showNotMissingField(){
+        let alert : UIAlertController = UIAlertController(title: "Error", message: "Los campos no pueden estar vacíos.", preferredStyle: .alert)
         alert.isModalInPopover = true
         let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in
         }

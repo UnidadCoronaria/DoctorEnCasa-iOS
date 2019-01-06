@@ -158,7 +158,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
                     self.sendToken()
                 } else {
                     UIViewController.removeSpinner(spinner: self.loadingView!)
-                    
                     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
                     let vc = storyBoard.instantiateViewController(withIdentifier: "changePasswordVC")
                     UIApplication.shared.keyWindow?.rootViewController = vc

@@ -21,6 +21,14 @@ class RankCallViewController : UIViewController {
     @IBOutlet weak var star4: UIImageView!
     @IBOutlet weak var star5: UIImageView!
     
+    var token : String?
+    
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     
     override func viewDidDisappear(_ animated: Bool) {
     }
@@ -32,6 +40,18 @@ class RankCallViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Get token
+        if let token : String = UserDefaults.standard.value(forKey: NavigationUtil.DATA.tokenKey) as? String {
+            self.token = token
+        }
+        
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
         
         let star1Gesture = UITapGestureRecognizer(target: self, action: #selector(star1Click(_:)))
         star1.addGestureRecognizer(star1Gesture)
@@ -80,7 +100,7 @@ class RankCallViewController : UIViewController {
         star2.isHighlighted = true
         star3.isHighlighted = true
         star4.isHighlighted = true
-        star5.isHighlighted = true
+        star5.isHighlighted = false
     }
     
     @objc func star5Click(_ sender: Any) {
@@ -107,6 +127,7 @@ class RankCallViewController : UIViewController {
         request.httpMethod = Constants.HTTPMethods.post
         request.setValue(Constants.Parameters.jsonMimeType, forHTTPHeaderField: Constants.Parameters.contentType)
         request.setValue(Constants.Parameters.jsonMimeType, forHTTPHeaderField: Constants.Parameters.accept)
+        request.setValue(self.token, forHTTPHeaderField: Constants.Parameters.authorization)
         let rank : VideocallRank = VideocallRank(videocallId: videocallId!, score: score, comment: commentText.text!)
         let data : Data
         do {
@@ -186,7 +207,7 @@ class RankCallViewController : UIViewController {
         DispatchQueue.main.async(execute: {
             let alert : UIAlertController = UIAlertController(title: "Comentarios enviados", message: "Calificaste la consulta negativamente, te gustaría comunicarte con una operadora para solicitar una visita domiciliaria?", preferredStyle: .alert)
             alert.isModalInPopover = true
-            let actionAcept:UIAlertAction = UIAlertAction(title: "Si", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in
+            let actionAcept:UIAlertAction = UIAlertAction(title: "Si", style: UIAlertActionStyle.destructive) { (_:UIAlertAction) in
                 guard let number = URL(string: "tel://" + self.getTelephone()) else { return }
                 UIApplication.shared.open(number, options: [:], completionHandler: nil)
                 self.backToMain()

@@ -14,12 +14,14 @@ class SelectProviderViewController: UITableViewController {
     var selectedProvider:Provider!
     var loadingView : UIView?
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.loadingView = UIViewController.displaySpinner(onView: self.view)
+        tableView.separatorColor = UIColor.gray
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loadingView = UIViewController.displaySpinner(onView: self.view)
-        
-        tableView.separatorColor = UIColor.gray
-        tableView.isHidden = true
+       
         //create  navigation bar filter button
         let backButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(doBack))
         self.navigationItem.leftBarButtonItem = backButton

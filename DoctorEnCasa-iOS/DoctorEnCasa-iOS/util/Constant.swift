@@ -28,6 +28,7 @@ struct Constants {
         static let videocall = "videocall"
         static let updateTokenGCM = "user/updateTokenGCM"
         static let rank = "videocall/ranking"
+        static let cancel = "videocall/cancel"
 
     }
     

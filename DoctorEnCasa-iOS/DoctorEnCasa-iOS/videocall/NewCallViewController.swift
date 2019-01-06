@@ -13,10 +13,11 @@ class NewCallViewController: UIViewController {
     
     weak var timer: Timer?
     
+    @IBOutlet weak var callIconContainer: UIView!
     var videocallId : Int?
     var room : TVIRoom?
     var roomName : String?
-    var accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTS2YzNzYxMmEwNzlmNmYyY2FkZTYyMmU5MjQzNTQxZmVmLTE1NDE2NDU4NjUiLCJpc3MiOiJTS2YzNzYxMmEwNzlmNmYyY2FkZTYyMmU5MjQzNTQxZmVmIiwic3ViIjoiQUMxYTU4MDJmMzg1MGMwYThkNjk1YWMzYTY4NDg5MGMxZSIsImV4cCI6MTU0MTY0OTQ2NSwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiaW9zIiwidmlkZW8iOnsicm9vbSI6InNhbGExIn19fQ.nem8GqM_71oKDYpx5lZASSYPkS4cggXFj7L8PXgVObE"
+    var accessToken : String?
     // Create an audio track
     var localAudioTrack = TVILocalAudioTrack()
     // Create a Capturer to provide content for the video track
@@ -26,6 +27,7 @@ class NewCallViewController: UIViewController {
     // `TVIVideoView` created from a storyboard
     @IBOutlet weak var previewView: TVIVideoView!
     var remoteParticipant: TVIRemoteParticipant?
+    var isCameraStopped = false
 
     @IBOutlet weak var rejectButton: UIView!
     @IBOutlet weak var acceptButton: UIImageView!
@@ -45,6 +47,7 @@ class NewCallViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+       
     }
     
     override func viewDidLoad() {
@@ -56,10 +59,10 @@ class NewCallViewController: UIViewController {
             self.startPreview()
         }
         
-        let flipCameraGesture = UITapGestureRecognizer(target: self, action: #selector(flipCamera(_:)))
+        let flipCameraGesture = UITapGestureRecognizer(target: self, action: #selector(hangout(_:)))
         changeCameraButton.addGestureRecognizer(flipCameraGesture)
         
-        let hangoutCameraGesture = UITapGestureRecognizer(target: self, action: #selector(hangout(_:)))
+        let hangoutCameraGesture = UITapGestureRecognizer(target: self, action: #selector(flipCamera(_:)))
         hangoutButton.addGestureRecognizer(hangoutCameraGesture)
         
         let muteCameraGesture = UITapGestureRecognizer(target: self, action: #selector(mute(_:)))
@@ -99,7 +102,7 @@ class NewCallViewController: UIViewController {
         self.prepareLocalMedia()
         
         // Preparing the connect options with the access token that we fetched (or hardcoded).
-        let connectOptions = TVIConnectOptions.init(token: accessToken) { (builder) in
+        let connectOptions = TVIConnectOptions.init(token: accessToken!) { (builder) in
             
             // Use the local media that we prepared earlier.
             builder.audioTracks = self.localAudioTrack != nil ? [self.localAudioTrack!] : [TVILocalAudioTrack]()
@@ -142,13 +145,17 @@ class NewCallViewController: UIViewController {
         }
     }
     
-    @objc func hangout(_ sender: Any) {
-        self.cleanupRemoteParticipant()
+    private func disconnect () {
         self.room?.disconnect()
         self.room = nil
         self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
         self.performSegue(withIdentifier: NavigationUtil.NAVIGATE.showRank, sender: nil)
+    }
+    
+    @objc func hangout(_ sender: Any) {
+        self.cleanupRemoteParticipant()
+        disconnect()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -160,8 +167,11 @@ class NewCallViewController: UIViewController {
     @objc func changeVideo(_ sender: Any) {
         if let camera = camera {
             camera.stopCapture()
+            self.camera = nil
+            self.videoButton.image = UIImage(named: "camera_off")
         } else {
             startPreview()
+            self.videoButton.image = UIImage(named: "camera")
         }
     }
     
@@ -171,9 +181,9 @@ class NewCallViewController: UIViewController {
             
             // Update the button title
             if (self.localAudioTrack?.isEnabled == true) {
-                print("Mic unmuted")
+                self.muteButton.image = UIImage(named: "mic")
             } else {
-                print("Mic muted")
+                self.muteButton.image = UIImage(named: "mic_off")
             }
         }
     }
@@ -188,6 +198,7 @@ class NewCallViewController: UIViewController {
             }
         }
         self.remoteParticipant = nil
+        disconnect()
     }
     
     
@@ -199,7 +210,7 @@ class NewCallViewController: UIViewController {
         
         // `TVIVideoView` supports scaleToFill, scaleAspectFill and scaleAspectFit
         // scaleAspectFit is the default mode when you create `TVIVideoView` programmatically.
-        self.remoteView!.contentMode = .scaleAspectFit;
+        self.remoteView!.contentMode = .scaleAspectFill;
         
         let centerX = NSLayoutConstraint(item: self.remoteView!,
                                          attribute: NSLayoutConstraint.Attribute.centerX,
@@ -259,7 +270,14 @@ class NewCallViewController: UIViewController {
         }
         // Preview our local camera track in the local video preview view.
         camera = TVICameraCapturer(source: .frontCamera, delegate: self)
-        localVideoTrack = TVILocalVideoTrack.init(capturer: camera!, enabled: true, constraints: nil, name: "Camera")
+        // Setup the video constraints
+        let videoConstraints = TVIVideoConstraints { (constraints) in
+            constraints.maxSize = TVIVideoConstraintsSize1280x960
+            constraints.minSize = TVIVideoConstraintsSize1280x960
+            constraints.maxFrameRate = TVIVideoConstraintsFrameRate30
+            constraints.minFrameRate = TVIVideoConstraintsFrameRate30
+        }
+        localVideoTrack = TVILocalVideoTrack.init(capturer: camera!, enabled: true, constraints: videoConstraints, name: "Camera")
         if (localVideoTrack == nil) {
             print("Failed to create video track")
         } else {
@@ -419,13 +437,12 @@ extension NewCallViewController : TVIRemoteParticipantDelegate {
 // MARK: TVIRoomDelegate
 extension NewCallViewController : TVIRoomDelegate {
     func didConnect(to room: TVIRoom) {
-        // At the moment, this example only supports rendering one Participant at a time.
         print("Connected to room \(room.name) as \(String(describing: room.localParticipant?.identity))")
-        
         if (room.remoteParticipants.count > 0) {
             self.remoteParticipant = room.remoteParticipants[0]
             self.remoteParticipant?.delegate = self
         }
+        
     }
     
     func room(_ room: TVIRoom, didDisconnectWithError error: Error?) {

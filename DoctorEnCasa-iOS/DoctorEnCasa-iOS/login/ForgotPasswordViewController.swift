@@ -105,16 +105,6 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
                 return
             }
             
-            // parse the data
-            let parsedResult: UserInfo!
-            do {
-                parsedResult = try JSONDecoder().decode(UserInfo.self, from: data)
-                UserDefaults.standard.set(parsedResult.token, forKey: NavigationUtil.DATA.tokenKey)
-            } catch {
-                displayError("Could not parse the data as JSON: '\(data)'")
-                UIViewController.removeSpinner(spinner: self.loadingView!)
-                return
-            }
             DispatchQueue.main.async(execute: {
                 self.errorText.isHidden = true
                 UIViewController.removeSpinner(spinner: self.loadingView!)

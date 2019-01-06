@@ -35,11 +35,11 @@ class SettingsViewController : UITableViewController {
     @IBAction func logout(_ sender: Any){
         let alert : UIAlertController = UIAlertController(title: "", message: "¿Estás seguro de que querés cerrar tu sesión?", preferredStyle: .alert)
         alert.isModalInPopover = true
-        let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in
+        let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.destructive) { (_:UIAlertAction) in
             SessionUtil.logout(vc: self)
         }
         alert.addAction(actionAcept)
-        let actionCancel:UIAlertAction = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default) { (_:UIAlertAction) in
+        let actionCancel:UIAlertAction = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in
             alert.dismiss(animated: true, completion: {});
         }
         alert.addAction(actionCancel)
