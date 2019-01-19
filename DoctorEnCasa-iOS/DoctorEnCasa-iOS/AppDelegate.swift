@@ -18,7 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-       
+        
+        //self.configureTabBar()
+        
         self.configureNotifications(application)
         
         var storyBoard : UIStoryboard
@@ -26,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //Get token
         if let _ : String = UserDefaults.standard.value(forKey: NavigationUtil.DATA.tokenKey) as? String {
-            storyBoard = UIStoryboard(name: "Main", bundle: nil)
+          
             
             if UserDefaults.standard.value(forKey: "passwordExpired") != nil {
                 if (UserDefaults.standard.value(forKey: "passwordExpired") as? Bool)! {
@@ -35,6 +37,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     self.window?.rootViewController = vc
                     return true
                 }
+            }
+            storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            // Increases uses of the app to show rank dialog
+            if UserDefaults.standard.value(forKey: "appOpenings") != nil {
+                let currentOpenings = UserDefaults.standard.integer(forKey: "appOpenings")
+                UserDefaults.standard.setValue(currentOpenings + 1, forKey: "appOpenings")
+            } else {
+                UserDefaults.standard.setValue(1, forKey: "appOpenings")
             }
             let vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.main) as! UITabBarController
              self.window?.rootViewController = vc
@@ -46,6 +56,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
         // Override point for customization after application launch.
         return true
+    }
+    
+    private func configureTabBar(){
+        UITabBar.appearance().unselectedItemTintColor = UIColor.darkGray
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.clear], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white], for: .selected)
     }
     
     private func configureNotifications(_ application: UIApplication){
@@ -104,7 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
+            print("Message ID: \(userInfo)")
         }
         
         let sb = UIStoryboard(name: "Main", bundle: nil)

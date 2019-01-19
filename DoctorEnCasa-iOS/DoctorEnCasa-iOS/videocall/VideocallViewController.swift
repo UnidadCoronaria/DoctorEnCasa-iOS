@@ -5,7 +5,7 @@
 //  Created by Agustin Bala on 24/09/2018.
 //  Copyright © 2018 Agustin. All rights reserved.
 //
-
+import StoreKit
 import UIKit
 
 class VideocallViewController : UIViewController {
@@ -19,11 +19,12 @@ class VideocallViewController : UIViewController {
     @IBOutlet weak var queueText: UILabel!
     @IBOutlet weak var separator: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var errorView: UIView!
     
     var token : String = ""
     var affiliateCallHistory : AffiliateCallHistory?
     var queueStatus : Queue?
-    
+    var currentVideocall : Videocall?
    
     override func viewDidDisappear(_ animated: Bool) {
         timer.invalidate()
@@ -31,9 +32,28 @@ class VideocallViewController : UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.errorView.isHidden = true
         //First request to avoid 30 sec waiting
         getCurrentState()
         timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(VideocallViewController.reload), userInfo: nil, repeats: true)
+        
+        if let lastCallStatus = UserDefaults.standard.string(forKey: "LAST_CALL_STATUS") {
+            UserDefaults.standard.set(nil, forKey: "LAST_CALL_STATUS")
+            
+            switch lastCallStatus {
+            case "CALL_EXPIRED":
+                self.showInfoAlert(title: "Llamada no disponible", text: "La llamada ya no se encuenta disponible, en breve podrás sacar otro turno")
+                break
+            case "CALL_REJECTED":
+                self.showInfoAlert(title: "Llamada rechazada", text: "Rechazaste la llamada, en breve podrás sacar otro turno..")
+                break
+            case "CALL_TIMEOUT":
+                self.showInfoAlert(title: "Llamada no disponible", text: "No atendiste a tiempo, en breve podrás sacar otro turno")
+                break
+            default:
+                break
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -43,14 +63,19 @@ class VideocallViewController : UIViewController {
         if let token : String = UserDefaults.standard.value(forKey: NavigationUtil.DATA.tokenKey) as? String {
             self.token = token
         }
-
-        
-        //SEND TOKEN POR LAS DUDAS
         
         // add pull to refresh
         pullToRefresh.attributedTitle = NSAttributedString(string: "Recargar el estado de tus videollamadas")
         pullToRefresh.addTarget(self, action: #selector(self.reload), for: .valueChanged)
         //scrollView.addSubview(pullToRefresh)
+        button.layer.cornerRadius = 15
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.clear.cgColor
+        cancelButton.layer.cornerRadius = 15
+        cancelButton.layer.borderWidth = 1
+        cancelButton.layer.borderColor = UIColor.clear.cgColor
+        
+        
     }
     
     @IBAction func beNext(_ sender: Any) {
@@ -76,7 +101,10 @@ class VideocallViewController : UIViewController {
     private func reloadScreenInfo(){
         separator.isHidden = false
         image.image = UIImage(named: "icono_home")
+       
         if (affiliateCallHistory != nil && affiliateCallHistory?.lastVideocall != nil) {
+            self.errorView.isHidden = true
+            self.currentVideocall = affiliateCallHistory?.lastVideocall
             if("FINALIZADA" == affiliateCallHistory?.lastVideocall?.status
                 || "EXPIRADA" == affiliateCallHistory?.lastVideocall?.status
                 || "CERRADA" == affiliateCallHistory?.lastVideocall?.status
@@ -84,6 +112,9 @@ class VideocallViewController : UIViewController {
                 descriptionText.text = "Sacá un turno para ser atendido por uno de nuestros doctores"
                 button.isHidden = false
                 cancelButton.isHidden = true
+                
+                checkForAppRanking()
+                
             } else {
                 button.isHidden = true
                 if("EN_COLA" == affiliateCallHistory?.lastVideocall?.status){
@@ -106,17 +137,31 @@ class VideocallViewController : UIViewController {
             }
         } else {
             if(affiliateCallHistory != nil){
+                self.currentVideocall = affiliateCallHistory?.lastVideocall
+                self.errorView.isHidden = true
                 descriptionText.text = "Sacá un turno para ser atendido por uno de nuestros doctores"
                 button.isHidden = false
                 cancelButton.isHidden = true
             } else {
+                self.errorView.isHidden = false
                 cancelButton.isHidden = true
-                descriptionText.text = "No se pudo cargar la información.\nPor favor, intentá nuevamente."
             }
         }
         
         //ACTUALIZAR PANTALLA SEGUN ESTADO
         getQueueStatus()
+    }
+    
+    private func checkForAppRanking(){
+        if UserDefaults.standard.value(forKey: "appOpenings") != nil {
+            let currentOpenings = UserDefaults.standard.integer(forKey: "appOpenings")
+            if UserDefaults.standard.value(forKey: "rankedApp") == nil && currentOpenings > 5{
+                    if #available(iOS 10.3, *) {
+                        SKStoreReviewController.requestReview()
+                        UserDefaults.standard.setValue(true, forKey: "rankedApp")
+                    }
+            }
+        }
     }
     
     private func reloadQueueStatus(){
@@ -131,9 +176,7 @@ class VideocallViewController : UIViewController {
     }
     
     private func errorInHistory(){
-        image.image = UIImage(named: "no_connection")
-        descriptionText.isHidden = false
-        descriptionText.text = "No se pudo cargar la información.\nPor favor, intentá nuevamente."
+        self.errorView.isHidden = false
         queueText.isHidden = true
         button.isHidden = true
         cancelButton.isHidden = true
@@ -144,7 +187,14 @@ class VideocallViewController : UIViewController {
         queueText.isHidden = true
     }
     
-    
+    private func showInfoAlert(title : String, text : String) {
+        let alert : UIAlertController = UIAlertController(title: title, message:text , preferredStyle: .alert)
+        alert.isModalInPopover = true
+        let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in self.reload() }
+        alert.addAction(actionAcept)
+        self.present(alert, animated: true, completion: nil)
+    }
+
     
     private func getCurrentState(){
         let url:URL = URL(string: Constants.API.APIBaseURL+Constants.Endpoints.userHistory)!
@@ -322,6 +372,16 @@ class VideocallViewController : UIViewController {
         request.setValue(Constants.Parameters.jsonMimeType, forHTTPHeaderField: Constants.Parameters.contentType)
         request.setValue(Constants.Parameters.jsonMimeType, forHTTPHeaderField: Constants.Parameters.accept)
         request.setValue(self.token, forHTTPHeaderField: Constants.Parameters.authorization)
+        let rank : VideocallDTO = VideocallDTO(videocallId: (self.currentVideocall?.id)!)
+        let data : Data
+        do {
+            let jsonEncoder = JSONEncoder()
+            data = try jsonEncoder.encode(rank)
+            request.httpBody = data
+        } catch {
+            print("Error: cannot create JSON from ranking data")
+            return
+        }
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             
@@ -330,11 +390,7 @@ class VideocallViewController : UIViewController {
                 print(error)
                 print("URL at time of error: \(url)")
                 DispatchQueue.main.async(execute: {
-                    let alert : UIAlertController = UIAlertController(title: "Error", message: "Hubo un error cancelando el turno. Por favor, intentalo nuevamente.", preferredStyle: .alert)
-                    alert.isModalInPopover = true
-                    let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in }
-                    alert.addAction(actionAcept)
-                    self.present(alert, animated: true, completion: nil)
+                    self.showInfoAlert(title: "Error", text: "Hubo un error cancelando el turno. Por favor, intentalo nuevamente.")
                 })
             }
             
@@ -362,11 +418,7 @@ class VideocallViewController : UIViewController {
             
             DispatchQueue.main.async(execute: {
                 DispatchQueue.main.async(execute: {
-                    let alert : UIAlertController = UIAlertController(title: "Turno cancelado", message: "Tu turno fue cancelado satisfactoriamente.", preferredStyle: .alert)
-                    alert.isModalInPopover = true
-                    let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in self.reload() }
-                    alert.addAction(actionAcept)
-                    self.present(alert, animated: true, completion: nil)
+                    self.showInfoAlert(title: "Turno cancelado", text: "Tu turno fue cancelado satisfactoriamente.")
                 })
             })
             

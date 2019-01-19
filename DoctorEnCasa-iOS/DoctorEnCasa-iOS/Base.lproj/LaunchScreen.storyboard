@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,15 +19,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="xZH-bY-DTo">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="5" width="414" height="896"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="xZH-bY-DTo" firstAttribute="leading" secondItem="x95-g5-zGF" secondAttribute="leading" id="4ti-jf-zY0"/>
-                            <constraint firstItem="x95-g5-zGF" firstAttribute="bottom" secondItem="xZH-bY-DTo" secondAttribute="bottom" id="SeF-YZ-uCw"/>
-                            <constraint firstItem="xZH-bY-DTo" firstAttribute="top" secondItem="x95-g5-zGF" secondAttribute="top" id="TYt-ek-5DD"/>
-                            <constraint firstItem="x95-g5-zGF" firstAttribute="trailing" secondItem="xZH-bY-DTo" secondAttribute="trailing" id="x9v-H3-W6n"/>
+                            <constraint firstItem="xZH-bY-DTo" firstAttribute="width" secondItem="VNO-Jz-CIa" secondAttribute="width" id="0U9-6J-bGK"/>
+                            <constraint firstItem="xZH-bY-DTo" firstAttribute="centerY" secondItem="x95-g5-zGF" secondAttribute="centerY" id="Cxp-DB-0aU"/>
+                            <constraint firstItem="xZH-bY-DTo" firstAttribute="centerX" secondItem="x95-g5-zGF" secondAttribute="centerX" id="DTs-q6-Spx"/>
+                            <constraint firstItem="xZH-bY-DTo" firstAttribute="height" secondItem="VNO-Jz-CIa" secondAttribute="height" id="Tzi-fx-YIB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="x95-g5-zGF"/>
                     </view>

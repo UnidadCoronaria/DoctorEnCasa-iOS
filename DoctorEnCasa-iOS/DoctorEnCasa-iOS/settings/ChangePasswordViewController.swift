@@ -18,6 +18,14 @@ class ChangePasswordViewController : UIViewController, UITextFieldDelegate {
     
     var loadingView : UIView?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        changePasswordButton.layer.cornerRadius = 15
+        changePasswordButton.layer.borderWidth = 1
+        changePasswordButton.layer.borderColor = UIColor.clear.cgColor
+    
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
         if UserDefaults.standard.value(forKey: "passwordExpired") != nil {
@@ -33,6 +41,7 @@ class ChangePasswordViewController : UIViewController, UITextFieldDelegate {
                 self.present(alert, animated: true, completion: nil)
             }
         }
+       
     }
 
     

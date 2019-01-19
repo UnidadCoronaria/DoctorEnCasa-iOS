@@ -26,6 +26,7 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
     
     var provider:Provider!
     var affiliate:Affiliate?
+    var hasValidAffiliate = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +34,12 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
         self.mailText.delegate = self
         self.affiliateNumberText.delegate = self
         self.repeatePasswordText.delegate = self
-        self.finalizeButton.isEnabled = false
         self.repeatPasswordError.isHidden = true
         self.mailError.isHidden = true
         self.passwordError.isHidden = true
+        self.finalizeButton.layer.cornerRadius = 15
+        self.finalizeButton.layer.borderWidth = 1
+        self.finalizeButton.layer.borderColor = UIColor.clear.cgColor
     }
    
     @IBAction func endEditingAffiliateNumber(_ sender: Any) {
@@ -51,7 +54,7 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
                 }
                 getAffiliate();
             } else {
-                self.finalizeButton.isEnabled = false
+                hasValidAffiliate = false
             }
         }
     }
@@ -59,11 +62,16 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
     @IBAction func clear(_ sender: Any) {
         self.affiliateNumberText.text = ""
         self.affiliate = nil
-        self.finalizeButton.isEnabled = false
+        hasValidAffiliate = false
     }
-
+    
     
     @IBAction func finalize(_ sender: Any) {
+        if !hasValidAffiliate {
+            showSelectedAffiliate()
+            return
+        }
+        
         self.mailError.isHidden = true
         self.repeatPasswordError.isHidden = true
         self.passwordError.isHidden = true
@@ -113,6 +121,15 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
         createUser()
     }
     
+    private func showSelectedAffiliate(){
+        let alert : UIAlertController = UIAlertController(title: "Error", message: "Ingresá un número de socio válido.", preferredStyle: .alert)
+        alert.isModalInPopover = true
+        let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in }
+        alert.addAction(actionAcept)
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    
     func showMissmatchPasswords(){
         let alert : UIAlertController = UIAlertController(title: "Error", message: "Las contraseñas no coinciden.", preferredStyle: .alert)
         alert.isModalInPopover = true
@@ -161,7 +178,7 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
                 print(error)
                 print("URL at time of error: \(url)")
                 DispatchQueue.main.async(execute: {
-                    self.finalizeButton.isEnabled = false
+                    self.hasValidAffiliate = false
                 })
             }
             
@@ -206,10 +223,10 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
             let fullName = "\(String(describing: affiliate.firstName!)) \(String(describing: affiliate.lastName!))"
             let affiliateNumberTemp = String(self.affiliateNumberText.text!.split(separator: " ")[0])
             self.affiliateNumberText.text = "\(affiliateNumberTemp) - \(fullName)"
-            self.finalizeButton.isEnabled = true
+            hasValidAffiliate = true
         } else {
             self.affiliateNumberText.text = String(self.affiliateNumberText.text!.split(separator: " ")[0])
-            self.finalizeButton.isEnabled = false
+            hasValidAffiliate = false
         }
     }
     

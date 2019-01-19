@@ -12,18 +12,21 @@ import UIKit
 class SessionUtil {
     
     static func logout(vc : UIViewController){
-        //Clear user's token
-        UserDefaults.standard.removeObject(forKey: NavigationUtil.DATA.tokenKey)
-        UserDefaults.standard.removeObject(forKey: NavigationUtil.DATA.provider)
-        
-        //Dismiss this VC
-        vc.navigationController?.popViewController(animated: true)
-        vc.dismiss(animated: true, completion: nil)
-        
-        //Navigate back to login
-        let storyBoard = UIStoryboard(name: "Login", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.loginNavigation)
-        UIApplication.shared.keyWindow?.rootViewController = vc
+        DispatchQueue.main.async(execute: {
+            //Clear user's token
+            UserDefaults.standard.removeObject(forKey: NavigationUtil.DATA.tokenKey)
+            UserDefaults.standard.removeObject(forKey: NavigationUtil.DATA.provider)
+            
+            //Dismiss this VC
+            vc.navigationController?.popViewController(animated: true)
+            vc.dismiss(animated: true, completion: nil)
+            
+            //Navigate back to login
+            let storyBoard = UIStoryboard(name: "Login", bundle: nil)
+            let vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.loginNavigation)
+            UIApplication.shared.keyWindow?.rootViewController = vc
+        })
+       
     }
     
 }

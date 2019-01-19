@@ -10,6 +10,8 @@ import UIKit
 
 class MedicalRecordTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
    
+    @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var previosRecordsTitle: UILabel!
     @IBOutlet weak var firstItemContainer: UIStackView!
     @IBOutlet weak var errorView: UIView!
     
@@ -25,6 +27,7 @@ class MedicalRecordTableViewController: UIViewController, UITableViewDataSource,
     var selectedFilterRow : Int?
     var token : String = ""
     var loadingView : UIView?
+    var selectedRow : IndexPath?
     
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var lastVideocallOf: UILabel!
@@ -37,6 +40,9 @@ class MedicalRecordTableViewController: UIViewController, UITableViewDataSource,
         self.viewTable.tableFooterView = UIView()
         self.errorView.isHidden = true
         self.viewTable.isHidden = true
+        self.previosRecordsTitle.isHidden = true
+        self.emptyView.isHidden = true
+        self.firstItemContainer.isHidden = true
         self.loadingView = UIViewController.displaySpinner(onView: self.view)
         
         //Get token
@@ -50,7 +56,7 @@ class MedicalRecordTableViewController: UIViewController, UITableViewDataSource,
         // add pull to refresh
         pullToRefresh.attributedTitle = NSAttributedString(string: "Recargar la lista de consultas médicas")
         pullToRefresh.addTarget(self, action: #selector(self.reload), for: .valueChanged)
-        viewTable.addSubview(pullToRefresh)
+        //viewTable.addSubview(pullToRefresh)
         viewTable.separatorColor = UIColor.black
         
         //create  navigation bar filter button
@@ -59,6 +65,14 @@ class MedicalRecordTableViewController: UIViewController, UITableViewDataSource,
         
         // Load the sample data.
         loadMedicalRecords()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let selectedRow = self.selectedRow {
+            self.viewTable.deselectRow(at: selectedRow, animated: false)
+            self.selectedRow = nil
+        }
+        
     }
     
     @objc func showFirstItemDetail(_ sender: Any) {
@@ -81,7 +95,7 @@ class MedicalRecordTableViewController: UIViewController, UITableViewDataSource,
         if self.medicalRecords.count > 0 {
             let alert : UIAlertController = UIAlertController(title: "Filtrar", message: "Seleccioná el afiliado", preferredStyle: .alert)
             alert.isModalInPopover = true
-            var previousFilter = self.selectedFilterRow
+            let previousFilter = self.selectedFilterRow
             let vc = UIViewController()
             vc.preferredContentSize = CGSize(width: 250, height: 200)
             let pickerFrame = UIPickerView(frame: CGRect(x: 0, y: 0, width: 250 , height: 200)) // CGRectMake(left, top, width, height) - left and top are like margins
@@ -210,6 +224,7 @@ class MedicalRecordTableViewController: UIViewController, UITableViewDataSource,
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedRow = indexPath
         self.selectedMedicalRecord = self.filteredMedicalRecords[indexPath.row];
         self.performSegue(withIdentifier: NavigationUtil.NAVIGATE.showMedicalRecordDetail, sender: nil)
     }
@@ -235,6 +250,13 @@ class MedicalRecordTableViewController: UIViewController, UITableViewDataSource,
             func displayError(_ error: String) {
                 print(error)
                 print("URL at time of error: \(url)")
+                DispatchQueue.main.async(execute: {
+                    self.errorView.isHidden = false
+                    self.previosRecordsTitle.isHidden = true
+                    self.viewTable.isHidden = true
+                    self.firstItemContainer.isHidden = true
+                    self.emptyView.isHidden = true
+                })
             }
             
             /* GUARD: Was there an error? */
@@ -295,10 +317,16 @@ class MedicalRecordTableViewController: UIViewController, UITableViewDataSource,
                     
                     self.viewTable.reloadData()
                     self.errorView.isHidden = true
+                    self.previosRecordsTitle.isHidden = false
                     self.viewTable.isHidden = false
+                    self.firstItemContainer.isHidden = false
+                    self.emptyView.isHidden = true
                 } else {
-                    self.errorView.isHidden = false
+                    self.errorView.isHidden = true
+                    self.emptyView.isHidden = false
+                    self.previosRecordsTitle.isHidden = true
                     self.viewTable.isHidden = true
+                    self.firstItemContainer.isHidden = true 
                 }
                 UIViewController.removeSpinner(spinner: self.loadingView!)
               

@@ -76,6 +76,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
         
         let gestureAccount = UITapGestureRecognizer(target: self, action: #selector(createAccount(_:)))
         createAccountText.addGestureRecognizer(gestureAccount)
+        
+        submit.layer.cornerRadius = 15
+        submit.layer.borderWidth = 1
+        submit.layer.borderColor = UIColor.clear.cgColor
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

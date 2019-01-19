@@ -8,12 +8,13 @@
 
 import UIKit
 
-class RankCallViewController : UIViewController {
+class RankCallViewController : UIViewController, UITextViewDelegate{
     
     public var videocallId : Int?
     private var score: Int = 1
     
-    @IBOutlet weak var commentText: UITextField!
+    @IBOutlet weak var commentTitle: UILabel!
+    @IBOutlet weak var commentText: UITextView!
     
     @IBOutlet weak var star1: UIImageView!
     @IBOutlet weak var star2: UIImageView!
@@ -21,6 +22,8 @@ class RankCallViewController : UIViewController {
     @IBOutlet weak var star4: UIImageView!
     @IBOutlet weak var star5: UIImageView!
     
+    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var notNowButton: UIButton!
     var token : String?
     
     //Calls this function when the tap is recognized.
@@ -29,6 +32,25 @@ class RankCallViewController : UIViewController {
         view.endEditing(true)
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if !textView.text.isEmpty && textView.text == "Escribí tu comentario aquí"{
+            textView.text = nil
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Escribí tu comentario aquí"
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
     
     override func viewDidDisappear(_ animated: Bool) {
     }
@@ -64,8 +86,27 @@ class RankCallViewController : UIViewController {
         let star5Gesture = UITapGestureRecognizer(target: self, action: #selector(star5Click(_:)))
         star5.addGestureRecognizer(star5Gesture)
         
-      
+        sendButton.layer.cornerRadius = 15
+        sendButton.layer.borderWidth = 1
+        sendButton.layer.borderColor = UIColor.clear.cgColor
+        notNowButton.layer.cornerRadius = 15
+        notNowButton.layer.borderWidth = 1
+        notNowButton.layer.borderColor = UIColor.clear.cgColor
+        commentText.delegate = self
+        commentText.layer.borderColor = UIColor.black.cgColor
+        commentText.layer.borderWidth = 0.5
+        commentText.layer.cornerRadius = 5
+        commentTitle.text = "Envianos tus comentarios para seguir mejorando"
+        commentTitle.sizeToFit()
+        commentTitle.layoutIfNeeded()
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+
     
     @objc func star1Click(_ sender: Any) {
         score = 1

@@ -16,7 +16,9 @@ class SelectProviderViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.loadingView = UIViewController.displaySpinner(onView: self.view)
+        if providers.count == 0{
+            self.loadingView = UIViewController.displaySpinner(onView: self.view)
+        }
         tableView.separatorColor = UIColor.gray
     }
     override func viewDidLoad() {
@@ -26,7 +28,11 @@ class SelectProviderViewController: UITableViewController {
         let backButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(doBack))
         self.navigationItem.leftBarButtonItem = backButton
         // Load the sample data.
-        loadProviders()
+        if providers.count == 0{
+            loadProviders()
+        }
+        
+        self.tableView.tableFooterView = UIView()
     }
     
     @objc func doBack(){

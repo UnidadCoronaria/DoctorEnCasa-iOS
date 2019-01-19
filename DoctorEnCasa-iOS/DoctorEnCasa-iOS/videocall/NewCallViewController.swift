@@ -8,6 +8,7 @@
 
 import UIKit
 import TwilioVideo
+import AVFoundation
 
 class NewCallViewController: UIViewController {
     
@@ -28,7 +29,10 @@ class NewCallViewController: UIViewController {
     @IBOutlet weak var previewView: TVIVideoView!
     var remoteParticipant: TVIRemoteParticipant?
     var isCameraStopped = false
+    var player: AVAudioPlayer?
 
+
+    @IBOutlet weak var stoppedVideoImage: UIImageView!
     @IBOutlet weak var rejectButton: UIView!
     @IBOutlet weak var acceptButton: UIImageView!
     @IBOutlet weak var incomingCallContainer: UIView!
@@ -37,27 +41,26 @@ class NewCallViewController: UIViewController {
     @IBOutlet weak var videoButton: UIImageView!
     @IBOutlet weak var changeCameraButton: UIImageView!
     @IBOutlet weak var hangoutButton: UIImageView!
+    var loadingView : UIView?
     
     override func viewDidDisappear(_ animated: Bool) {
+        self.player?.stop()
         timer?.invalidate()
         // To disconnect from a Room, we call:
         room?.disconnect()
-        print("Attempting to disconnect from room \(room?.name)")
+        print("Attempting to disconnect from room \(String(describing: room?.name))")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-       
+        playSound()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if isSimulator {
             self.previewView.removeFromSuperview()
-        } else {
-            // Preview our local camera track in the local video preview view.
-            self.startPreview()
-        }
+        } 
         
         let flipCameraGesture = UITapGestureRecognizer(target: self, action: #selector(hangout(_:)))
         changeCameraButton.addGestureRecognizer(flipCameraGesture)
@@ -86,15 +89,18 @@ class NewCallViewController: UIViewController {
     }
     
     @objc func timeout(){
+        self.player?.stop()
         self.roomName = nil
         self.accessToken = ""
-        UserDefaults.standard.set(true, forKey: "CALL_TIMEOUT")
+        UserDefaults.standard.set("CALL_TIMEOUT", forKey: "LAST_CALL_STATUS")
         self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.main)
+        
         UIApplication.shared.keyWindow?.rootViewController = vc
+        
     }
     
     func connect(){
@@ -118,6 +124,8 @@ class NewCallViewController: UIViewController {
     
     // MARK: Operations
     @objc func reject(_ sender: Any) {
+        self.player?.stop()
+        UserDefaults.standard.set("CALL_REJECTED", forKey: "LAST_CALL_STATUS")
         self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
         timer?.invalidate()
@@ -128,8 +136,11 @@ class NewCallViewController: UIViewController {
     }
     
     @objc func accept(_ sender: Any) {
+        self.player?.stop()
         self.inProgressContainer.isHidden = false
         self.incomingCallContainer.isHidden = true
+        self.loadingView = UIViewController.displaySpinner(onView: self.view)
+        self.loadingView?.backgroundColor = UIColor.gray
         connect()
         timer?.invalidate()
     }
@@ -143,19 +154,33 @@ class NewCallViewController: UIViewController {
                 camera.selectSource(.frontCamera)
             }
         }
+    
     }
     
-    private func disconnect () {
+    private func disconnect () {
         self.room?.disconnect()
         self.room = nil
         self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
-        self.performSegue(withIdentifier: NavigationUtil.NAVIGATE.showRank, sender: nil)
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "RankIC") as! RankCallViewController
+        vc.videocallId = self.videocallId
+        UIApplication.shared.keyWindow?.rootViewController = vc
+       
+    }
+    
+    private func onExpiredCall(){
+        self.room = nil
+        UserDefaults.standard.set("CALL_EXPIRED", forKey: "LAST_CALL_STATUS")
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: NavigationUtil.NAVIGATE.main) as! UITabBarController
+        UIApplication.shared.keyWindow?.rootViewController = vc
     }
     
     @objc func hangout(_ sender: Any) {
         self.cleanupRemoteParticipant()
-        disconnect()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -165,12 +190,17 @@ class NewCallViewController: UIViewController {
     }
     
     @objc func changeVideo(_ sender: Any) {
-        if let camera = camera {
-            camera.stopCapture()
-            self.camera = nil
+        if isCameraStopped {
+            isCameraStopped = false
+            stoppedVideoImage.isHidden = true
+            self.previewView.isHidden = false
+            localVideoTrack?.isEnabled = true
             self.videoButton.image = UIImage(named: "camera_off")
         } else {
-            startPreview()
+            isCameraStopped = true
+            localVideoTrack?.isEnabled = false
+            stoppedVideoImage.isHidden = false
+            self.previewView.isHidden = true
             self.videoButton.image = UIImage(named: "camera")
         }
     }
@@ -189,6 +219,7 @@ class NewCallViewController: UIViewController {
     }
     
     func cleanupRemoteParticipant() {
+      
         if ((self.remoteParticipant) != nil) {
             if ((self.remoteParticipant?.videoTracks.count)! > 0) {
                 let remoteVideoTrack = self.remoteParticipant?.remoteVideoTracks[0].remoteTrack
@@ -197,7 +228,11 @@ class NewCallViewController: UIViewController {
                 self.remoteView = nil
             }
         }
-        self.remoteParticipant = nil
+        if self.previewView != nil {
+            self.previewView.removeFromSuperview()
+            self.previewView = nil
+            self.remoteParticipant = nil
+        }
         disconnect()
     }
     
@@ -270,14 +305,16 @@ class NewCallViewController: UIViewController {
         }
         // Preview our local camera track in the local video preview view.
         camera = TVICameraCapturer(source: .frontCamera, delegate: self)
+        
         // Setup the video constraints
         let videoConstraints = TVIVideoConstraints { (constraints) in
             constraints.maxSize = TVIVideoConstraintsSize1280x960
-            constraints.minSize = TVIVideoConstraintsSize1280x960
-            constraints.maxFrameRate = TVIVideoConstraintsFrameRate30
-            constraints.minFrameRate = TVIVideoConstraintsFrameRate30
+            constraints.minSize = TVIVideoConstraintsSize960x540
+            constraints.maxFrameRate = TVIVideoConstraintsFrameRateNone
+            constraints.minFrameRate = TVIVideoConstraintsFrameRateNone
         }
         localVideoTrack = TVILocalVideoTrack.init(capturer: camera!, enabled: true, constraints: videoConstraints, name: "Camera")
+       
         if (localVideoTrack == nil) {
             print("Failed to create video track")
         } else {
@@ -290,6 +327,7 @@ class NewCallViewController: UIViewController {
             let tap = UITapGestureRecognizer(target: self, action: #selector(flipCamera))
             self.previewView.addGestureRecognizer(tap)
         }
+ 
     }
     
     let isSimulator: Bool = {
@@ -299,6 +337,30 @@ class NewCallViewController: UIViewController {
         #endif
         return isSim
     }()
+    
+    func playSound() {
+        guard let sound = NSDataAsset(name: "phone_loud1")  else { return }
+
+        //guard let url = Bundle.main.url(forResource: "phone_loud1", withExtension: "mp3") else { return }
+        print("url")
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategorySoloAmbient, mode: AVAudioSessionModeDefault)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
+            player = try AVAudioPlayer(data: sound.data, fileTypeHint: AVFileType.mp3.rawValue)
+            
+            /* iOS 10 and earlier require the following line:
+             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
+            
+            guard let player = player else { return }
+            print("player")
+            player.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
   
 }
 
@@ -361,6 +423,7 @@ extension NewCallViewController : TVIRemoteParticipantDelegate {
         if (self.remoteParticipant == participant) {
             setupRemoteVideoView()
             videoTrack.addRenderer(self.remoteView!)
+            UIViewController.removeSpinner(spinner: self.loadingView!)
         }
     }
     
@@ -373,7 +436,7 @@ extension NewCallViewController : TVIRemoteParticipantDelegate {
         
         print(  "Unsubscribed from \(publication.trackName) video track for Participant \(participant.identity)")
         
-        if (self.remoteParticipant == participant) {
+        if (self.remoteParticipant == participant && self.remoteView != nil) {
             videoTrack.removeRenderer(self.remoteView!)
             self.remoteView?.removeFromSuperview()
             self.remoteView = nil
@@ -441,6 +504,8 @@ extension NewCallViewController : TVIRoomDelegate {
         if (room.remoteParticipants.count > 0) {
             self.remoteParticipant = room.remoteParticipants[0]
             self.remoteParticipant?.delegate = self
+        } else {
+            onExpiredCall()
         }
         
     }
@@ -454,6 +519,7 @@ extension NewCallViewController : TVIRoomDelegate {
     func room(_ room: TVIRoom, didFailToConnectWithError error: Error) {
         print("Failed to connect to room with error")
         self.room = nil
+        onExpiredCall()
     }
     
     func room(_ room: TVIRoom, participantDidConnect participant: TVIRemoteParticipant) {
@@ -476,3 +542,5 @@ extension NewCallViewController {
   
     
 }
+
+

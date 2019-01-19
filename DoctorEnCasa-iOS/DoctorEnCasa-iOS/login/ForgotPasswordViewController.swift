@@ -10,6 +10,7 @@ import UIKit
 
 class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
 
+    @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var errorText: UILabel!
     var loadingView : UIView?
@@ -43,6 +44,9 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
         super.viewDidLoad()
         emailText.delegate = self
         errorText.isHidden = true
+        sendButton.layer.cornerRadius = 15
+        sendButton.layer.borderWidth = 1
+        sendButton.layer.borderColor = UIColor.clear.cgColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
