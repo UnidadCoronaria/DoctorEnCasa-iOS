@@ -341,8 +341,6 @@ class NewCallViewController: UIViewController {
     func playSound() {
         guard let sound = NSDataAsset(name: "phone_loud1")  else { return }
 
-        //guard let url = Bundle.main.url(forResource: "phone_loud1", withExtension: "mp3") else { return }
-        print("url")
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategorySoloAmbient, mode: AVAudioSessionModeDefault)
             try AVAudioSession.sharedInstance().setActive(true)
@@ -354,7 +352,6 @@ class NewCallViewController: UIViewController {
              player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
             
             guard let player = player else { return }
-            print("player")
             player.play()
             
         } catch let error {

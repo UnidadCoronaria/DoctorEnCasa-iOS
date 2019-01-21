@@ -127,7 +127,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let viewController = sb.instantiateViewController(withIdentifier: "newCall") as! NewCallViewController
         viewController.accessToken = userInfo["token"] as! String
         viewController.roomName = userInfo["roomName"] as? String
-        viewController.videocallId = userInfo["videocallId"] as? Int
+        viewController.videocallId = Int(userInfo["videocallId"] as! String)
         window?.rootViewController = viewController;
     }
     
