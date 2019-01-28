@@ -111,6 +111,8 @@
 		2E8CD7C0213C8D0700174696 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7BF213C8D0700174696 /* CreateAccountViewController.swift */; };
 		2E8CD7C3214B4C4000174696 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD7C2214B4C4000174696 /* NewsViewController.swift */; };
 		2EB18C53218A5DED0029DB0A /* NewCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB18C52218A5DED0029DB0A /* NewCallViewController.swift */; };
+		2EB7F24421FA1AE1003BAB8C /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB7F24321FA1AE1003BAB8C /* GenericResponse.swift */; };
+		2EB7F24521FA1AE1003BAB8C /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB7F24321FA1AE1003BAB8C /* GenericResponse.swift */; };
 		2ED5D5D021894BB300CB0C9B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2ED5D5CF21894BB300CB0C9B /* Podfile */; };
 		2EE1FD1C2197022E008D2E84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E5F0AF3218D115900296FF1 /* GoogleService-Info.plist */; };
 		2EE1FD1F2197D6B7008D2E84 /* AffiliateFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE1FD1E2197D6B7008D2E84 /* AffiliateFilter.swift */; };
@@ -183,6 +185,7 @@
 		2E8CD7BF213C8D0700174696 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		2E8CD7C2214B4C4000174696 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		2EB18C52218A5DED0029DB0A /* NewCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCallViewController.swift; sourceTree = "<group>"; };
+		2EB7F24321FA1AE1003BAB8C /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
 		2ED5D5CF21894BB300CB0C9B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2EE1FCE32193ECE6008D2E84 /* DoctorEnCasa-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "DoctorEnCasa-iOS.entitlements"; sourceTree = "<group>"; };
 		2EE1FD1B219701F8008D2E84 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -379,6 +382,7 @@
 				2E5F0AF9218FE56C00296FF1 /* VideocallRank.swift */,
 				2EE1FD1E2197D6B7008D2E84 /* AffiliateFilter.swift */,
 				2E81456621F140E6008FED5A /* VideocallDTO.swift */,
+				2EB7F24321FA1AE1003BAB8C /* GenericResponse.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -723,6 +727,7 @@
 				2E69121121C056C800244BF2 /* TermsAndConditionsViewController.swift in Sources */,
 				2E69121221C056C800244BF2 /* LoginViewController.swift in Sources */,
 				2E69121321C056C800244BF2 /* SelectProviderViewController.swift in Sources */,
+				2EB7F24521FA1AE1003BAB8C /* GenericResponse.swift in Sources */,
 				2E69121421C056C800244BF2 /* Constant.swift in Sources */,
 				2E69121521C056C800244BF2 /* UserInfo.swift in Sources */,
 				2E69121621C056C800244BF2 /* Credential.swift in Sources */,
@@ -767,6 +772,7 @@
 				2E3C05322156FFC100C7A225 /* TermsAndConditionsViewController.swift in Sources */,
 				FBF33089204A5E91009DABDD /* LoginViewController.swift in Sources */,
 				2E8CD7BE213B91D100174696 /* SelectProviderViewController.swift in Sources */,
+				2EB7F24421FA1AE1003BAB8C /* GenericResponse.swift in Sources */,
 				FBE3164420CC725D0041B57E /* Constant.swift in Sources */,
 				FBE71F9F21080E0A006D3540 /* UserInfo.swift in Sources */,
 				FB4F5FF0207088D10011BBD4 /* Credential.swift in Sources */,

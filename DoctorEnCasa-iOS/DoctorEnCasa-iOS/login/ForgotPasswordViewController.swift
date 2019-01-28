@@ -85,6 +85,31 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
                 print("URL at time of error: \(url)")
             }
             
+            func checkStatusCode() {
+                // parse the data
+                let parsedErrorData: GenericResponse!
+                do {
+                    if let errorData = data {
+                        parsedErrorData = try JSONDecoder().decode(GenericResponse.self, from: errorData)
+                        if parsedErrorData.code == 1004 {
+                            DispatchQueue.main.async(execute: {
+                                self.showDialog(message: "El mail ingresado no tiene una cuenta asociada.")
+                                UIViewController.removeSpinner(spinner: self.loadingView!)
+                                return
+                            })
+                        } else {
+                            displayError("Unknown error code")
+                            UIViewController.removeSpinner(spinner: self.loadingView!)
+                            return
+                        }
+                    }
+                } catch {
+                    displayError("Your request returned a status code other than 2xx!")
+                    UIViewController.removeSpinner(spinner: self.loadingView!)
+                    return
+                }
+            }
+            
             /* GUARD: Was there an error? */
             guard (error == nil) else {
                 displayError("There was an error with your request: \(error!)")
@@ -94,11 +119,7 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
             
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                displayError("Your request returned a status code other than 2xx!")
-                UIViewController.removeSpinner(spinner: self.loadingView!)
-                DispatchQueue.main.async(execute: {
-                    self.errorText.isHidden = false
-                })
+                checkStatusCode()
                 return
             }
             
@@ -126,6 +147,16 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate  {
             
             
         }).resume()
+    }
+    
+    func showDialog(message : String){
+        let alert : UIAlertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.isModalInPopover = true
+        let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in
+            alert.dismiss(animated: true, completion: {});
+        }
+        alert.addAction(actionAcept)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

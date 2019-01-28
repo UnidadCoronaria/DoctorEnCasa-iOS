@@ -260,6 +260,37 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
                  })
             }
             
+            func checkStatusCode() {
+                // parse the data
+                let parsedErrorData: GenericResponse!
+                do {
+                    if let errorData = data {
+                        parsedErrorData = try JSONDecoder().decode(GenericResponse.self, from: errorData)
+                        if parsedErrorData.code == 1000 || parsedErrorData.code == 1001 {
+                            DispatchQueue.main.async(execute: {
+                                self.showDialog(message: "El mail ya se encuentra registrado.")
+                                    UIViewController.removeSpinner(spinner: self.loadingView!)
+                                    return
+                                })
+                        } else if parsedErrorData.code == 1002 {
+                            DispatchQueue.main.async(execute: {
+                                self.showDialog(message: "El afiliado ya tiene una cuenta asociada.")
+                                UIViewController.removeSpinner(spinner: self.loadingView!)
+                                return
+                            })
+                        } else {
+                            displayError("Unknown error code")
+                            UIViewController.removeSpinner(spinner: self.loadingView!)
+                            return
+                        }
+                    }
+                } catch {
+                    displayError("Your request returned a status code other than 2xx!")
+                    UIViewController.removeSpinner(spinner: self.loadingView!)
+                    return
+                }
+            }
+            
             /* GUARD: Was there an error? */
             guard (error == nil) else {
                 displayError("There was an error with your request: \(error!)")
@@ -269,9 +300,8 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
             
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                displayError("Your request returned a status code other than 2xx!")
-                UIViewController.removeSpinner(spinner: self.loadingView!)
-                return
+               checkStatusCode()
+               return
             }
             
             /* GUARD: Was there any data returned? */
@@ -312,6 +342,16 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
         alert.isModalInPopover = true
         let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in
              alert.dismiss(animated: true, completion: {});
+        }
+        alert.addAction(actionAcept)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showDialog(message : String){
+        let alert : UIAlertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.isModalInPopover = true
+        let actionAcept:UIAlertAction = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.cancel) { (_:UIAlertAction) in
+            alert.dismiss(animated: true, completion: {});
         }
         alert.addAction(actionAcept)
         self.present(alert, animated: true, completion: nil)
