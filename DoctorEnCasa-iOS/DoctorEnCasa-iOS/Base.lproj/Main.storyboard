@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wiV-Hl-upG">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -24,14 +24,14 @@
             <objects>
                 <viewController title="Historia Clinica" id="JKQ-Ew-i9V" customClass="MedicalRecordTableViewController" customModule="DoctorEnCasa_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E2Y-Q5-rJC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="DbD-XE-ksB">
-                                <rect key="frame" x="0.0" y="64" width="375" height="270"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="270"/>
                                 <subviews>
                                     <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="oPH-WB-rnR">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                                         <subviews>
                                             <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rAM-Iy-J0D">
                                                 <rect key="frame" x="0.0" y="89" width="414" height="0.6666666666666714"/>
@@ -39,16 +39,16 @@
                                                 <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Zpj-U2-qAE">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Última consulta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1A-74-pYZ">
-                                                        <rect key="frame" x="20" y="8" width="123.5" height="37"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Última consulta de Juan Perez" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1A-74-pYZ">
+                                                        <rect key="frame" x="20" y="8" width="238" height="37"/>
                                                         <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdn-GG-w7Y">
-                                                        <rect key="frame" x="20" y="45" width="82" height="37"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20/01/2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdn-GG-w7Y">
+                                                        <rect key="frame" x="20" y="45" width="87.5" height="37"/>
                                                         <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="16"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -66,75 +66,78 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="BLt-gp-SQG">
-                                        <rect key="frame" x="0.0" y="90" width="375" height="90"/>
+                                        <rect key="frame" x="0.0" y="90" width="320" height="90"/>
                                         <subviews>
-                                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jBl-i9-yuh">
-                                                <rect key="frame" x="0.0" y="89" width="414" height="0.66666666666666663"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0jr-9i-VzD">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0jr-9i-VzD">
+                                                <rect key="frame" x="20" y="10" width="280" height="70"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motivos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DgQ-sj-lWV">
-                                                        <rect key="frame" x="20" y="8" width="61.5" height="32"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="61.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJ3-5n-cml">
-                                                        <rect key="frame" x="20" y="50" width="335" height="32"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dolor de cabeza, problemas con el alcohol y falta de sueño" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJ3-5n-cml">
+                                                        <rect key="frame" x="0.0" y="30.5" width="261" height="39.5"/>
                                                         <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="16"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="TJ3-5n-cml" firstAttribute="centerX" secondItem="0jr-9i-VzD" secondAttribute="centerX" id="ACr-vg-BV3"/>
-                                                    <constraint firstItem="TJ3-5n-cml" firstAttribute="width" secondItem="0jr-9i-VzD" secondAttribute="width" constant="-40" id="sT4-kh-Ox3"/>
+                                                    <constraint firstAttribute="bottom" secondItem="TJ3-5n-cml" secondAttribute="bottom" id="3yD-jE-iCU"/>
+                                                    <constraint firstItem="TJ3-5n-cml" firstAttribute="leading" secondItem="0jr-9i-VzD" secondAttribute="leading" id="GdY-Vr-50G"/>
+                                                    <constraint firstAttribute="trailing" secondItem="TJ3-5n-cml" secondAttribute="trailing" constant="19" id="Nbw-kw-zIJ"/>
                                                 </constraints>
-                                                <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="8"/>
                                             </stackView>
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBl-i9-yuh">
+                                                <rect key="frame" x="0.0" y="89" width="320" height="0.5"/>
+                                                <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="0.67000000000000004" id="1lf-39-Bbu"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="0jr-9i-VzD" firstAttribute="height" secondItem="BLt-gp-SQG" secondAttribute="height" id="24r-DP-rRZ"/>
-                                            <constraint firstItem="0jr-9i-VzD" firstAttribute="centerY" secondItem="BLt-gp-SQG" secondAttribute="centerY" id="2dd-02-iOj"/>
-                                            <constraint firstItem="0jr-9i-VzD" firstAttribute="width" secondItem="BLt-gp-SQG" secondAttribute="width" id="WfB-Za-qrR"/>
-                                            <constraint firstItem="0jr-9i-VzD" firstAttribute="centerX" secondItem="BLt-gp-SQG" secondAttribute="centerX" id="wZS-cT-TmC"/>
+                                            <constraint firstItem="0jr-9i-VzD" firstAttribute="leading" secondItem="BLt-gp-SQG" secondAttribute="leading" constant="20" id="2zK-Xq-n0r"/>
+                                            <constraint firstAttribute="bottom" secondItem="jBl-i9-yuh" secondAttribute="bottom" constant="0.5" id="4Bo-Kq-Vxg"/>
+                                            <constraint firstAttribute="trailing" secondItem="0jr-9i-VzD" secondAttribute="trailing" constant="20" id="Djk-ED-bSN"/>
+                                            <constraint firstItem="0jr-9i-VzD" firstAttribute="centerY" secondItem="BLt-gp-SQG" secondAttribute="centerY" id="Ijc-Aj-zBo"/>
+                                            <constraint firstItem="jBl-i9-yuh" firstAttribute="centerX" secondItem="BLt-gp-SQG" secondAttribute="centerX" id="JbK-Fc-T3i"/>
+                                            <constraint firstItem="0jr-9i-VzD" firstAttribute="top" secondItem="BLt-gp-SQG" secondAttribute="top" constant="10" id="PtN-rU-7Cj"/>
+                                            <constraint firstItem="0jr-9i-VzD" firstAttribute="width" secondItem="BLt-gp-SQG" secondAttribute="width" constant="-40" id="h6L-zu-Qlb"/>
+                                            <constraint firstItem="jBl-i9-yuh" firstAttribute="width" secondItem="BLt-gp-SQG" secondAttribute="width" id="ntC-0M-bhn"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ino-ih-tUt">
-                                        <rect key="frame" x="0.0" y="180" width="375" height="90"/>
+                                        <rect key="frame" x="0.0" y="180" width="320" height="90"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="jPC-SN-dQp">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="jPC-SN-dQp">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atendido por" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIG-Ye-Mgr">
-                                                        <rect key="frame" x="20" y="8" width="347" height="37"/>
+                                                        <rect key="frame" x="20" y="8" width="292" height="20"/>
                                                         <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HSh-i4-Ug3">
-                                                        <rect key="frame" x="20" y="45" width="347" height="37"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HSh-i4-Ug3">
+                                                        <rect key="frame" x="20" y="28" width="292" height="54"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_doctor_main" translatesAutoresizingMaskIntoConstraints="NO" id="Zex-CD-xck">
-                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="37"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="54"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="40" id="6FR-MS-xTH"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LsX-eK-QqU">
-                                                                <rect key="frame" x="50" y="0.0" width="297" height="37"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Juan Gomez" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LsX-eK-QqU">
+                                                                <rect key="frame" x="50" y="17.5" width="242" height="19"/>
                                                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="16"/>
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstItem="Zex-CD-xck" firstAttribute="height" secondItem="HSh-i4-Ug3" secondAttribute="height" id="Y4r-OQ-moj"/>
-                                                        </constraints>
                                                     </stackView>
                                                 </subviews>
                                                 <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="8"/>
@@ -152,20 +155,22 @@
                                 <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="270" id="0sH-Ek-Y8s"/>
+                                    <constraint firstItem="ino-ih-tUt" firstAttribute="top" secondItem="BLt-gp-SQG" secondAttribute="bottom" id="63K-Ak-PXC"/>
                                     <constraint firstAttribute="bottom" secondItem="ino-ih-tUt" secondAttribute="bottom" id="ep9-NM-xc9"/>
+                                    <constraint firstItem="BLt-gp-SQG" firstAttribute="top" secondItem="oPH-WB-rnR" secondAttribute="bottom" id="nCy-h2-WM9"/>
                                 </constraints>
                             </stackView>
                             <view hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q8B-3u-l3C">
-                                <rect key="frame" x="0.0" y="56.5" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="56.5" width="320" height="455"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kiO-nh-MuJ">
-                                        <rect key="frame" x="0.0" y="104" width="375" height="346"/>
+                                        <rect key="frame" x="0.0" y="54.5" width="320" height="346"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_internet" translatesAutoresizingMaskIntoConstraints="NO" id="cgd-sF-YTi">
-                                                <rect key="frame" x="102.5" y="0.0" width="170" height="169"/>
+                                                <rect key="frame" x="75" y="0.0" width="170" height="169"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No se pudo cargar la información. Por favor, intentá nuevamente." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwp-9R-WLQ">
-                                                <rect key="frame" x="20" y="177" width="335" height="169"/>
+                                                <rect key="frame" x="20" y="177" width="280" height="169"/>
                                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -184,16 +189,16 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GeM-Vn-DA1" userLabel="Empty View">
-                                <rect key="frame" x="0.0" y="159.5" width="375" height="348"/>
+                                <rect key="frame" x="0.0" y="110" width="320" height="348"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3lp-Db-YaC">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="348"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="348"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_historia" translatesAutoresizingMaskIntoConstraints="NO" id="iI0-xC-eEQ">
-                                                <rect key="frame" x="102" y="0.0" width="171" height="170"/>
+                                                <rect key="frame" x="74.5" y="0.0" width="171" height="170"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Luego de la primer consulta, tendrás tu historia clínica." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4X-Tj-Vb6">
-                                                <rect key="frame" x="31" y="178" width="313" height="170"/>
+                                                <rect key="frame" x="3.5" y="178" width="313" height="170"/>
                                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -215,15 +220,15 @@
                                 <color key="textColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjN-T7-qAS">
-                                <rect key="frame" x="0.0" y="389" width="414" height="229"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjN-T7-qAS">
+                                <rect key="frame" x="0.0" y="389" width="320" height="130"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MedicalRecordTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="0.0" reuseIdentifier="MedicalRecordTableViewCell" rowHeight="100" id="Bui-gv-ZTL" customClass="MedicalRecordTableViewCell" customModule="DoctorEnCasa_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1" width="414" height="100"/>
+                                        <rect key="frame" x="0.0" y="1" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bui-gv-ZTL" id="Gpg-qz-ibI">
-                                            <rect key="frame" x="0.0" y="0.0" width="381" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Fecha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nta-e8-p0m">
@@ -233,13 +238,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Motivos" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FA7-uf-SRC">
-                                                    <rect key="frame" x="20" y="55" width="341" height="28.5"/>
+                                                    <rect key="frame" x="20" y="55" width="247" height="28.5"/>
                                                     <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="14"/>
                                                     <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Nombre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPl-ZG-dPr">
-                                                    <rect key="frame" x="90.5" y="21" width="270.5" height="19"/>
+                                                    <rect key="frame" x="90.5" y="21" width="176.5" height="19"/>
                                                     <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="16"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -289,6 +294,7 @@
                             <constraint firstItem="dnN-li-lOc" firstAttribute="leading" secondItem="OKF-v4-sZu" secondAttribute="leading" constant="16" id="oDR-V4-doy"/>
                             <constraint firstItem="OKF-v4-sZu" firstAttribute="bottom" secondItem="bjN-T7-qAS" secondAttribute="bottom" id="pK3-GE-e5f"/>
                             <constraint firstItem="dnN-li-lOc" firstAttribute="top" secondItem="DbD-XE-ksB" secondAttribute="bottom" constant="15" id="s6H-si-Y7w"/>
+                            <constraint firstItem="bjN-T7-qAS" firstAttribute="centerX" secondItem="E2Y-Q5-rJC" secondAttribute="centerX" id="skI-Hu-4wL"/>
                             <constraint firstItem="DbD-XE-ksB" firstAttribute="centerX" secondItem="E2Y-Q5-rJC" secondAttribute="centerX" id="trg-k3-Gmp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OKF-v4-sZu"/>
@@ -318,117 +324,229 @@
             <objects>
                 <viewController id="7QJ-yh-rGL" customClass="MedicalRecordDetailViewController" customModule="DoctorEnCasa_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2pf-mo-EYk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i0p-cU-UH9">
-                                <rect key="frame" x="10" y="69" width="355" height="398"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PlT-NF-7hf">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Última consulta de Julio Carlos Raris" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygQ-pY-Ree">
-                                        <rect key="frame" x="0.0" y="14" width="343" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4na-d4-hlw">
-                                        <rect key="frame" x="0.0" y="43" width="343" height="19.666666666666664"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="16"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uGz-if-Lfh">
-                                        <rect key="frame" x="0.0" y="80" width="394" height="0.66666666666666663"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ing-QH-jLM" userLabel="Container Date">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Última consulta de Julio Carlos" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygQ-pY-Ree">
+                                                <rect key="frame" x="20" y="15" width="280" height="20.5"/>
+                                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4na-d4-hlw">
+                                                <rect key="frame" x="20" y="45.5" width="280" height="19"/>
+                                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="16"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGz-if-Lfh" userLabel="Divider">
+                                                <rect key="frame" x="0.0" y="79.5" width="320" height="0.5"/>
+                                                <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="0.67000000000000004" id="xre-0b-f9v"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="uGz-if-Lfh" secondAttribute="bottom" id="1e4-gm-GDa"/>
+                                            <constraint firstItem="ygQ-pY-Ree" firstAttribute="top" secondItem="Ing-QH-jLM" secondAttribute="top" constant="15" id="BPI-WS-w0u"/>
+                                            <constraint firstItem="uGz-if-Lfh" firstAttribute="centerX" secondItem="Ing-QH-jLM" secondAttribute="centerX" id="Peu-wo-YTB"/>
+                                            <constraint firstItem="uGz-if-Lfh" firstAttribute="width" secondItem="Ing-QH-jLM" secondAttribute="width" id="U91-Sg-R4O"/>
+                                            <constraint firstItem="uGz-if-Lfh" firstAttribute="top" secondItem="4na-d4-hlw" secondAttribute="bottom" constant="15" id="bxz-Q1-VSR"/>
+                                            <constraint firstAttribute="trailing" secondItem="ygQ-pY-Ree" secondAttribute="trailing" constant="20" id="epY-K1-gAD"/>
+                                            <constraint firstItem="4na-d4-hlw" firstAttribute="leading" secondItem="Ing-QH-jLM" secondAttribute="leading" constant="20" id="htE-U9-FM0"/>
+                                            <constraint firstItem="ygQ-pY-Ree" firstAttribute="leading" secondItem="Ing-QH-jLM" secondAttribute="leading" constant="20" id="i32-tf-ddm"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="jns-a6-MzK"/>
+                                            <constraint firstItem="4na-d4-hlw" firstAttribute="top" secondItem="ygQ-pY-Ree" secondAttribute="bottom" constant="10" id="kPt-gi-IvT"/>
+                                            <constraint firstAttribute="trailing" secondItem="4na-d4-hlw" secondAttribute="trailing" constant="20" id="qxl-vw-tYC"/>
+                                        </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TTO-8f-DUB">
-                                        <rect key="frame" x="0.0" y="151" width="394" height="0.66666666666666663"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7qg-kP-bik" userLabel="Container Anamnesis">
+                                        <rect key="frame" x="0.0" y="80" width="320" height="80"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Anamnesis:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APs-Wz-N0b">
+                                                <rect key="frame" x="20" y="15" width="280" height="20"/>
+                                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pd-ME-CMa">
+                                                <rect key="frame" x="20" y="45" width="280" height="19"/>
+                                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="16"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Re7-a0-Op8" userLabel="Divider">
+                                                <rect key="frame" x="0.0" y="79.5" width="320" height="0.5"/>
+                                                <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="0.67000000000000004" id="Gus-BL-6SA"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Re7-a0-Op8" firstAttribute="centerX" secondItem="7qg-kP-bik" secondAttribute="centerX" id="4f7-EC-82R"/>
+                                            <constraint firstItem="APs-Wz-N0b" firstAttribute="top" secondItem="7qg-kP-bik" secondAttribute="top" constant="15" id="AKL-cL-vuH"/>
+                                            <constraint firstItem="2pd-ME-CMa" firstAttribute="leading" secondItem="7qg-kP-bik" secondAttribute="leading" constant="20" id="Aiw-tU-kuT"/>
+                                            <constraint firstAttribute="trailing" secondItem="2pd-ME-CMa" secondAttribute="trailing" constant="20" id="CtW-0E-tMH"/>
+                                            <constraint firstItem="Re7-a0-Op8" firstAttribute="top" secondItem="2pd-ME-CMa" secondAttribute="bottom" constant="15" id="MCy-sg-iVf"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="O7j-v6-RIz"/>
+                                            <constraint firstItem="2pd-ME-CMa" firstAttribute="top" secondItem="APs-Wz-N0b" secondAttribute="bottom" constant="10" id="Qfx-Hr-2VS"/>
+                                            <constraint firstAttribute="trailing" secondItem="APs-Wz-N0b" secondAttribute="trailing" constant="20" id="a35-uU-iBp"/>
+                                            <constraint firstAttribute="bottom" secondItem="Re7-a0-Op8" secondAttribute="bottom" id="e17-m0-wzO"/>
+                                            <constraint firstItem="2pd-ME-CMa" firstAttribute="centerX" secondItem="7qg-kP-bik" secondAttribute="centerX" id="js1-3A-Zzf"/>
+                                            <constraint firstItem="APs-Wz-N0b" firstAttribute="centerX" secondItem="7qg-kP-bik" secondAttribute="centerX" id="kbo-b5-Ife"/>
+                                            <constraint firstItem="Re7-a0-Op8" firstAttribute="width" secondItem="7qg-kP-bik" secondAttribute="width" id="lqP-GM-n7c"/>
+                                            <constraint firstItem="APs-Wz-N0b" firstAttribute="leading" secondItem="7qg-kP-bik" secondAttribute="leading" constant="20" id="sZP-m1-wyq"/>
+                                        </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pd-ME-CMa">
-                                        <rect key="frame" x="0.0" y="193" width="343" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="16"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Re7-a0-Op8">
-                                        <rect key="frame" x="0.0" y="227" width="394" height="0.66666666666666663"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="933-v4-dFU" userLabel="Container Recommendation">
+                                        <rect key="frame" x="0.0" y="240" width="320" height="80"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abU-gK-iKz">
+                                                <rect key="frame" x="20" y="50" width="280" height="19"/>
+                                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="16"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZLb-2e-NdI">
+                                                <rect key="frame" x="0.0" y="79.5" width="320" height="0.5"/>
+                                                <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="0.67000000000000004" id="4zN-Rg-UtR"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Recomendaciones:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4g-8V-7Fe">
+                                                <rect key="frame" x="20" y="15" width="280" height="20"/>
+                                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="d4g-8V-7Fe" firstAttribute="leading" secondItem="933-v4-dFU" secondAttribute="leading" constant="20" id="2dU-qL-ZSu"/>
+                                            <constraint firstItem="ZLb-2e-NdI" firstAttribute="width" secondItem="933-v4-dFU" secondAttribute="width" id="4A6-uU-8OM"/>
+                                            <constraint firstItem="abU-gK-iKz" firstAttribute="top" secondItem="d4g-8V-7Fe" secondAttribute="bottom" constant="10" id="4eD-W7-zdW"/>
+                                            <constraint firstItem="abU-gK-iKz" firstAttribute="leading" secondItem="933-v4-dFU" secondAttribute="leading" constant="20" id="GuB-Gu-EJn"/>
+                                            <constraint firstAttribute="trailing" secondItem="d4g-8V-7Fe" secondAttribute="trailing" constant="20" id="LvZ-eV-1hj"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZLb-2e-NdI" secondAttribute="bottom" id="OVv-1G-R0W"/>
+                                            <constraint firstItem="ZLb-2e-NdI" firstAttribute="top" secondItem="abU-gK-iKz" secondAttribute="bottom" constant="15" id="OkS-ja-WG1"/>
+                                            <constraint firstItem="ZLb-2e-NdI" firstAttribute="centerX" secondItem="933-v4-dFU" secondAttribute="centerX" id="Raw-r6-LWJ"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="Xx9-c0-wcU"/>
+                                            <constraint firstItem="abU-gK-iKz" firstAttribute="centerX" secondItem="933-v4-dFU" secondAttribute="centerX" id="pdL-dK-OXz"/>
+                                            <constraint firstItem="d4g-8V-7Fe" firstAttribute="top" secondItem="933-v4-dFU" secondAttribute="top" constant="15" id="qG5-iH-ylO"/>
+                                            <constraint firstAttribute="trailing" secondItem="abU-gK-iKz" secondAttribute="trailing" constant="20" id="suR-OZ-lPe"/>
+                                        </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recomendaciones:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4g-8V-7Fe">
-                                        <rect key="frame" x="0.0" y="237" width="343" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abU-gK-iKz">
-                                        <rect key="frame" x="0.0" y="267" width="343" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="16"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Atendido por:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Uh-Rv-QwF">
-                                        <rect key="frame" x="0.0" y="314" width="343" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZLb-2e-NdI">
-                                        <rect key="frame" x="0.0" y="303" width="394" height="0.66666666666666663"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQK-Yp-B65" userLabel="Container Doctor">
+                                        <rect key="frame" x="0.0" y="320" width="320" height="90"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atendido por:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Uh-Rv-QwF">
+                                                <rect key="frame" x="20" y="15" width="280" height="20"/>
+                                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ax-6u-rhV">
+                                                <rect key="frame" x="65" y="53" width="235" height="19"/>
+                                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="16"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icono_home" translatesAutoresizingMaskIntoConstraints="NO" id="ejd-AY-WgP">
+                                                <rect key="frame" x="20" y="45" width="35" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="35" id="f2d-ts-QEi"/>
+                                                    <constraint firstAttribute="height" constant="35" id="knF-BO-13d"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ejd-AY-WgP" firstAttribute="top" secondItem="7Uh-Rv-QwF" secondAttribute="bottom" constant="10" id="2tt-2u-qbR"/>
+                                            <constraint firstItem="9Ax-6u-rhV" firstAttribute="centerY" secondItem="ejd-AY-WgP" secondAttribute="centerY" id="3Me-aK-WGn"/>
+                                            <constraint firstItem="7Uh-Rv-QwF" firstAttribute="leading" secondItem="xQK-Yp-B65" secondAttribute="leading" constant="20" id="8G1-Md-Q24"/>
+                                            <constraint firstItem="ejd-AY-WgP" firstAttribute="leading" secondItem="xQK-Yp-B65" secondAttribute="leading" constant="20" id="Ew7-ST-TYf"/>
+                                            <constraint firstItem="9Ax-6u-rhV" firstAttribute="leading" secondItem="ejd-AY-WgP" secondAttribute="trailing" constant="10" id="KVY-R2-Odo"/>
+                                            <constraint firstAttribute="trailing" secondItem="9Ax-6u-rhV" secondAttribute="trailing" constant="20" id="OYt-iY-8E0"/>
+                                            <constraint firstAttribute="bottom" secondItem="ejd-AY-WgP" secondAttribute="bottom" constant="10" id="T5q-13-2e5"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="Uiu-X4-QtK"/>
+                                            <constraint firstAttribute="trailing" secondItem="7Uh-Rv-QwF" secondAttribute="trailing" constant="20" id="mLs-Lb-m4c"/>
+                                            <constraint firstItem="7Uh-Rv-QwF" firstAttribute="top" secondItem="xQK-Yp-B65" secondAttribute="top" constant="15" id="vYi-JA-8Wg"/>
+                                        </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_doctor_main" translatesAutoresizingMaskIntoConstraints="NO" id="ejd-AY-WgP">
-                                        <rect key="frame" x="0.0" y="343" width="35" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ax-6u-rhV">
-                                        <rect key="frame" x="50" y="350" width="299" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="16"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bN2-a2-bar">
-                                        <rect key="frame" x="0.0" y="120" width="355" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="16"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Motivo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALF-Bh-oJG">
-                                        <rect key="frame" x="0.0" y="91" width="343" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Anamnesis:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APs-Wz-N0b">
-                                        <rect key="frame" x="0.0" y="162" width="343" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BuI-qp-5uF" userLabel="Container Reason">
+                                        <rect key="frame" x="0.0" y="160" width="320" height="80"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bN2-a2-bar">
+                                                <rect key="frame" x="20" y="45" width="280" height="19"/>
+                                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="16"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTO-8f-DUB">
+                                                <rect key="frame" x="0.0" y="79.5" width="320" height="0.5"/>
+                                                <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="0.67000000000000004" id="iqt-M6-wkF"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Motivo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALF-Bh-oJG">
+                                                <rect key="frame" x="20" y="15" width="280" height="20"/>
+                                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="2EO-w5-5Cx"/>
+                                            <constraint firstItem="TTO-8f-DUB" firstAttribute="width" secondItem="BuI-qp-5uF" secondAttribute="width" id="4AC-Xl-Riq"/>
+                                            <constraint firstItem="ALF-Bh-oJG" firstAttribute="top" secondItem="BuI-qp-5uF" secondAttribute="top" constant="15" id="7Wz-6N-Bha"/>
+                                            <constraint firstItem="TTO-8f-DUB" firstAttribute="top" secondItem="bN2-a2-bar" secondAttribute="bottom" constant="15" id="8Ba-Sa-gGY"/>
+                                            <constraint firstItem="ALF-Bh-oJG" firstAttribute="centerX" secondItem="BuI-qp-5uF" secondAttribute="centerX" id="9Yf-NE-FHV"/>
+                                            <constraint firstAttribute="trailing" secondItem="bN2-a2-bar" secondAttribute="trailing" constant="20" id="Asm-sN-1VL"/>
+                                            <constraint firstAttribute="trailing" secondItem="ALF-Bh-oJG" secondAttribute="trailing" constant="20" id="F3L-Ov-yxC"/>
+                                            <constraint firstAttribute="bottom" secondItem="TTO-8f-DUB" secondAttribute="bottom" id="FmC-Ei-AEt"/>
+                                            <constraint firstItem="TTO-8f-DUB" firstAttribute="centerX" secondItem="BuI-qp-5uF" secondAttribute="centerX" id="JJf-rc-Wpj"/>
+                                            <constraint firstItem="bN2-a2-bar" firstAttribute="leading" secondItem="BuI-qp-5uF" secondAttribute="leading" constant="20" id="KoN-NM-7yB"/>
+                                            <constraint firstItem="bN2-a2-bar" firstAttribute="centerX" secondItem="BuI-qp-5uF" secondAttribute="centerX" id="trR-4C-ElD"/>
+                                            <constraint firstItem="ALF-Bh-oJG" firstAttribute="leading" secondItem="BuI-qp-5uF" secondAttribute="leading" constant="20" id="wQI-qs-x8Y"/>
+                                            <constraint firstItem="bN2-a2-bar" firstAttribute="top" secondItem="ALF-Bh-oJG" secondAttribute="bottom" constant="10" id="xiV-X2-njl"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <viewLayoutGuide key="safeArea" id="8tV-Df-gvv"/>
+                                <constraints>
+                                    <constraint firstItem="xQK-Yp-B65" firstAttribute="top" secondItem="933-v4-dFU" secondAttribute="bottom" id="LNE-Eu-Evh"/>
+                                    <constraint firstItem="933-v4-dFU" firstAttribute="width" secondItem="PlT-NF-7hf" secondAttribute="width" id="Nfb-dW-5UW"/>
+                                    <constraint firstItem="7qg-kP-bik" firstAttribute="top" secondItem="Ing-QH-jLM" secondAttribute="bottom" id="PAt-CK-b9u"/>
+                                    <constraint firstItem="933-v4-dFU" firstAttribute="centerX" secondItem="PlT-NF-7hf" secondAttribute="centerX" id="Qqn-t4-9lM"/>
+                                    <constraint firstItem="933-v4-dFU" firstAttribute="top" secondItem="BuI-qp-5uF" secondAttribute="bottom" id="RxM-TO-V96"/>
+                                    <constraint firstItem="Ing-QH-jLM" firstAttribute="width" secondItem="PlT-NF-7hf" secondAttribute="width" id="TKI-Mj-eOV"/>
+                                    <constraint firstItem="7qg-kP-bik" firstAttribute="width" secondItem="PlT-NF-7hf" secondAttribute="width" id="bNV-GT-8or"/>
+                                    <constraint firstItem="Ing-QH-jLM" firstAttribute="centerX" secondItem="PlT-NF-7hf" secondAttribute="centerX" id="cDq-j8-4lH"/>
+                                    <constraint firstItem="xQK-Yp-B65" firstAttribute="width" secondItem="PlT-NF-7hf" secondAttribute="width" id="cYl-NH-kHj"/>
+                                    <constraint firstItem="BuI-qp-5uF" firstAttribute="top" secondItem="7qg-kP-bik" secondAttribute="bottom" id="ciJ-1z-XE5"/>
+                                    <constraint firstItem="7qg-kP-bik" firstAttribute="centerX" secondItem="PlT-NF-7hf" secondAttribute="centerX" id="fV6-na-yYh"/>
+                                    <constraint firstItem="Ing-QH-jLM" firstAttribute="top" secondItem="PlT-NF-7hf" secondAttribute="top" id="gjz-uh-7qZ"/>
+                                    <constraint firstItem="BuI-qp-5uF" firstAttribute="centerX" secondItem="PlT-NF-7hf" secondAttribute="centerX" id="qZg-S6-ib4"/>
+                                    <constraint firstItem="xQK-Yp-B65" firstAttribute="centerX" secondItem="PlT-NF-7hf" secondAttribute="centerX" id="wRt-cv-bxF"/>
+                                    <constraint firstItem="BuI-qp-5uF" firstAttribute="width" secondItem="PlT-NF-7hf" secondAttribute="width" id="wVL-lC-CdU"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <accessibility key="accessibilityConfiguration" identifier="medicalRecordDetail"/>
                         <constraints>
-                            <constraint firstItem="i0p-cU-UH9" firstAttribute="centerX" secondItem="2pf-mo-EYk" secondAttribute="centerX" id="QWW-tI-xrW"/>
-                            <constraint firstItem="i0p-cU-UH9" firstAttribute="width" secondItem="wLX-Hh-n2M" secondAttribute="width" constant="-20" id="ihT-gM-lLm"/>
-                            <constraint firstItem="i0p-cU-UH9" firstAttribute="top" secondItem="wLX-Hh-n2M" secondAttribute="top" constant="10" id="x4h-hH-f2O"/>
+                            <constraint firstItem="PlT-NF-7hf" firstAttribute="height" secondItem="wLX-Hh-n2M" secondAttribute="height" id="7nA-ti-sKK"/>
+                            <constraint firstItem="PlT-NF-7hf" firstAttribute="centerX" secondItem="wLX-Hh-n2M" secondAttribute="centerX" id="Esk-Ps-1Gr"/>
+                            <constraint firstItem="PlT-NF-7hf" firstAttribute="centerY" secondItem="wLX-Hh-n2M" secondAttribute="centerY" id="ak4-kx-flc"/>
+                            <constraint firstItem="PlT-NF-7hf" firstAttribute="width" secondItem="wLX-Hh-n2M" secondAttribute="width" id="k4D-oS-o1e"/>
                         </constraints>
                         <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
                         <viewLayoutGuide key="safeArea" id="wLX-Hh-n2M"/>
@@ -444,24 +562,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zGK-du-1Qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3141.5999999999999" y="124.58770614692655"/>
+            <point key="canvasLocation" x="3140.625" y="123.59154929577466"/>
         </scene>
         <!--Terms And Conditions View Controller-->
         <scene sceneID="Opr-z9-I2f">
             <objects>
                 <viewController storyboardIdentifier="termsAndConditions" id="ObE-Ow-0fl" customClass="TermsAndConditionsViewController" customModule="DoctorEnCasa_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SIR-tq-Lgc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zun-wG-Y1S">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Rr2-2S-w2e">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1393.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1673"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgm-An-NDR">
-                                                <rect key="frame" x="16" y="16" width="343" height="1377.5"/>
+                                                <rect key="frame" x="16" y="16" width="288" height="1657"/>
                                                 <string key="text">Fusce ultricies tristique egestas. Sed malesuada ligula tellus, eu eleifend urna volutpat eu. Ut vehicula tincidunt pretium. Integer ut dignissim turpis, ac viverra nisi. Vivamus varius ligula nec mauris aliquet tristique. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam non nibh libero. Cras nec egestas nisl, in sollicitudin diam. Duis in augue magna.
 
 Etiam hendrerit varius nulla non vehicula. Suspendisse rutrum, orci ac porta condimentum, libero ligula efficitur felis, et pellentesque magna nibh sed purus. Aliquam sit amet dolor arcu. Nam erat elit, congue ut dolor ut, suscipit iaculis lorem. Aliquam pellentesque iaculis mi sit amet dapibus. Nullam mattis volutpat neque, at porta dui egestas eget. Sed et ex vitae metus volutpat euismod. Nulla vitae bibendum purus. Curabitur a eros porta, efficitur magna in, malesuada ligula. Cras facilisis ligula vel consequat maximus. Nulla lorem turpis, euismod eget turpis non, pellentesque viverra purus. Praesent eget molestie ipsum. Aenean malesuada massa sem, quis hendrerit eros finibus tincidunt. In vehicula dapibus turpis ut vulputate. Donec felis ligula, venenatis sagittis dictum eget, viverra tristique justo.
@@ -511,7 +629,7 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
                 <navigationController id="z4n-km-L0c" userLabel="Settings Navigation" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Configuración" image="4" selectedImage="4" id="6aL-fj-xxQ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Scv-Ac-tLU">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -527,32 +645,32 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
             <objects>
                 <viewController storyboardIdentifier="changePasswordVC" title="Cambiar contraseña" id="loY-Ep-dmZ" userLabel="Change Password" customClass="ChangePasswordViewController" customModule="DoctorEnCasa_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bTE-fa-0bz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="TLs-iQ-nvA">
-                                <rect key="frame" x="16" y="104" width="343" height="150"/>
+                                <rect key="frame" x="16" y="104" width="288" height="150"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña actual" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="duG-DF-nkx">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="30"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña nueva" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h5b-wh-6Ub">
-                                        <rect key="frame" x="0.0" y="60" width="343" height="30"/>
+                                        <rect key="frame" x="0.0" y="60" width="288" height="30"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Volvé a ingresar la contraseña nueva" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Ds-n0-7OA">
-                                        <rect key="frame" x="0.0" y="120" width="343" height="30"/>
+                                        <rect key="frame" x="0.0" y="120" width="288" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="El email ingresado es incorrecto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ir-Sd-f7l">
-                                        <rect key="frame" x="0.0" y="150" width="343" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="150" width="288" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="1" green="0.2853981961" blue="0.1336117517" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -560,7 +678,7 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQu-6w-MGB">
-                                <rect key="frame" x="110" y="296" width="155" height="40"/>
+                                <rect key="frame" x="82.5" y="296" width="155" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="155" id="YED-bT-T8A"/>
@@ -601,7 +719,7 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
             <objects>
                 <tableViewController id="7s6-LX-3fd" customClass="SettingsViewController" customModule="DoctorEnCasa_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="4" allowsSelectionDuringEditing="YES" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="PRQ-46-SI9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -609,14 +727,14 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
                             <tableViewSection id="wLo-Wz-uMt">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell1" textLabel="KFQ-rp-gcm" rowHeight="80" style="IBUITableViewCellStyleDefault" id="moF-FA-pdk">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="moF-FA-pdk" id="ZDq-oQ-Mf5">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="286" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Cambiar contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KFQ-rp-gcm">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="79.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="79.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="20"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -631,14 +749,14 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell2" textLabel="M60-mz-ltd" rowHeight="80" style="IBUITableViewCellStyleDefault" id="ip4-MD-GSm">
-                                        <rect key="frame" x="0.0" y="80" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="80" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ip4-MD-GSm" id="wlc-Ba-s8K">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="286" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Términos y condiciones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M60-mz-ltd">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="79.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="79.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="20"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -652,14 +770,14 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" tag="2" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell3" textLabel="1qJ-Vk-5X6" rowHeight="80" style="IBUITableViewCellStyleDefault" id="jwv-dm-cgW">
-                                        <rect key="frame" x="0.0" y="160" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="160" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jwv-dm-cgW" id="waM-0S-CZv">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="286" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Calificanos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1qJ-Vk-5X6">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="79.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="79.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="20"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -674,14 +792,14 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" tag="3" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell4" textLabel="Hvz-CS-Kex" rowHeight="80" style="IBUITableViewCellStyleDefault" id="Vpf-vk-nMa">
-                                        <rect key="frame" x="0.0" y="240" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="240" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vpf-vk-nMa" id="zKJ-jf-cEc">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="286" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Cerrar sesión" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hvz-CS-Kex">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="79.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="79.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="20"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -726,7 +844,7 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
             <objects>
                 <viewController id="zm6-nU-6lb" userLabel="News" customClass="NewsViewController" customModule="DoctorEnCasa_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rYI-y6-tio">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jfi-j9-cpw">
@@ -755,27 +873,27 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
             <objects>
                 <viewController id="LzG-4r-pmS" userLabel="Videocall" customClass="VideocallViewController" customModule="DoctorEnCasa_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c6a-YK-EiR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Lf6-tg-oGP">
-                                <rect key="frame" x="0.0" y="34.5" width="375" height="598"/>
+                                <rect key="frame" x="0.0" y="34.5" width="320" height="499"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icono_home" translatesAutoresizingMaskIntoConstraints="NO" id="HwV-eO-YtW">
-                                        <rect key="frame" x="102.5" y="30" width="170" height="169"/>
+                                        <rect key="frame" x="75" y="30" width="170" height="169"/>
                                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="nKo-jQ-SYo">
-                                        <rect key="frame" x="20" y="265.5" width="335" height="132"/>
+                                        <rect key="frame" x="20" y="216" width="280" height="132"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sacá un turno para ser atendido por uno de nuestros doctores" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0b-M3-YPM">
-                                                <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
                                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1S1-OL-tU0">
-                                                <rect key="frame" x="89" y="80" width="157" height="52"/>
+                                                <rect key="frame" x="61.5" y="80" width="157" height="52"/>
                                                 <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="18"/>
                                                 <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
@@ -787,7 +905,7 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skh-cR-2G9">
-                                                <rect key="frame" x="70.5" y="132" width="194" height="0.0"/>
+                                                <rect key="frame" x="43" y="132" width="194" height="0.0"/>
                                                 <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="18"/>
                                                 <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
@@ -805,17 +923,17 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfP-MP-KmX">
-                                        <rect key="frame" x="8" y="463.5" width="359" height="112"/>
+                                        <rect key="frame" x="8" y="364.5" width="304" height="112"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="70o-pO-fNN">
-                                                <rect key="frame" x="20" y="20" width="319" height="1"/>
+                                                <rect key="frame" x="20" y="20" width="264" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="K7C-DI-AwI"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hay médicos disponibles para atenderte en este momento" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yk-hR-Q8F">
-                                                <rect key="frame" x="0.0" y="26" width="359" height="66"/>
+                                                <rect key="frame" x="0.0" y="26" width="304" height="66"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="66" id="4PY-PX-REq"/>
                                                 </constraints>
@@ -910,14 +1028,14 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
             <objects>
                 <viewController storyboardIdentifier="newCall" id="dUA-8C-CjF" customClass="NewCallViewController" customModule="DoctorEnCasa_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LTt-LU-mLJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SwL-rL-09r">
-                                <rect key="frame" x="0.0" y="10" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="10" width="320" height="548"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="47" translatesAutoresizingMaskIntoConstraints="NO" id="get-nH-bTK">
-                                        <rect key="frame" x="67.5" y="472" width="240" height="167"/>
+                                        <rect key="frame" x="40" y="373" width="240" height="167"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QUO-h0-AX6">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="60"/>
@@ -965,7 +1083,7 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
                                         </constraints>
                                     </stackView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_off" translatesAutoresizingMaskIntoConstraints="NO" id="Dzh-M4-B6c">
-                                        <rect key="frame" x="250" y="30" width="100" height="120"/>
+                                        <rect key="frame" x="195" y="30" width="100" height="120"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="d3k-sl-yCa"/>
@@ -973,7 +1091,7 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cbT-gq-V4C" customClass="TVIVideoView">
-                                        <rect key="frame" x="250" y="30" width="100" height="120"/>
+                                        <rect key="frame" x="195" y="30" width="100" height="120"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="IWW-bZ-i0O"/>
@@ -991,19 +1109,19 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SaC-u5-XuR">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="zPq-w0-QHc">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0dD-UQ-tde">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="316"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="266.5"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="new_call_bg" translatesAutoresizingMaskIntoConstraints="NO" id="VHj-27-vxt">
-                                                        <rect key="frame" x="-20" y="0.0" width="415" height="316"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new_call_bg" translatesAutoresizingMaskIntoConstraints="NO" id="VHj-27-vxt">
+                                                        <rect key="frame" x="-20" y="0.0" width="360" height="266.5"/>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="icono_home" translatesAutoresizingMaskIntoConstraints="NO" id="G0w-av-pEe">
-                                                        <rect key="frame" x="102.5" y="73.5" width="170" height="169"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icono_home" translatesAutoresizingMaskIntoConstraints="NO" id="G0w-av-pEe">
+                                                        <rect key="frame" x="75" y="49" width="170" height="169"/>
                                                     </imageView>
                                                 </subviews>
                                                 <constraints>
@@ -1016,19 +1134,19 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzD-uB-vHu">
-                                                <rect key="frame" x="0.0" y="351" width="375" height="316"/>
+                                                <rect key="frame" x="0.0" y="301.5" width="320" height="266.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tenés 30 segundos para responder a esta llamada, sino perderás tu lugar y deberás volver a sacar un nuevo turno." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRI-F4-vzv">
-                                                        <rect key="frame" x="32" y="216" width="311" height="60"/>
+                                                        <rect key="frame" x="32" y="146.5" width="256" height="80"/>
                                                         <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="wsH-jC-r6e">
-                                                        <rect key="frame" x="0.0" y="45" width="375" height="80"/>
+                                                        <rect key="frame" x="0.0" y="45" width="320" height="80"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="83" translatesAutoresizingMaskIntoConstraints="NO" id="Jka-x7-xjk">
-                                                                <rect key="frame" x="55" y="-2.5" width="265" height="85"/>
+                                                                <rect key="frame" x="27.5" y="-2.5" width="265" height="85"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Sqb-sQ-8b5">
                                                                         <rect key="frame" x="0.0" y="0.0" width="91" height="85"/>
@@ -1137,20 +1255,20 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
             <objects>
                 <viewController storyboardIdentifier="RankIC" id="a1P-aT-ExS" customClass="RankCallViewController" customModule="DoctorEnCasa_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sRA-T1-poL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="LiN-mR-P5w">
-                                <rect key="frame" x="0.0" y="168" width="375" height="331"/>
+                                <rect key="frame" x="0.0" y="118.5" width="320" height="331"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Qué te pareció esta videollamada?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5s-fl-pbw">
-                                        <rect key="frame" x="48" y="0.0" width="279" height="20"/>
+                                        <rect key="frame" x="20.5" y="0.0" width="279" height="20"/>
                                         <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="0My-Du-mb0">
-                                        <rect key="frame" x="40" y="62" width="295" height="28"/>
+                                        <rect key="frame" x="12.5" y="62" width="295" height="28"/>
                                         <subviews>
                                             <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty" highlightedImage="star_full" translatesAutoresizingMaskIntoConstraints="NO" id="1y7-ze-92O">
                                                 <rect key="frame" x="0.0" y="0.0" width="27" height="28"/>
@@ -1170,7 +1288,7 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Envianos tus comentarios para seguir mejorando" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x95-lB-AVy">
-                                        <rect key="frame" x="20" y="132" width="335" height="40"/>
+                                        <rect key="frame" x="20" y="132" width="280" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="JZT-rg-09T"/>
                                         </constraints>
@@ -1179,14 +1297,14 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Escribí tu comentario aquí" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4Nc-EM-us6">
-                                        <rect key="frame" x="20" y="214" width="335" height="35"/>
+                                        <rect key="frame" x="20" y="214" width="280" height="35"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="kHg-c1-reU">
-                                        <rect key="frame" x="42" y="291" width="291" height="40"/>
+                                        <rect key="frame" x="14.5" y="291" width="291" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJQ-bV-I18">
                                                 <rect key="frame" x="0.0" y="0.0" width="129" height="40"/>
@@ -1273,7 +1391,7 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
                     <tabBarItem key="tabBarItem" title="Historia Clínica" image="2" selectedImage="2" id="6NE-rk-wWJ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ioR-rN-qJD">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

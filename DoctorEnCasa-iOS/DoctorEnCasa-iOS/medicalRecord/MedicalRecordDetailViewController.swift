@@ -28,9 +28,17 @@ class MedicalRecordDetailViewController: UIViewController {
         date.text =  util?.convertDate(date: detail.videocall.date!)
         name.text = "Última consulta de \(detail.firstName!) \(detail.lastName!)"
         recommendation.text = String(describing: detail.recommendation)
-        reasons.text = util?.parseReason(reasons: detail.reasons!)
         doctor.text = (detail.videocall.doctor?.firstName)! + " " + (detail.videocall.doctor?.lastName)!
-        anamnesis.text = detail.anamnesis
+        if let isEmpty = detail.anamnesis?.isEmpty, isEmpty {
+            anamnesis.text = "-"
+        } else {
+            anamnesis.text = detail.anamnesis
+        }
+        if detail.reasons?.count == 0 {
+            reasons.text = "-"
+        } else {
+            reasons.text = util?.parseReason(reasons: detail.reasons!)
+        }
     }
 
     override func didReceiveMemoryWarning() {

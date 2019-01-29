@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseMessaging
 
 class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
 
@@ -322,9 +323,60 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
             }
             
             DispatchQueue.main.async(execute: {
+                UserDefaults.standard.set(parsedResult.token, forKey: NavigationUtil.DATA.tokenKey)
+                self.sendToken()
+            })
+            
+            
+        }).resume() 
+    }
+    
+    private func sendToken() {
+        let url:URL = URL(string: Constants.API.APIBaseURL + Constants.Endpoints.updateTokenGCM)!
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        
+        request.httpMethod = Constants.HTTPMethods.put
+        request.setValue(Constants.Parameters.jsonMimeType, forHTTPHeaderField: Constants.Parameters.contentType)
+        request.setValue(Constants.Parameters.jsonMimeType, forHTTPHeaderField: Constants.Parameters.accept)
+        request.setValue(Messaging.messaging().fcmToken, forHTTPHeaderField: Constants.Parameters.tokenGCM)
+        request.setValue("true", forHTTPHeaderField: "IOS")
+        request.setValue( UserDefaults.standard.value(forKey: NavigationUtil.DATA.tokenKey) as? String, forHTTPHeaderField: Constants.Parameters.authorization)
+        
+        //print(Messaging.messaging().fcmToken!)
+        URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
+            
+            // if an error occurs, print it and re-enable the UI
+            func displayError(_ error: String) {
+                print(error)
+                print("URL at time of error: \(url)")
+                self.showErrorDialog()
+            }
+            
+            /* GUARD: Was there an error? */
+            guard (error == nil) else {
+                displayError("There was an error with your request: \(error!)")
+                UIViewController.removeSpinner(spinner: self.loadingView!)
+                return
+            }
+            
+            /* GUARD: Did we get a successful 2XX response? */
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                displayError("Your request returned a status code other than 2xx!")
+                UIViewController.removeSpinner(spinner: self.loadingView!)
+                return
+            }
+            
+            /* GUARD: Was there any data returned? */
+            guard data != nil else {
+                displayError("No data was returned by the request!")
+                UIViewController.removeSpinner(spinner: self.loadingView!)
+                return
+            }
+            
+            DispatchQueue.main.async(execute: {
                 UIViewController.removeSpinner(spinner: self.loadingView!)
                 
-                UserDefaults.standard.set(parsedResult.token, forKey: NavigationUtil.DATA.tokenKey)
+              
                 self.navigationController?.popViewController(animated: true)
                 self.dismiss(animated: true, completion: nil)
                 
@@ -334,7 +386,7 @@ class CreateAccountViewController : UIViewController,  UITextFieldDelegate {
             })
             
             
-        }).resume() 
+        }).resume()
     }
     
     func showErrorDialog(){
