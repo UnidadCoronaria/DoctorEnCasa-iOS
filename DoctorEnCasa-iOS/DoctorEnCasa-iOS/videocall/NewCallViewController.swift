@@ -192,16 +192,16 @@ class NewCallViewController: UIViewController {
     @objc func changeVideo(_ sender: Any) {
         if isCameraStopped {
             isCameraStopped = false
-            stoppedVideoImage.isHidden = true
+            //stoppedVideoImage.isHidden = true
             self.previewView.isHidden = false
             localVideoTrack?.isEnabled = true
-            self.videoButton.image = UIImage(named: "camera_off")
+            self.videoButton.image = UIImage(named: "camera")
         } else {
             isCameraStopped = true
             localVideoTrack?.isEnabled = false
-            stoppedVideoImage.isHidden = false
+            //stoppedVideoImage.isHidden = false
             self.previewView.isHidden = true
-            self.videoButton.image = UIImage(named: "camera")
+            self.videoButton.image = UIImage(named: "camera_off")
         }
     }
     
