@@ -57,7 +57,7 @@
                                                 <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="8"/>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.96078431372549022" green="0.47843137254901957" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="Zpj-U2-qAE" firstAttribute="centerX" secondItem="oPH-WB-rnR" secondAttribute="centerX" id="EF2-YB-vXl"/>
                                             <constraint firstItem="Zpj-U2-qAE" firstAttribute="height" secondItem="oPH-WB-rnR" secondAttribute="height" id="IbB-qR-Y3l"/>
@@ -98,7 +98,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.96078431372549022" green="0.47843137254901957" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="0jr-9i-VzD" firstAttribute="leading" secondItem="BLt-gp-SQG" secondAttribute="leading" constant="20" id="2zK-Xq-n0r"/>
                                             <constraint firstAttribute="bottom" secondItem="jBl-i9-yuh" secondAttribute="bottom" constant="0.5" id="4Bo-Kq-Vxg"/>
@@ -143,7 +143,7 @@
                                                 <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="8"/>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.96078431372549022" green="0.47843137254901957" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="jPC-SN-dQp" firstAttribute="width" secondItem="ino-ih-tUt" secondAttribute="width" id="0cX-sa-moS"/>
                                             <constraint firstItem="jPC-SN-dQp" firstAttribute="centerY" secondItem="ino-ih-tUt" secondAttribute="centerY" id="HIk-ig-jp2"/>
@@ -152,7 +152,6 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.96078431372549022" green="0.47843137254901957" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="270" id="0sH-Ek-Y8s"/>
                                     <constraint firstItem="ino-ih-tUt" firstAttribute="top" secondItem="BLt-gp-SQG" secondAttribute="bottom" id="63K-Ak-PXC"/>
