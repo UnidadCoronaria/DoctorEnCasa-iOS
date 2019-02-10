@@ -62,6 +62,8 @@ class VideocallViewController : UIViewController {
         //Get token
         if let token : String = UserDefaults.standard.value(forKey: NavigationUtil.DATA.tokenKey) as? String {
             self.token = token
+        } else {
+            SessionUtil.logout(vc: self)
         }
         
         // add pull to refresh
