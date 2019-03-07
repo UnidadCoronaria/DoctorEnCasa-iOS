@@ -59,19 +59,19 @@
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Us-Iv-fvU">
-                                            <rect key="frame" x="151" y="29" width="32" height="20"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Us-Iv-fvU">
+                                            <rect key="frame" x="92" y="29" width="34.5" height="20"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="logo_emeca_salud" id="nw3-5s-LHm">
-                                            <rect key="frame" x="16" y="29" width="120" height="40"/>
+                                            <rect key="frame" x="16" y="39" width="61" height="20"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NUE-O4-si3">
-                                            <rect key="frame" x="151" y="52" width="48" height="16.5"/>
+                                            <rect key="frame" x="92" y="52" width="50" height="16.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="14"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -123,7 +123,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Número de socio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bX2-Qd-nGb">
-                                <rect key="frame" x="16" y="147.5" width="250" height="30"/>
+                                <rect key="frame" x="16" y="147.5" width="343" height="30"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -149,8 +149,8 @@
                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acepto los términos y condiciones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7EB-rS-5vL">
-                                <rect key="frame" x="78" y="392.5" width="281" height="19"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acepto los términos y condiciones" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7EB-rS-5vL">
+                                <rect key="frame" x="78" y="392.5" width="281" height="20"/>
                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -178,14 +178,14 @@
                                 <color key="onTintColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="had-ZM-ZRV">
-                                <rect key="frame" x="125.5" y="471" width="124" height="40"/>
-                                <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="124" y="472" width="127" height="40"/>
+                                <color key="backgroundColor" red="0.96078431372549022" green="0.47843137254901957" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="bxB-pd-veL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="5" maxX="20" maxY="5"/>
-                                <state key="normal" title="INGRESAR">
+                                <state key="normal" title="FINALIZAR">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -211,6 +211,7 @@
                             <constraint firstItem="8V1-aK-bJU" firstAttribute="top" secondItem="EWu-xB-dPE" secondAttribute="bottom" constant="9" id="O1Y-En-ACd"/>
                             <constraint firstItem="QG9-eA-D0t" firstAttribute="leading" secondItem="2aw-YL-GFJ" secondAttribute="leading" constant="16" id="QBn-uz-CdC"/>
                             <constraint firstItem="EWu-xB-dPE" firstAttribute="top" secondItem="oKQ-rY-erQ" secondAttribute="bottom" constant="5" id="Rqm-pU-jva"/>
+                            <constraint firstItem="7EB-rS-5vL" firstAttribute="centerY" secondItem="8V1-aK-bJU" secondAttribute="centerY" id="Tu0-IZ-kK5"/>
                             <constraint firstItem="oKQ-rY-erQ" firstAttribute="leading" secondItem="2aw-YL-GFJ" secondAttribute="leading" constant="16" id="cOK-5J-0fm"/>
                             <constraint firstItem="Z4N-OC-hHh" firstAttribute="top" secondItem="QG9-eA-D0t" secondAttribute="bottom" constant="30" id="dog-0I-oqq"/>
                             <constraint firstItem="qNm-Xy-jbq" firstAttribute="top" secondItem="2aw-YL-GFJ" secondAttribute="top" constant="30" id="fcO-Av-Y6n"/>
@@ -219,7 +220,7 @@
                             <constraint firstItem="2aw-YL-GFJ" firstAttribute="trailing" secondItem="EWu-xB-dPE" secondAttribute="trailing" constant="16" id="gX6-A4-aw3"/>
                             <constraint firstItem="had-ZM-ZRV" firstAttribute="centerX" secondItem="eCg-en-uuD" secondAttribute="centerX" id="k47-S1-J8V"/>
                             <constraint firstItem="2aw-YL-GFJ" firstAttribute="trailing" secondItem="7EB-rS-5vL" secondAttribute="trailing" constant="16" id="kYp-NX-gHC"/>
-                            <constraint firstItem="2aw-YL-GFJ" firstAttribute="trailing" secondItem="bX2-Qd-nGb" secondAttribute="trailing" constant="109" id="m8A-Zr-dJd"/>
+                            <constraint firstItem="2aw-YL-GFJ" firstAttribute="trailing" secondItem="bX2-Qd-nGb" secondAttribute="trailing" constant="16" id="m8A-Zr-dJd"/>
                             <constraint firstItem="2aw-YL-GFJ" firstAttribute="trailing" secondItem="qU7-yl-a3g" secondAttribute="trailing" constant="16" id="mRm-LQ-gkB"/>
                             <constraint firstItem="2aw-YL-GFJ" firstAttribute="trailing" secondItem="Z4N-OC-hHh" secondAttribute="trailing" constant="16" id="qEy-8Q-uC9"/>
                             <constraint firstItem="8V1-aK-bJU" firstAttribute="leading" secondItem="2aw-YL-GFJ" secondAttribute="leading" constant="16" id="qME-KI-NrS"/>
@@ -248,6 +249,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo_emeca_salud" width="120" height="40"/>
+        <image name="logo_emeca_salud" width="60.25" height="20"/>
     </resources>
 </document>

@@ -57,7 +57,7 @@
                                                 <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="8"/>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.96078431372549022" green="0.47843137254901957" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.96862745098039216" green="0.93725490196078431" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="Zpj-U2-qAE" firstAttribute="centerX" secondItem="oPH-WB-rnR" secondAttribute="centerX" id="EF2-YB-vXl"/>
                                             <constraint firstItem="Zpj-U2-qAE" firstAttribute="height" secondItem="oPH-WB-rnR" secondAttribute="height" id="IbB-qR-Y3l"/>
@@ -98,7 +98,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.96078431372549022" green="0.47843137254901957" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.96862745098039216" green="0.93725490196078431" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="0jr-9i-VzD" firstAttribute="leading" secondItem="BLt-gp-SQG" secondAttribute="leading" constant="20" id="2zK-Xq-n0r"/>
                                             <constraint firstAttribute="bottom" secondItem="jBl-i9-yuh" secondAttribute="bottom" constant="0.5" id="4Bo-Kq-Vxg"/>
@@ -143,7 +143,7 @@
                                                 <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="8"/>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.96078431372549022" green="0.47843137254901957" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.96862745098039216" green="0.93725490196078431" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="jPC-SN-dQp" firstAttribute="width" secondItem="ino-ih-tUt" secondAttribute="width" id="0cX-sa-moS"/>
                                             <constraint firstItem="jPC-SN-dQp" firstAttribute="centerY" secondItem="ino-ih-tUt" secondAttribute="centerY" id="HIk-ig-jp2"/>
@@ -188,16 +188,16 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GeM-Vn-DA1" userLabel="Empty View">
-                                <rect key="frame" x="0.0" y="110" width="320" height="348"/>
+                                <rect key="frame" x="0.0" y="111" width="320" height="346"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3lp-Db-YaC">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="348"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="346"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_historia" translatesAutoresizingMaskIntoConstraints="NO" id="iI0-xC-eEQ">
-                                                <rect key="frame" x="74.5" y="0.0" width="171" height="170"/>
+                                                <rect key="frame" x="75" y="0.0" width="170" height="169"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Luego de la primer consulta, tendrás tu historia clínica." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4X-Tj-Vb6">
-                                                <rect key="frame" x="3.5" y="178" width="313" height="170"/>
+                                                <rect key="frame" x="3.5" y="177" width="313" height="169"/>
                                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -875,89 +875,36 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Lf6-tg-oGP">
-                                <rect key="frame" x="0.0" y="34.5" width="320" height="499"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icono_home" translatesAutoresizingMaskIntoConstraints="NO" id="HwV-eO-YtW">
+                                <rect key="frame" x="75" y="43" width="170" height="180.5"/>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                            </imageView>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfP-MP-KmX">
+                                <rect key="frame" x="0.0" y="431" width="320" height="80"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icono_home" translatesAutoresizingMaskIntoConstraints="NO" id="HwV-eO-YtW">
-                                        <rect key="frame" x="75" y="30" width="170" height="169"/>
-                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="nKo-jQ-SYo">
-                                        <rect key="frame" x="20" y="216" width="280" height="132"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sacá un turno para ser atendido por uno de nuestros doctores" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0b-M3-YPM">
-                                                <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
-                                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
-                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1S1-OL-tU0">
-                                                <rect key="frame" x="61.5" y="80" width="157" height="52"/>
-                                                <color key="backgroundColor" red="0.96078431372549022" green="0.47843137254901957" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="18"/>
-                                                <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
-                                                <state key="normal" title="SACAR TURNO">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="beNext:" destination="LzG-4r-pmS" eventType="touchUpInside" id="Nw7-8q-JSB"/>
-                                                </connections>
-                                            </button>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skh-cR-2G9">
-                                                <rect key="frame" x="43" y="132" width="194" height="0.0"/>
-                                                <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="18"/>
-                                                <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
-                                                <state key="normal" title="CANCELAR TURNO">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="cancel:" destination="LzG-4r-pmS" eventType="touchUpInside" id="zoz-9Z-O7Q"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="70o-pO-fNN">
+                                        <rect key="frame" x="16" y="19" width="288" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="k0b-M3-YPM" firstAttribute="width" secondItem="nKo-jQ-SYo" secondAttribute="width" id="BBG-Bx-xuu"/>
-                                            <constraint firstItem="k0b-M3-YPM" firstAttribute="centerX" secondItem="nKo-jQ-SYo" secondAttribute="centerX" id="E0f-NX-x9f"/>
-                                        </constraints>
-                                    </stackView>
-                                    <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfP-MP-KmX">
-                                        <rect key="frame" x="8" y="364.5" width="304" height="112"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="70o-pO-fNN">
-                                                <rect key="frame" x="20" y="20" width="264" height="1"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="K7C-DI-AwI"/>
-                                                </constraints>
-                                            </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hay médicos disponibles para atenderte en este momento" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yk-hR-Q8F">
-                                                <rect key="frame" x="0.0" y="26" width="304" height="66"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="66" id="4PY-PX-REq"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
-                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="70o-pO-fNN" firstAttribute="width" secondItem="zfP-MP-KmX" secondAttribute="width" constant="-40" id="QiO-Yt-JT0"/>
-                                            <constraint firstItem="5yk-hR-Q8F" firstAttribute="top" secondItem="70o-pO-fNN" secondAttribute="bottom" constant="5" id="VF0-mX-99r"/>
-                                            <constraint firstItem="5yk-hR-Q8F" firstAttribute="centerX" secondItem="zfP-MP-KmX" secondAttribute="centerX" id="cDM-Pa-sYz"/>
-                                            <constraint firstItem="70o-pO-fNN" firstAttribute="centerX" secondItem="zfP-MP-KmX" secondAttribute="centerX" id="eOT-wV-I3j"/>
-                                            <constraint firstItem="5yk-hR-Q8F" firstAttribute="width" secondItem="zfP-MP-KmX" secondAttribute="width" id="gwu-8X-LGw"/>
-                                            <constraint firstAttribute="bottom" secondItem="5yk-hR-Q8F" secondAttribute="bottom" constant="20" id="nZb-WS-vbd"/>
-                                            <constraint firstItem="70o-pO-fNN" firstAttribute="top" secondItem="zfP-MP-KmX" secondAttribute="top" constant="20" id="pzQ-KB-zWo"/>
+                                            <constraint firstAttribute="height" constant="1" id="K7C-DI-AwI"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hay médicos disponibles para atenderte en este momento" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yk-hR-Q8F">
+                                        <rect key="frame" x="16" y="30" width="288" height="40"/>
+                                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="nKo-jQ-SYo" firstAttribute="leading" secondItem="Lf6-tg-oGP" secondAttribute="leading" constant="20" id="6t7-rL-scw"/>
-                                    <constraint firstAttribute="trailing" secondItem="nKo-jQ-SYo" secondAttribute="trailing" constant="20" id="QpR-tu-g0A"/>
+                                    <constraint firstItem="5yk-hR-Q8F" firstAttribute="width" secondItem="zfP-MP-KmX" secondAttribute="width" constant="-32" id="80t-Co-OAJ"/>
+                                    <constraint firstAttribute="height" constant="80" id="JXO-wA-HWl"/>
+                                    <constraint firstAttribute="bottom" secondItem="5yk-hR-Q8F" secondAttribute="bottom" constant="10" id="fSu-Wc-ALG"/>
+                                    <constraint firstItem="5yk-hR-Q8F" firstAttribute="top" secondItem="70o-pO-fNN" secondAttribute="bottom" constant="10" id="h3W-GS-qfQ"/>
+                                    <constraint firstItem="70o-pO-fNN" firstAttribute="centerX" secondItem="zfP-MP-KmX" secondAttribute="centerX" id="nci-jn-9Wm"/>
+                                    <constraint firstItem="5yk-hR-Q8F" firstAttribute="centerX" secondItem="zfP-MP-KmX" secondAttribute="centerX" id="u8H-kk-HlH"/>
                                 </constraints>
-                                <edgeInsets key="layoutMargins" top="30" left="8" bottom="8" right="8"/>
-                            </stackView>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VNF-lN-Phb" userLabel="Error View">
                                 <rect key="frame" x="0.0" y="-14.666666666666686" width="414" height="736.33333333333348"/>
                                 <subviews>
@@ -986,17 +933,65 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
                                     <constraint firstItem="gdn-tp-d3U" firstAttribute="centerX" secondItem="VNF-lN-Phb" secondAttribute="centerX" id="Pj4-zY-O6s"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="nKo-jQ-SYo">
+                                <rect key="frame" x="16" y="229.5" width="288" height="109"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sacá un turno para ser atendido por uno de nuestros doctores" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0b-M3-YPM">
+                                        <rect key="frame" x="1.5" y="0.0" width="285" height="40"/>
+                                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1S1-OL-tU0">
+                                        <rect key="frame" x="65.5" y="57" width="157" height="52"/>
+                                        <color key="backgroundColor" red="0.96078431372549022" green="0.47843137254901957" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="18"/>
+                                        <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
+                                        <state key="normal" title="SACAR TURNO">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="beNext:" destination="LzG-4r-pmS" eventType="touchUpInside" id="Nw7-8q-JSB"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skh-cR-2G9">
+                                        <rect key="frame" x="47" y="109" width="194" height="0.0"/>
+                                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="18"/>
+                                        <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
+                                        <state key="normal" title="CANCELAR TURNO">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancel:" destination="LzG-4r-pmS" eventType="touchUpInside" id="zoz-9Z-O7Q"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="k0b-M3-YPM" secondAttribute="trailing" constant="1.5" id="Key-LK-pYn"/>
+                                    <constraint firstItem="k0b-M3-YPM" firstAttribute="leading" secondItem="nKo-jQ-SYo" secondAttribute="leading" constant="1.5" id="PAA-9Y-3vz"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Lf6-tg-oGP" firstAttribute="width" secondItem="nJS-F7-Get" secondAttribute="width" id="9p0-UM-Ao9"/>
+                            <constraint firstItem="nJS-F7-Get" firstAttribute="trailing" secondItem="nKo-jQ-SYo" secondAttribute="trailing" constant="16" id="2OI-uN-MbS"/>
+                            <constraint firstItem="nKo-jQ-SYo" firstAttribute="leading" secondItem="nJS-F7-Get" secondAttribute="leading" constant="16" id="9eR-JQ-nWd"/>
+                            <constraint firstItem="HwV-eO-YtW" firstAttribute="centerX" secondItem="c6a-YK-EiR" secondAttribute="centerX" id="EGb-a0-NWE"/>
                             <constraint firstItem="VNF-lN-Phb" firstAttribute="height" secondItem="c6a-YK-EiR" secondAttribute="height" id="IHY-pa-Fik"/>
+                            <constraint firstItem="zfP-MP-KmX" firstAttribute="centerX" secondItem="c6a-YK-EiR" secondAttribute="centerX" id="KHc-t2-qqj"/>
+                            <constraint firstItem="zfP-MP-KmX" firstAttribute="width" secondItem="nJS-F7-Get" secondAttribute="width" id="TcT-Tq-CLE"/>
                             <constraint firstItem="VNF-lN-Phb" firstAttribute="centerY" secondItem="nJS-F7-Get" secondAttribute="centerY" id="Tr5-mE-bED"/>
                             <constraint firstItem="VNF-lN-Phb" firstAttribute="centerX" secondItem="nJS-F7-Get" secondAttribute="centerX" id="UfA-a2-xXF"/>
-                            <constraint firstItem="Lf6-tg-oGP" firstAttribute="height" secondItem="nJS-F7-Get" secondAttribute="height" id="VLS-YZ-llr"/>
+                            <constraint firstItem="nJS-F7-Get" firstAttribute="bottom" secondItem="zfP-MP-KmX" secondAttribute="bottom" constant="8" id="eSf-OC-k2W"/>
+                            <constraint firstItem="nKo-jQ-SYo" firstAttribute="centerX" secondItem="zfP-MP-KmX" secondAttribute="centerX" id="elV-vY-12n"/>
+                            <constraint firstItem="nKo-jQ-SYo" firstAttribute="centerY" secondItem="c6a-YK-EiR" secondAttribute="centerY" id="eo8-BI-xs9"/>
                             <constraint firstItem="VNF-lN-Phb" firstAttribute="width" secondItem="c6a-YK-EiR" secondAttribute="width" id="iEy-8t-fde"/>
-                            <constraint firstItem="Lf6-tg-oGP" firstAttribute="centerX" secondItem="c6a-YK-EiR" secondAttribute="centerX" id="uh2-xs-hWJ"/>
-                            <constraint firstItem="Lf6-tg-oGP" firstAttribute="centerY" secondItem="c6a-YK-EiR" secondAttribute="centerY" id="y0K-La-r1Q"/>
+                            <constraint firstItem="k0b-M3-YPM" firstAttribute="leading" secondItem="nJS-F7-Get" secondAttribute="leading" constant="17.5" id="kij-Le-g0g"/>
+                            <constraint firstItem="nKo-jQ-SYo" firstAttribute="width" secondItem="nJS-F7-Get" secondAttribute="width" constant="-32" id="mET-ay-wzM"/>
+                            <constraint firstItem="HwV-eO-YtW" firstAttribute="top" secondItem="nJS-F7-Get" secondAttribute="top" constant="23" id="nCw-lr-zGS"/>
+                            <constraint firstItem="70o-pO-fNN" firstAttribute="width" secondItem="nJS-F7-Get" secondAttribute="width" constant="-32" id="prx-oH-bsw"/>
+                            <constraint firstItem="nKo-jQ-SYo" firstAttribute="top" secondItem="HwV-eO-YtW" secondAttribute="bottom" constant="6" id="vTv-oL-1dV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nJS-F7-Get"/>
                         <variation key="default">
@@ -1020,7 +1015,7 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbB-WD-d6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="428.98550724637687" y="-629.46428571428567"/>
+            <point key="canvasLocation" x="427.5" y="-629.57746478873241"/>
         </scene>
         <!--New Call View Controller-->
         <scene sceneID="9ev-0O-9bo">
@@ -1405,22 +1400,22 @@ Nunc eget leo commodo, viverra est a, posuere metus. Class aptent taciti sociosq
     </scenes>
     <resources>
         <image name="1" width="45" height="45"/>
-        <image name="2" width="27" height="32"/>
-        <image name="3" width="27" height="28"/>
+        <image name="2" width="27.5" height="32"/>
+        <image name="3" width="27.5" height="28"/>
         <image name="4" width="26" height="26"/>
-        <image name="aceptar" width="55" height="55"/>
+        <image name="aceptar" width="55.5" height="55.5"/>
         <image name="camera" width="55" height="55"/>
-        <image name="camera_off" width="55" height="55"/>
-        <image name="cancelar" width="55" height="55"/>
-        <image name="change_camera" width="55" height="55"/>
-        <image name="ic_doctor_main" width="215" height="215"/>
+        <image name="camera_off" width="55" height="55.5"/>
+        <image name="cancelar" width="55" height="55.5"/>
+        <image name="change_camera" width="55" height="55.5"/>
+        <image name="ic_doctor_main" width="107.75" height="107.75"/>
         <image name="icono_home" width="170" height="169"/>
-        <image name="mic" width="55" height="55"/>
-        <image name="new_call_bg" width="360" height="368"/>
-        <image name="no_historia" width="171" height="170"/>
+        <image name="mic" width="55.5" height="55"/>
+        <image name="new_call_bg" width="360.5" height="368.5"/>
+        <image name="no_historia" width="170" height="169"/>
         <image name="no_internet" width="170" height="169"/>
-        <image name="star_empty" width="27" height="28"/>
-        <image name="star_full" width="27" height="28"/>
+        <image name="star_empty" width="27.5" height="28"/>
+        <image name="star_full" width="27.5" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Td1-B7-y9u"/>

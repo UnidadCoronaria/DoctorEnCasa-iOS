@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sUt-JX-LdT">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -23,33 +23,33 @@
             <objects>
                 <viewController storyboardIdentifier="login" id="0Tb-cr-eT8" customClass="LoginViewController" customModule="DoctorEnCasa_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IyE-ob-9mv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" layoutMarginsFollowReadableWidth="YES" image="logo_login" translatesAutoresizingMaskIntoConstraints="NO" id="zd1-C8-7fS">
-                                <rect key="frame" x="61" y="144" width="253" height="57"/>
+                                <rect key="frame" x="81" y="134" width="252" height="57"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="center" horizontalHuggingPriority="252" axis="vertical" spacing="48" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FEi-XD-sGh" userLabel="Stack View Form">
-                                <rect key="frame" x="32" y="219.5" width="311" height="328"/>
+                                <rect key="frame" x="32" y="254.66666666666666" width="350" height="326.66666666666674"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UOI-V9-H6t">
-                                        <rect key="frame" x="0.0" y="0.0" width="311" height="206"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="206"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnX-xh-sxi">
-                                                <rect key="frame" x="8" y="8" width="31.5" height="40"/>
+                                                <rect key="frame" x="8.0000000000000018" y="8.0000000000000284" width="31.666666666666671" height="40"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d3O-Qo-Qci">
-                                                <rect key="frame" x="8" y="58" width="293" height="40"/>
+                                                <rect key="frame" x="8" y="58.000000000000028" width="332" height="40"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="username"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WW9-TU-fIm">
-                                                <rect key="frame" x="8" y="108" width="88.5" height="40"/>
+                                                <rect key="frame" x="8" y="108.00000000000003" width="88.333333333333329" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="XDL-I5-jFh"/>
                                                 </constraints>
@@ -59,7 +59,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WMv-1X-MVS">
-                                                <rect key="frame" x="8" y="158" width="293" height="40"/>
+                                                <rect key="frame" x="8" y="158.00000000000003" width="332" height="40"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
@@ -72,10 +72,10 @@
                                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lFC-pw-DLV">
-                                        <rect key="frame" x="0.0" y="216" width="311" height="112"/>
+                                        <rect key="frame" x="0.0" y="216.00000000000003" width="350" height="110.66666666666666"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Los datos ingresados son incorrectos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ece-3g-WcY">
-                                                <rect key="frame" x="35.5" y="0.0" width="240" height="20"/>
+                                                <rect key="frame" x="55.333333333333329" y="0.0" width="239.66666666666669" height="20"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="03B-V7-dDW"/>
@@ -84,8 +84,8 @@
                                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3q6-Hf-qAw" customClass="RoundedBorderButton" customModule="DoctorEnCasa_iOS">
-                                                <rect key="frame" x="93.5" y="30" width="124" height="40"/>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3q6-Hf-qAw" customClass="RoundedBorderButton" customModule="DoctorEnCasa_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="113" y="30" width="124" height="40"/>
                                                 <color key="backgroundColor" red="0.96078431372549022" green="0.47843137254901957" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="1AO-oH-tRU"/>
@@ -99,7 +99,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Olvidaste tu contraseña?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nax-c9-e5G">
-                                                <rect key="frame" x="79" y="80" width="153.5" height="32"/>
+                                                <rect key="frame" x="98.333333333333357" y="79.999999999999943" width="153.66666666666663" height="30.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -112,7 +112,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" contentMode="left" text="¿Todavia no tenes cuenta? Registrate aqui" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3d-38-KPE">
-                                <rect key="frame" x="54.5" y="630.5" width="266.5" height="16.5"/>
+                                <rect key="frame" x="74" y="699.66666666666663" width="266.33333333333331" height="16.333333333333371"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" red="0.96078431372549022" green="0.47843137254901957" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -126,7 +126,7 @@
                             <constraint firstItem="zd1-C8-7fS" firstAttribute="centerX" secondItem="IyE-ob-9mv" secondAttribute="centerX" id="aEC-HM-QKF"/>
                             <constraint firstItem="s3d-38-KPE" firstAttribute="centerX" secondItem="IyE-ob-9mv" secondAttribute="centerX" id="ago-1p-l1j"/>
                             <constraint firstItem="FEi-XD-sGh" firstAttribute="centerX" secondItem="IyE-ob-9mv" secondAttribute="centerX" id="eeM-yr-iZd"/>
-                            <constraint firstItem="zd1-C8-7fS" firstAttribute="top" secondItem="SH0-Bc-t23" secondAttribute="top" constant="80" id="kWx-mM-SiB"/>
+                            <constraint firstItem="zd1-C8-7fS" firstAttribute="top" secondItem="SH0-Bc-t23" secondAttribute="top" constant="70" id="kWx-mM-SiB"/>
                             <constraint firstItem="FEi-XD-sGh" firstAttribute="leading" secondItem="SH0-Bc-t23" secondAttribute="leading" constant="32" id="nz3-Kb-LtG"/>
                             <constraint firstItem="zd1-C8-7fS" firstAttribute="centerX" secondItem="IyE-ob-9mv" secondAttribute="centerX" id="p6a-5B-V2s"/>
                             <constraint firstItem="SH0-Bc-t23" firstAttribute="trailing" secondItem="FEi-XD-sGh" secondAttribute="trailing" constant="32" id="qKx-7E-rQC"/>
@@ -157,7 +157,7 @@
             <objects>
                 <viewController title="Recuperar contraseña" id="awl-ed-JdX" customClass="ForgotPasswordViewController" customModule="DoctorEnCasa_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Sy-nP-UkT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="El email ingresado es incorrecto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UsW-cw-1p5">
@@ -167,8 +167,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paG-vM-eKE">
-                                <rect key="frame" x="136.5" y="194" width="102" height="40"/>
-                                <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="156" y="194" width="102" height="40"/>
+                                <color key="backgroundColor" red="0.96078431372549022" green="0.47843137254901957" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="T9I-1D-iPY"/>
                                 </constraints>
@@ -182,7 +182,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mDx-PT-xtv">
-                                <rect key="frame" x="16" y="104" width="343" height="30"/>
+                                <rect key="frame" x="16" y="104" width="382" height="30"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -216,7 +216,7 @@
                 <navigationController storyboardIdentifier="loginNavigation" automaticallyAdjustsScrollViewInsets="NO" id="sUt-JX-LdT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="ic_arrow_right" id="DZE-dc-WVc">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -230,7 +230,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_arrow_right" width="14" height="27"/>
-        <image name="logo_login" width="253" height="57"/>
+        <image name="ic_arrow_right" width="11" height="20.25"/>
+        <image name="logo_login" width="252.66667175292969" height="57.333332061767578"/>
     </resources>
 </document>
