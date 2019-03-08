@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        //self.configureTabBar()
+        self.configureTabBar()
         
         self.configureNotifications(application)
         
@@ -59,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func configureTabBar(){
-        UITabBar.appearance().unselectedItemTintColor = UIColor.darkGray
+        UITabBar.appearance().unselectedItemTintColor = UIColor.init(red: 158, green: 68, blue:75)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.clear], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white], for: .selected)
     }
